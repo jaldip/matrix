@@ -1,0 +1,36 @@
+[13-Aug-2013 08:11:32 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[13-Aug-2013 21:25:56 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[14-Aug-2013 04:15:47 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[14-Aug-2013 10:19:25 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[14-Aug-2013 20:10:56 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[20-Aug-2013 11:16:13 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[23-Aug-2013 17:13:45 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[24-Aug-2013 01:32:53 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[24-Aug-2013 07:59:24 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[24-Aug-2013 13:48:42 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[25-Aug-2013 16:25:19 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[26-Aug-2013 01:02:30 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[26-Aug-2013 08:03:17 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[26-Aug-2013 13:48:53 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[01-Sep-2013 21:48:22 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[18-Sep-2013 02:53:44 America/New_York] PHP Fatal error:  Call to a member function call() on a non-object in /home/grabthec/public_html/controllers/api/templates/json.layout.php(6) : eval()'d code on line 1
+[25-Sep-2013 17:12:42 America/New_York] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20090626/suhosin.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20090626/suhosin.so: undefined symbol: output_globals in Unknown on line 0
+[25-Sep-2013 17:12:42 America/New_York] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20090626/timezonedb.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20090626/timezonedb.so: cannot open shared object file: No such file or directory in Unknown on line 0
+[25-Sep-2013 17:12:42 America/New_York] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20090626/pdo.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20090626/pdo.so: undefined symbol: zval_property_ctor in Unknown on line 0
+[25-Sep-2013 17:12:43 America/New_York] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[25-Sep-2013 17:12:43 America/New_York] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20090626/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20090626/sqlite.so: undefined symbol: zval_property_ctor in Unknown on line 0
+[25-Sep-2013 17:12:43 America/New_York] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[25-Sep-2013 17:12:44 America/New_York] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[25-Sep-2013 17:12:44 America/New_York] PHP Fatal error:  Directive 'allow_call_time_pass_reference' is no longer available in PHP in Unknown on line 0
