@@ -4,10 +4,10 @@
         <div>
             <div>
 
-                <h1 class="logo-name"><?php echo __('rts'); ?></h1>
+                <h1 class="logo-name"><?php echo __('Matrix'); ?></h1>
 
             </div>
-            <h3><?php echo __('welcome_to_rts'); ?></h3>
+            <h3><?php echo __('welcome_to_Matrix'); ?></h3>
             <br>
             <p><?php echo __('login_to_see_action');?></p>
             <?php

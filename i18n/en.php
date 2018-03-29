@@ -3,11 +3,11 @@
  * StepIn Solutions venture, an MVC framework
  * Language file for translation strings
  * English language file
- * @package RTS 
+ * @package Matrix 
  */
   $aLanguage = array('en' => array(
-                                    "rts_dashboard" => "RTS | Dashboard",
-                                    "rts_login" => "RTS | Login",
+                                    "Matrix_dashboard" => "Matrix | Dashboard",
+                                    "Matrix_login" => "Matrix | Login",
                                     "real_time_software" => "Real Time Software",
                                     'change_password' => 'Change Password',
                                     'current_password' => 'Current Password',
@@ -15,8 +15,8 @@
                                     "confirm_password" => "Confirm Password",
                                     'submit' => 'Submit',
                                     'save_changes' => 'Save Changes',
-                                    'rts' => 'RTS',
-                                    'welcome_to_rts' => 'Welcome RTS',
+                                    'Matrix' => 'Matrix',
+                                    'welcome_to_Matrix' => 'Welcome Matrix',
                                     'cancel_change' => 'Cancel Change',
                                     'cancel' => 'Cancel',
                                     'login_to_see_action' => 'Login to see action',
@@ -33,8 +33,8 @@
                                     'dashboards' => 'Dashboards',
                                     'welcome_to' => 'Welcome',
                                     'read_all_messages' => 'Read All Messages',
-                                    'see_all_alerts' => 'See All Alerts',
-                                    'rts_filter' => 'RTS Filter',
+                                    'see_all_aleMatrix' => 'See All AleMatrix',
+                                    'Matrix_filter' => 'Matrix Filter',
                                     'home' => 'Home',
                                     'data_tables' => 'Data Tables',
                                     'qualifying_stocks' => 'Qualifying Stocks',

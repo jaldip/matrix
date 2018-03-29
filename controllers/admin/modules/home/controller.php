@@ -28,7 +28,31 @@ class homeController {
     public function callDashboard() {
         global $sAction;
         global $oUser, $oSession;
-        require("dashboard.tpl.php");
+        // example of how to create an export
+        $request = json_decode('{ 
+           "select":[ 
+              "esp_name",
+                  "isp_name",
+                  "success",
+              "opens",
+              "clicks",
+              "complaints",
+              "complaints_rate"
+           ],
+           "from":"mailing",
+           "order":[ 
+              [ 
+                 "esp_name",
+                 "desc"
+              ]
+           ],
+           "group":[ 
+              "esp_connection_id"
+           ]
+        }',TRUE);
+
+        $aListData = json_decode(post_request($request, URL.'/all/api/reports/query', 'post'), TRUE);
+         require("dashboard.tpl.php");
     }
 
-    
+}   

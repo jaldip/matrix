@@ -1,7 +1,7 @@
 <div class="middle-box text-center animated fadeInDown">
     <div>
         <div>
-            <h2 class="logo-name"><?php echo __('rts'); ?></h2>
+            <h2 class="logo-name"><?php echo __('Matrix'); ?></h2>
 
         </div>
         <h3><?php echo __('welcome_message'); ?></h3>

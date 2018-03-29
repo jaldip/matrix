@@ -21,7 +21,7 @@
                                                     'homeAction'=>'dashboard',
                                                     'dbHost'=>'localhost',
                                                     'dbUser'=>'root',
-                                                    'dbPassword'=>'',
+                                                    'dbPassword'=>'stepin',
                                                     'dbName'=>'matrix',
                                                     'nPagerLength'=>'',
                                                     'nPerPageRecords'=>'',

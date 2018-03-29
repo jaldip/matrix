@@ -2,7 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><?php echo __("rts_dashboard"); ?></title>
+    <title><?php echo __("Matrix_dashboard"); ?></title>
     <link href="<?php echo getConfig('siteUrl') . '/css/bootstrap.min.css'; ?>" rel="stylesheet">
     <link href="<?php echo getConfig('siteUrl') . '/font-awesome/css/font-awesome.css'; ?>" rel="stylesheet">
     
