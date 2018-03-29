@@ -53,13 +53,13 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2><?php echo __('MATRIX_filter'); ?></h2>
+                <h2><?php echo __('Matrix Filter'); ?></h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="<?php echo getConfig('siteUrl') . '/home/dashboard'; ?>"><?php echo __('home'); ?></a>
                     </li>
                     <li>
-                        <a><?php echo __('MATRIX_filter'); ?></a>
+                        <a><?php echo __('Matrix Filter'); ?></a>
                     </li>
                     <li class="active">
                         <strong><?php echo __('data_tables'); ?></strong>
