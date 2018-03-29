@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <title>
-            <?php echo __("real_time_software");?>
+            <?php echo __("Matrix");?>
         </title>
         <?php require('_include.php'); ?>
     </head>
