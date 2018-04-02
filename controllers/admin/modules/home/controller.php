@@ -29,11 +29,16 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        $request = json_decode('{ 
-           "select":[ 
+        $jRequest = json_decode('{ 
+           "select":[
+              [ 
+                "MAX(`delivery_timestamp`)",
+                "delivery_date"
+             ],
+             "list_id",
               "esp_name",
-                  "isp_name",
-                  "success",
+              "isp_name",
+              "success",
               "opens",
               "clicks",
               "complaints",
@@ -51,8 +56,16 @@ class homeController {
            ]
         }',TRUE);
 
-        $aListData = json_decode(post_request($request, URL.'/all/api/reports/query', 'post'), TRUE);
-         require("dashboard.tpl.php");
+        $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
+        $nCount = 0;
+        foreach ($aListData["payload"] AS $aData)
+        {    
+            $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
+            $aListTitle = json_decode($aDetails);
+            $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
+            $nCount++;
+        }
+        require("dashboard.tpl.php");
     }
 
 }   

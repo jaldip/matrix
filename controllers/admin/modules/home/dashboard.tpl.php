@@ -53,13 +53,13 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2><?php echo __('Matrix Filter'); ?></h2>
+                <h2><?php echo __('MATRIX_filter'); ?></h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="<?php echo getConfig('siteUrl') . '/home/dashboard'; ?>"><?php echo __('home'); ?></a>
                     </li>
                     <li>
-                        <a><?php echo __('Matrix Filter'); ?></a>
+                        <a><?php echo __('MATRIX_filter'); ?></a>
                     </li>
                     <li class="active">
                         <strong><?php echo __('data_tables'); ?></strong>
@@ -79,33 +79,86 @@
                         </div>    
                         <div class="ibox-content">
                             <div class="table-responsive" id="stock-table">
-                                <table class="table table-striped table-bordered table-hover" >
+                                <table class="table table-bordered table-hover" >
                                     <thead>
                                         <tr>
-                                            <th width="88" align="center"><?php echo __('Esp connection id'); ?></th>
+                                            <th width="150" align="center"><?php echo __('Date'); ?></th>
+                                            <th width="150" align="center"><?php echo __('Esp connection id'); ?></th>
                                             <th width="150" align="center"><?php echo __('ESP'); ?></th>
-                                            <th width="153" align="center"><?php echo __('Domain Grouped by ESP');?></th>
+                                            <th width="150" align="center"><?php echo __('Domain Grouped by ESP');?></th>
                                              <th width="150" align="center"><?php echo __('Success'); ?></th>
                                              <th width="150" align="center"><?php echo __('Opens'); ?></th>
                                              <th width="150" align="center"><?php echo __('Clicks'); ?></th>
                                              <th width="150" align="center"><?php echo __('Complaints'); ?></th>
-                                             <th width="150" align="center"><?php echo __('Complaints Rate'); ?></th>
+                                             <th width="15  0" align="center"><?php echo __('Complaints Rate'); ?></th>
+                                             <th width="250" align="center"><?php echo __('Thrash Hold'); ?></th>
                                         </tr>
                                     </thead>
                                     <?php
                                     if (isset($aListData['payload'])) {
+                                        $nCount = 1;
                                         foreach($aListData['payload'] AS $aDataList)
-                                        {?>
-                                         <tr>
-                                            <?php foreach($aDataList AS $aData){?>
+                                        {
+                                         ?>
+                                         <tr  id="<?php echo $nCount;?>">
+                                                
+                                               <td align="center" ><b>
+                                                    <font  face="Arial" >
+                                                        <?php echo date("Y-m-d ", $aDataList['delivery_date']); ?>
+                                                    </font></b>
+                                               </td>
+                                               <td align="center" ><b>
+                                                    <font  face="Arial" >
+                                                        <?php echo $aDataList['list_name']; ?>
+                                                    </font></b>
+                                               </td>
+                                               <td align="center" ><b>
+                                                    <font  face="Arial" >
+                                                        <?php echo $aDataList['esp_name']; ?>
+                                                    </font></b>
+                                               </td>
+                                               <td align="center" ><b>
+                                                    <font  face="Arial" >
+                                                        <?php if($aDataList['isp_name'] =='gmail.com' || $aDataList['isp_name'] =='yahoo.com') {?>
+                                                            <?php echo $aDataList['isp_name']; ?>
+                                                        <?php } else{
+                                                                echo '-';
+                                                        } ?>
+                                                    </font></b>
+                                               </td>
+                                               <td align="center" ><b>
+                                                    <font  face="Arial" >
+                                                        <?php echo $aDataList['success']; ?>
+                                                    </font></b>
+                                               </td>
                                                 <td align="center" ><b>
                                                     <font  face="Arial" >
-                                                        <?php echo $aData; ?>
+                                                        <?php echo $aDataList['opens']; ?>
                                                     </font></b>
-                                               </td>     
-                                            <?php } ?> 
+                                               </td>
+                                               <td align="center" ><b>
+                                                    <font  face="Arial" >
+                                                        <?php echo $aDataList['clicks']; ?>
+                                                    </font></b>
+                                               </td>
+                                               <td align="center" ><b>
+                                                    <font  face="Arial" >
+                                                        <?php echo $aDataList['complaints']; ?>
+                                                    </font></b>
+                                               </td>
+                                               <td align="center" id="one"><b>
+                                                    <font  face="Arial" >
+                                                        <?php echo $aDataList['complaints_rate']; ?>
+                                                    </font></b>
+                                               </td>
+                                               <td align="center" >
+                                                        <input type="text" name="range1" id="range-one-<?php echo $nCount;?>" value="0" style="width:53%" />
+                                                        <input type="text" name="range2" id="range-two-<?php echo $nCount;?>" value="10" style="width:53%" /> 
+                                                       ​ <input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount;?>" value="#000000" onchange="changeColor(<?php echo $nCount ; ?>,<?php echo $aDataList['success']; ?>)"/>
+                                               </td>
                                          </tr>    
-                                   <?php }    
+                                   <?php $nCount++;
+                                        }    
                                     }
                                     ?>
                                 </table>
@@ -122,4 +175,24 @@
         </div>
     </div>
 </div>
-
+<script>
+    function changeColor(nCount,nSuccessValue)
+    {
+        if(nSuccessValue >= $('#range-one-'+nCount).val() && nSuccessValue <= $('#range-two-'+nCount).val())
+        {    
+            $('#'+nCount).css('background-color',$('#colomn-color-'+nCount).val());
+//            if( 0 >= $('#range-one-'+nCount).val() && 10 <= $('#range-two-'+nCount).val())
+//            {
+//                $('#'+nCount).css('background-color','red');
+//            } 
+//            if(11 >= $('#range-one-'+nCount).val() && 20 <= $('#range-two-'+nCount).val())
+//            {
+//                $('#'+nCount).css('background-color','yellow');
+//            }
+//            if(21 <= $('#range-one-'+nCount).val())
+//            {
+//                $('#'+nCount).css('background-color','green');
+//            }  
+        }    
+    }
+</script>    

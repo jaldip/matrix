@@ -5,11 +5,6 @@
  *
  * @package stepOne 
  */
-define('USERNAME', 'pratik');
-define('PASSWORD', 'Ice664411');
-define('ACCOUNT',  'lop_solutions');
-define('LIST_ID', 33877); 
-define('URL', 'http://api.ongage.net/');
 
   function  __autoload($sClassName) 
   {        
@@ -165,6 +160,71 @@ function post_request($request, $link, $method)
 			{
 				$link .= '?' . http_build_query($request);
 			}
+			curl_setopt($c, CURLOPT_URL, $link);
+			break;
+			
+	}
+	
+	$headers = array(
+		'X_USERNAME: ' . USERNAME,
+		'X_PASSWORD: ' . PASSWORD,
+		'X_ACCOUNT_CODE: ' . ACCOUNT,
+	);
+	
+	curl_setopt($c, CURLOPT_HTTPHEADER, array_merge(array(
+		// Overcoming POST size larger than 1k wierd behaviour
+		// @link  http://www.php.net/manual/en/function.curl-setopt.php#82418
+		'Expect:'), $headers
+	));
+	
+	curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+	$response_raw = curl_exec($c);
+	
+	if ($method == 'put')
+	{
+		fclose($temp); // this removes the file
+	}
+	
+	$errno =  curl_errno ( $c );
+	$result = json_decode($response_raw);
+	
+	if (empty($errno))
+	{
+		if ( ! empty($result->payload->errors))
+		{
+			$errno = 500;
+		}
+	}
+	if ( ! empty($errno))
+	{
+		header("HTTP/1.0 " . $errno);
+	}
+	return $response_raw;
+}
+function getTitleBYListId($link,$method)
+{
+        $c = curl_init();
+	$link = $link;
+	
+	
+	//curl_setopt($c, CURLOPT_USERPWD, 'asapi:asapi');
+	switch($method)
+	{
+		case "post":
+			curl_setopt($c, CURLOPT_URL, $link);
+			curl_setopt($c, CURLOPT_POST, TRUE);
+			curl_setopt($c, CURLOPT_POSTFIELDS, $request_json);
+			break;
+		case "put":
+			curl_setopt($c, CURLOPT_URL, $link);
+			curl_setopt($c, CURLOPT_PUT, TRUE);
+			$temp = tmpfile();
+			fwrite($temp, $request_json);
+			fseek($temp, 0);
+			curl_setopt($c, CURLOPT_INFILE, $temp);
+			curl_setopt($c, CURLOPT_INFILESIZE, strlen($request_json));
+			break;
+		case "get":
 			curl_setopt($c, CURLOPT_URL, $link);
 			break;
 			
