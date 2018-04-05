@@ -8,8 +8,8 @@
  */
 class homeController {
 
-    public $aLayout = array('dashboard' => 'main');
-    public $aLoginRequired = array('dashboard' => true);
+    public $aLayout = array('dashboard' => 'main','addeditesp'=> 'main');
+    public $aLoginRequired = array('dashboard' => true,'addeditesp'=> true);
 
     public function __construct() {
         global $sAction;
@@ -57,15 +57,85 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
+        
+        $oEsp =new esp();
+        $aListEspData = $oEsp->getEspList();
+       
         $nCount = 0;
         foreach ($aListData["payload"] AS $aData)
         {    
             $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
             $aListTitle = json_decode($aDetails);
             $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
+            foreach($aListEspData as $aEspData)
+            {   if(date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])
+                {   
+                    $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
+                    $aListData["payload"][$nCount]['range_one'] = $aEspData['range_one'];
+                    $aListData["payload"][$nCount]['range_two'] = $aEspData['range_two'];
+                    $aListData["payload"][$nCount]['range_three'] = $aEspData['range_three'];
+                    $aListData["payload"][$nCount]['range_four'] = $aEspData['range_four'];
+                    $aListData["payload"][$nCount]['range_five'] = $aEspData['range_five'];
+                    $aListData["payload"][$nCount]['range_six'] = $aEspData['range_six'];
+                    $aListData["payload"][$nCount]['color_picker_one'] = $aEspData['color_picker_one'];
+                    $aListData["payload"][$nCount]['color_picker_two'] = $aEspData['color_picker_two'];
+                    $aListData["payload"][$nCount]['color_picker_three'] = $aEspData['color_picker_three'];
+                }
+                else{
+                    $aListData["payload"][$nCount]['id_esp'] = '';
+                    $aListData["payload"][$nCount]['range_one'] = '0';
+                    $aListData["payload"][$nCount]['range_two'] = '10';
+                    $aListData["payload"][$nCount]['range_three'] = '11';
+                    $aListData["payload"][$nCount]['range_four'] = '20';
+                    $aListData["payload"][$nCount]['range_five'] = '21';
+                    $aListData["payload"][$nCount]['range_six'] = '';
+                    $aListData["payload"][$nCount]['color_picker_one'] = '';
+                    $aListData["payload"][$nCount]['color_picker_two'] = '';
+                    $aListData["payload"][$nCount]['color_picker_three'] = '';
+                }
+            }
             $nCount++;
         }
+        
         require("dashboard.tpl.php");
     }
-
+    public function callAddEditEsp() {
+        global $sAction;
+        global $oUser, $oSession;
+        
+        $sListName = isset($_POST['esp_list_name']) ? $_POST['esp_list_name'] : '';
+        $dEspDate = isset($_POST['esp_date']) ? $_POST['esp_date'] : '';
+        $nRangeOne = isset($_POST['range_one']) ? $_POST['range_one'] : '';
+        $nRangeTwo = isset($_POST['range_two']) ? $_POST['range_two'] : '';
+        $nRangeThree = isset($_POST['range_three']) ? $_POST['range_three'] : '';
+        $nRangeFour = isset($_POST['range_four']) ? $_POST['range_four'] : '';
+        $nRangeFive = isset($_POST['range_five']) ? $_POST['range_five'] : '';
+        $nRangeSix = isset($_POST['range_six']) ? $_POST['range_six'] : '';
+        $sColorPickerOne = isset($_POST['color-picker-one']) ? $_POST['color-picker-one'] : '';
+        $sColorPickerTwo = isset($_POST['color-picker-two']) ? $_POST['color-picker-two'] : '';
+        $sColorPickerThree = isset($_POST['color-picker-three']) ? $_POST['color-picker-three'] : '';
+        $dCreatedAt = date(getConfig('dtDateTime'));
+        $dUpdatedAt = date(getConfig('dtDateTime'));
+        $aEspData = array(
+                            'id_esp' => '',
+                            'esp_date' => $dEspDate,
+                            'esp_list_name' => $sListName,
+                            'range_one' => $nRangeOne,
+                            'range_two' => $nRangeTwo,
+                            'range_three' => $nRangeThree,
+                            'range_four' => $nRangeFour,
+                            'range_five' => $nRangeFive,
+                            'range_six' => $nRangeSix,
+                            'color_picker_one' => $sColorPickerOne,
+                            'color_picker_two' => $sColorPickerTwo,
+                            'color_picker_three' => $sColorPickerThree,
+                            'created_at' =>  $dCreatedAt, 
+                            'updated_at' => $dUpdatedAt,
+                            'activated' => 1, 
+                            'deleted' => 0   
+                        );
+        $oEsp =new esp();
+        $oEsp->addNewEsp($aEspData);
+        redirect(getConfig('siteUrl') . '/home/dashboard');
+    }     
 }   
