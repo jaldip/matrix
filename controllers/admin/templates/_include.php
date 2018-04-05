@@ -16,8 +16,10 @@
     <link href="<?php echo getConfig('siteUrl') . '/css/style.css'; ?>" rel="stylesheet">
     <link href="<?php echo getConfig('siteUrl') . '/css/custom.css'; ?>" rel="stylesheet">
     <script src="<?php echo getConfig('siteUrl') . '/js/jquery.min.js'; ?>"></script>
+    
+    <!-- colorpicker -->
+    <link href="<?php echo getConfig('siteUrl') . '/css/colorpicker/bootstrap-colorpicker.min.css'; ?>" rel="stylesheet">
 
-   
    <!-- SUMMERNOTE -->
    <script src="<?php echo getConfig('siteUrl') . '/js/plugins/summernote/summernote.min.js'; ?>"></script>
    

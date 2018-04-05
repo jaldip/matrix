@@ -183,7 +183,7 @@
                                                                ​ <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)" style="width:30%"  />-->
                                                         <div class="input-group demo2 colorpicker-element" style="width:30%; float:right; margin-bottom: 2px;">
                                                             <input type ="hidden" name="colomn-color-three-<?php echo $nCount; ?>" id="colomn-color-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : 'green'; ?>" class="form-control colorpicker-element" />
-                                                            <span class="input-group-addon"><i style="background-color: rgba(255,255,255,99);" ></i></span>
+                                                            <span class="input-group-addon"><i style="background-color: green;" ></i></span>
                                                         </div>
                                                         <div class="form-group"> 
                                                             <button id="submit" type="submit" name="submit" style="width:100%" class="btn btn-success" onclick="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>);"><?php echo __('Update'); ?></button>
