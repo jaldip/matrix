@@ -54,6 +54,8 @@
                                     'please_check_your_mail_box' => 'Please check your mail box',
                                     'email_addres_doesnot_exists' => 'Email addres doesnot exists',
                                     'for_any_query_please_contact_stepinsolutions' => 'Queries or concerns? Contact http://www.stepin-solutions.com/',
-                                    'Switch' => 'Switch'
+                                    'Set' => 'Set',
+                                    'for_any_query_please_contact_stepinsolutions' => 'Queries or concerns? Contact http://www.stepin-solutions.com/',
+                                    'No Data Found !!!' => 'No Data Found !!!'
                     		) 
       );

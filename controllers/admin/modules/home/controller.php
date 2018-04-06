@@ -85,11 +85,11 @@ class homeController {
                     }
                     else{
                         $aListData["payload"][$nCount]['id_esp'] = '';
-                        $aListData["payload"][$nCount]['range_one'] = 0;
-                        $aListData["payload"][$nCount]['range_two'] = 10;
-                        $aListData["payload"][$nCount]['range_three'] = 11;
-                        $aListData["payload"][$nCount]['range_four'] = 20;
-                        $aListData["payload"][$nCount]['range_five'] = 21;
+                        $aListData["payload"][$nCount]['range_one'] = '';
+                        $aListData["payload"][$nCount]['range_two'] = '';
+                        $aListData["payload"][$nCount]['range_three'] = '';
+                        $aListData["payload"][$nCount]['range_four'] = '';
+                        $aListData["payload"][$nCount]['range_five'] = '';
                         $aListData["payload"][$nCount]['range_six'] = '';
                         $aListData["payload"][$nCount]['color_picker_one'] = '';
                         $aListData["payload"][$nCount]['color_picker_two'] = '';

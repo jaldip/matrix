@@ -193,10 +193,8 @@
                                                             <span class="input-group-addon"><i style="background-color: green;" ></i></span>
                                                         </div>
                                                         <div class="form-group"> 
-                                                            <button id="submit" type="submit" name="submit" style="width:100%" class="btn btn-success" onclick="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>);"><?php echo __('Update'); ?></button>
+                                                            <button id="submit" type="submit" name="submit" style="width:100%" class="btn btn-success" onclick="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>);"><?php echo __('Set'); ?></button>
                                                         </div> 
-
-         <!--<input type="submit" name="submit" value="<?php echo __('Update'); ?>" onclick="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>);" style="width:100%;background-color:#ffffff"/>--> 
 
                                                     </td>
                                                 </tr>    
