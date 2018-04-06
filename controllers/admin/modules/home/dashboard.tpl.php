@@ -100,15 +100,16 @@
                                                 {
                                                     $sBGColor = isset($aDataList['color_picker_one']) ?  $aDataList['color_picker_one'] : '';
                                                 }
-                                                if($aDataList['success'] >= $nRangeThree && $aDataList['success'] <= $nRangeFour)
+                                                elseif($aDataList['success'] >= $nRangeThree && $aDataList['success'] <= $nRangeFour)
                                                 {
                                                     $sBGColor = isset($aDataList['color_picker_two']) ?  $aDataList['color_picker_two'] : '';
                                                 }
-                                                
-                                                if($aDataList['success'] >= $nRangeFive )
-                                                {
-                                                    $sBGColor = isset($aDataList['color_picker_three']) ?  $aDataList['color_picker_three'] : '';
-                                                }
+                                                else{
+                                                    if($aDataList['success'] >= $nRangeFive )
+                                                    {
+                                                        $sBGColor = isset($aDataList['color_picker_three']) ?  $aDataList['color_picker_three'] : '';
+                                                    }
+                                                }    
                                                 ?>
                                                 <tr  id="<?php echo $nCount; ?>" style="background-color:<?php echo $sBGColor?>">
                                                     <input type="hidden" name="id_esp_<?php echo $nCount; ?>" id="id_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['id_esp']; ?>" /> 
