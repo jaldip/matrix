@@ -90,15 +90,22 @@
                                         if (isset($aListData['payload'])) {
                                             $nCount = 1;
                                             foreach ($aListData['payload'] AS $aDataList) {
-                                                if($aDataList['success'] >= 0 && $aDataList['success'] <= 10)
+                                                $nRangeOne = isset($aDataList['range_one']) ? $aDataList['range_one'] : 0;
+                                                $nRangeTwo = isset($aDataList['range_two']) ? $aDataList['range_two'] : 10;
+                                                $nRangeThree = isset($aDataList['range_three']) ? $aDataList['range_three'] : 11;
+                                                $nRangeFour = isset($aDataList['range_four']) ? $aDataList['range_four'] : 20;
+                                                $nRangeFive = isset($aDataList['range_five']) ? $aDataList['range_five'] : 21;
+                                                
+                                                if($aDataList['success'] >= $nRangeOne && $aDataList['success'] <= $nRangeTwo)
                                                 {
                                                     $sBGColor = isset($aDataList['color_picker_one']) ?  $aDataList['color_picker_one'] : '';
                                                 }
-                                                if($aDataList['success'] >= 11 && $aDataList['success'] <= 20)
+                                                if($aDataList['success'] >= $nRangeThree && $aDataList['success'] <= $nRangeFour)
                                                 {
                                                     $sBGColor = isset($aDataList['color_picker_two']) ?  $aDataList['color_picker_two'] : '';
                                                 }
-                                                if($aDataList['success'] >= 21 )
+                                                
+                                                if($aDataList['success'] >= $nRangeFive )
                                                 {
                                                     $sBGColor = isset($aDataList['color_picker_three']) ?  $aDataList['color_picker_three'] : '';
                                                 }
@@ -196,7 +203,9 @@
                                                 <?php
                                                 $nCount++;
                                             }
-                                        }
+                                        }  else {
+                                                    echo __('No Data Found !!!');
+                                            }
                                         ?>
                                   
                                 </table>
