@@ -40,6 +40,7 @@ class homeController {
               "isp_name",
               "success",
               "opens",
+              "sent",
               "clicks",
               "complaints",
               "complaints_rate"
@@ -47,7 +48,7 @@ class homeController {
            "from":"mailing",
            "order":[ 
               [ 
-                 "esp_name",
+                 "list_id",
                  "desc"
               ]
            ],
@@ -65,10 +66,11 @@ class homeController {
         if(isset($aListData["payload"]))
         {    
             foreach ($aListData["payload"] AS $aData)
-            {    
+            {   
                 $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
                 $aListTitle = json_decode($aDetails);
                 $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
+                //$aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
                 {   if(date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])
                     {   
@@ -82,18 +84,6 @@ class homeController {
                         $aListData["payload"][$nCount]['color_picker_one'] = $aEspData['color_picker_one'];
                         $aListData["payload"][$nCount]['color_picker_two'] = $aEspData['color_picker_two'];
                         $aListData["payload"][$nCount]['color_picker_three'] = $aEspData['color_picker_three'];
-                    }
-                    else{
-                        $aListData["payload"][$nCount]['id_esp'] = '';
-                        $aListData["payload"][$nCount]['range_one'] = '';
-                        $aListData["payload"][$nCount]['range_two'] = '';
-                        $aListData["payload"][$nCount]['range_three'] = '';
-                        $aListData["payload"][$nCount]['range_four'] = '';
-                        $aListData["payload"][$nCount]['range_five'] = '';
-                        $aListData["payload"][$nCount]['range_six'] = '';
-                        $aListData["payload"][$nCount]['color_picker_one'] = '';
-                        $aListData["payload"][$nCount]['color_picker_two'] = '';
-                        $aListData["payload"][$nCount]['color_picker_three'] = '';
                     }
                 }
                 $nCount++;

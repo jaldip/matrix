@@ -71,142 +71,140 @@
                             <div class="table-responsive" >
 
                                 <table class="table table-bordered table-hover" >
-                                    
-                                        <thead>
-                                            <tr>
-                                                <th width="150" align="center"><?php echo __('Date'); ?></th>
-                                                <th width="150" align="center"><?php echo __('Esp List Name'); ?></th>
-                                                <th width="150" align="center"><?php echo __('ESP'); ?></th>
-                                                <th width="150" align="center"><?php echo __('Domain Grouped by ESP'); ?></th>
-                                                <th width="150" align="center"><?php echo __('Success'); ?></th>
-                                                <th width="150" align="center"><?php echo __('Opens'); ?></th>
-                                                <th width="150" align="center"><?php echo __('Clicks'); ?></th>
-                                                <th width="150" align="center"><?php echo __('Complaints'); ?></th>
-                                                <th width="15  0" align="center"><?php echo __('Complaints Rate'); ?></th>
-                                                <th width="250" align="center"><?php echo __('Thrash Hold'); ?></th>
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                        if (isset($aListData['payload'])) {
-                                            $nCount = 1;
-                                            foreach ($aListData['payload'] AS $aDataList) {
+
+                                    <thead>
+                                        <tr>
+                                            <th width="150" align="center"><?php echo __('Date'); ?></th>
+                                            <th width="150" align="center"><?php echo __('Esp List Name'); ?></th>
+                                            <th width="150" align="center"><?php echo __('ESP'); ?></th>
+                                            <th width="150" align="center"><?php echo __('Domain Grouped by ESP'); ?></th>
+                                            <th width="100" align="center"><?php echo __('Success'); ?></th>
+                                            <th width="100" align="center"><?php echo __('Opens'); ?></th>
+                                            <th width="100" align="center"><?php echo __('Open Percentage'); ?></th>
+                                            <th width="150" align="center"><?php echo __('Clicks'); ?></th>
+                                            <th width="100" align="center"><?php echo __('Complaints'); ?></th>
+                                            <th width="100" align="center"><?php echo __('Complaints Rate'); ?></th>
+                                            <th width="250" align="center"><?php echo __('Thrash Hold'); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                    if (isset($aListData['payload'])) {
+                                        $nCount = 1;
+                                        foreach ($aListData['payload'] AS $aDataList) {
+                                            if ($aDataList['isp_name'] == 'gmail.com' || $aDataList['isp_name'] == 'yahoo.com') {
+
                                                 $nRangeOne = isset($aDataList['range_one']) ? $aDataList['range_one'] : 0;
                                                 $nRangeTwo = isset($aDataList['range_two']) ? $aDataList['range_two'] : 10;
                                                 $nRangeThree = isset($aDataList['range_three']) ? $aDataList['range_three'] : 11;
                                                 $nRangeFour = isset($aDataList['range_four']) ? $aDataList['range_four'] : 20;
                                                 $nRangeFive = isset($aDataList['range_five']) ? $aDataList['range_five'] : 21;
-                                                
-                                                if($aDataList['success'] >= $nRangeOne && $aDataList['success'] <= $nRangeTwo)
-                                                {
-                                                    $sBGColor = isset($aDataList['color_picker_one']) ?  $aDataList['color_picker_one'] : '';
+                                                $sBGColor ='';
+                                               
+                                                if ($aDataList['success'] >= $nRangeOne && $aDataList['success'] <= $nRangeTwo) {
+                                                   $sBGColor = isset($aDataList['color_picker_one']) ? $aDataList['color_picker_one'] : '';
+                                                } elseif ($aDataList['success'] >= $nRangeThree && $aDataList['success'] <= $nRangeFour) {
+                                                   $sBGColor = isset($aDataList['color_picker_two']) ? $aDataList['color_picker_two'] : '';
+                                                } else {
+                                                    if ($aDataList['success'] >= $nRangeFive) {
+                                                        $sBGColor = isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : '';
+                                                    }   
                                                 }
-                                                elseif($aDataList['success'] >= $nRangeThree && $aDataList['success'] <= $nRangeFour)
-                                                {
-                                                    $sBGColor = isset($aDataList['color_picker_two']) ?  $aDataList['color_picker_two'] : '';
-                                                }
-                                                else{
-                                                    if($aDataList['success'] >= $nRangeFive )
-                                                    {
-                                                        $sBGColor = isset($aDataList['color_picker_three']) ?  $aDataList['color_picker_three'] : '';
-                                                    }
-                                                }    
                                                 ?>
-                                                <tr  id="<?php echo $nCount; ?>" style="background-color:<?php echo $sBGColor?>">
-                                                    <input type="hidden" name="id_esp_<?php echo $nCount; ?>" id="id_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['id_esp']; ?>" /> 
-                                                    <input type="hidden" name="esp_list_name_<?php echo $nCount; ?>" id="esp_list_name_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_name']; ?>" /> 
-                                                    <input type="hidden" name="esp_date_<?php echo $nCount; ?>" id="esp_date_<?php echo $nCount; ?>" value="<?php echo date("Y-m-d H:i:s", $aDataList['delivery_date']); ?>" />
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
+                                                <tr  id="<?php echo $nCount; ?>" style="background-color:<?php echo $sBGColor;?>">
+                                                <input type="hidden" name="id_esp_<?php echo $nCount; ?>" id="id_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['id_esp']; ?>" /> 
+                                                <input type="hidden" name="esp_list_name_<?php echo $nCount; ?>" id="esp_list_name_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_name']; ?>" /> 
+                                                <input type="hidden" name="esp_date_<?php echo $nCount; ?>" id="esp_date_<?php echo $nCount; ?>" value="<?php echo date("Y-m-d H:i:s", $aDataList['delivery_date']); ?>" />
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
                                                             <?php echo date("Y-m-d H:i:s", $aDataList['delivery_date']); ?>
-                                                            </font></b>
-                                                    </td>
-                                                    
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
-                                                            <?php echo $aDataList['list_name']; ?>
-                                                            </font></b>
-                                                    </td>
-                                                   
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
-                                                            <?php echo $aDataList['esp_name']; ?>
-                                                            </font></b>
-                                                    </td>
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
-                                                            <?php if ($aDataList['isp_name'] == 'gmail.com' || $aDataList['isp_name'] == 'yahoo.com') { ?>
-                                                                <?php echo $aDataList['isp_name']; ?>
-                                                            <?php
-                                                            } else {
-                                                                echo '-';
-                                                            }
-                                                            ?>
-                                                            </font></b>
-                                                    </td>
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
-                                                                <?php echo $aDataList['success']; ?>
-                                                            </font></b>
-                                                    </td>
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
-                                                                <?php echo $aDataList['opens']; ?>
-                                                            </font></b>
-                                                    </td>
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
-                                                                <?php echo $aDataList['clicks']; ?>
-                                                            </font></b>
-                                                    </td>
-                                                    <td align="center" ><b>
-                                                            <font  face="Arial" >
-                                                                <?php echo $aDataList['complaints']; ?>
-                                                            </font></b>
-                                                    </td>
-                                                    <td align="center" id="one"><b>
-                                                            <font  face="Arial" >
-                                                                <?php echo $aDataList['complaints_rate']; ?>
-                                                            </font></b>
-                                                    </td>
+                                                        </font></b>
+                                                </td>
 
-                                                    <td align="center" >
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['list_name']; ?>
+                                                        </font></b>
+                                                </td>
 
-                                                        <input type="text" name="range-one-<?php echo $nCount; ?>" id="range-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_one']) ? $aDataList['range_one'] : 0; ?>" style="width:30%" />
-                                                        <input type="text" name="range-two-<?php echo $nCount; ?>" id="range-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_two']) ? $aDataList['range_two'] : 10; ?>" style="width:30%" /> 
-                                                               ​ <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
-                                                            <input type ="hidden" name="colomn-color-one-<?php echo $nCount; ?>" id="colomn-color-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_one']) ? $aDataList['color_picker_one'] : 'red'; ?>" class="form-control colorpicker-element" />
-                                                            <span class="input-group-addon"><i style="background-color: red !important;"></i></span>
-                                                        </div><br/>
-                                                        <!--<input class="input-group-addon" type="color" name="colomn-color" id="colomn-color-<?php //echo $nCount; ?>" value="#000000" onchange="changeColor(<?php //echo $nCount ;  ?>,<?php //echo $aDataList['success'];  ?>)"  style="width:30%" />-->
-                                                        <input type="text" name="range-three-<?php echo $nCount; ?>" id="range-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_three']) ? $aDataList['range_three'] : 11; ?>" style="width:30%" />
-                                                        <input type="text" name="range-four-<?php echo $nCount; ?>" id="range-four-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_four']) ? $aDataList['range_four'] : 20; ?>" style="width:30%" /> 
-                                                               ​  <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
-                                                            <input type ="hidden" name="colomn-color-two-<?php echo $nCount; ?>" id="colomn-color-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_two']) ? $aDataList['color_picker_two'] : 'yellow'; ?>" class="form-control colorpicker-element" />
-                                                            <span class="input-group-addon"><i style="background-color: yellow !important;"></i></span>
-                                                        </div><br/>
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['esp_name']; ?>
+                                                        </font></b>
+                                                </td>
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['isp_name']; ?>
+                                                        </font></b>
+                                                </td>
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['success']; ?>
+                                                        </font></b>
+                                                </td>
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['opens']; ?>
+                                                        </font></b>
+                                                </td>
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php //echo $aDataList['open_percentage']; ?>
+                                                        </font></b>
+                                                </td>
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['clicks']; ?>
+                                                        </font></b>
+                                                </td>
+                                                <td align="center" ><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['complaints']; ?>
+                                                        </font></b>
+                                                </td>
+                                                <td align="center" id="one"><b>
+                                                        <font  face="Arial" >
+                                                        <?php echo $aDataList['complaints_rate']; ?>
+                                                        </font></b>
+                                                </td>
 
-         <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)"  style="width:30%" />-->
-                                                        <input type="text" name="range-five-<?php echo $nCount; ?>" id="range-five-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_five']) ? $aDataList['range_five'] : 21; ?>" style="width:30%" />
-                                                        <input type="text" name="range-six-<?php echo $nCount; ?>" id="range-six-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_six']) ? $aDataList['range_six'] : ''; ?>" style="width:30%" /> 
-                                                               ​ <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)" style="width:30%"  />-->
-                                                        <div class="input-group demo2 colorpicker-element" style="width:30%; float:right; margin-bottom: 2px;">
-                                                            <input type ="hidden" name="colomn-color-three-<?php echo $nCount; ?>" id="colomn-color-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : 'green'; ?>" class="form-control colorpicker-element" />
-                                                            <span class="input-group-addon"><i style="background-color: green;" ></i></span>
-                                                        </div>
-                                                        <div class="form-group"> 
-                                                            <button id="submit" type="submit" name="submit" style="width:100%" class="btn btn-success" onclick="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>);"><?php echo __('Set'); ?></button>
-                                                        </div> 
+                                                <td align="center" >
+                                                    <input type="text" name="range-one-<?php echo $nCount; ?>" id="range-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_one']) ? $aDataList['range_one'] : ''; ?>" style="width:30%" />
+                                                    <input type="text" name="range-two-<?php echo $nCount; ?>" id="range-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_two']) ? $aDataList['range_two'] : ''; ?>" style="width:30%" /> 
+                                                                                       ​ <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
+                                                        <input type ="hidden" name="colomn-color-one-<?php echo $nCount; ?>" id="colomn-color-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_one']) ? $aDataList['color_picker_one'] : 'red'; ?>" class="form-control colorpicker-element" />
+                                                        <span class="input-group-addon"><i style="background-color: red !important;"></i></span>
+                                                    </div><br/>
+                                                    <!--<input class="input-group-addon" type="color" name="colomn-color" id="colomn-color-<?php //echo $nCount;   ?>" value="#000000" onchange="changeColor(<?php //echo $nCount ;    ?>,<?php //echo $aDataList['success'];    ?>)"  style="width:30%" />-->
+                                                    <input type="text" name="range-three-<?php echo $nCount; ?>" id="range-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_three']) ? $aDataList['range_three'] : ''; ?>" style="width:30%" />
+                                                    <input type="text" name="range-four-<?php echo $nCount; ?>" id="range-four-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_four']) ? $aDataList['range_four'] : ''; ?>" style="width:30%" /> 
+                                                                                       ​  <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
+                                                        <input type ="hidden" name="colomn-color-two-<?php echo $nCount; ?>" id="colomn-color-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_two']) ? $aDataList['color_picker_two'] : 'yellow'; ?>" class="form-control colorpicker-element" />
+                                                        <span class="input-group-addon"><i style="background-color: yellow !important;"></i></span>
+                                                    </div><br/>
 
-                                                    </td>
+                                 <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)"  style="width:30%" />-->
+                                                    <input type="text" name="range-five-<?php echo $nCount; ?>" id="range-five-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_five']) ? $aDataList['range_five'] : ''; ?>" style="width:30%" />
+                                                    <input type="text" name="range-six-<?php echo $nCount; ?>" id="range-six-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_six']) ? $aDataList['range_six'] : ''; ?>" style="width:30%" /> 
+                                                                                       ​ <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)" style="width:30%"  />-->
+                                                    <div class="input-group demo2 colorpicker-element" style="width:30%; float:right; margin-bottom: 2px;">
+                                                        <input type ="hidden" name="colomn-color-three-<?php echo $nCount; ?>" id="colomn-color-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : 'green'; ?>" class="form-control colorpicker-element" />
+                                                        <span class="input-group-addon"><i style="background-color: green;" ></i></span>
+                                                    </div>
+                                                    <div class="form-group"> 
+                                                        <button id="submit" type="submit" name="submit" style="width:100%" class="btn btn-success" onclick="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>);"><?php echo __('Set'); ?></button>
+                                                    </div> 
+
+                                                </td>
                                                 </tr>    
                                                 <?php
-                                                $nCount++;
                                             }
-                                        }  else {
-                                                    echo __('No Data Found !!!');
-                                            }
-                                        ?>
-                                  
+                                            $nCount++;
+                                        }
+                                    } else {
+                                        echo __('No Data Found !!!');
+                                    }
+                                    ?>
+
                                 </table>
                             </div>
                         </div>   
@@ -222,18 +220,18 @@
     </div>
 </div>
 <form name="updateEspForm" id="updateEspForm" method="POST" action="<?php echo getConfig('siteUrl') . '/home/addeditesp'; ?>">
-     <input type="hidden" name="hidden_id_esp" id="hidden_id_esp" value="" /> 
-     <input type="hidden" name="esp_list_name" id="esp_list_name" value="" /> 
-     <input type="hidden" name="esp_date" id="esp_date" value="" />
-     <input type="hidden" name="range_one" id="range_one" value="" />
-     <input type="hidden" name="range_two" id="range_two" value="" />
-     <input type="hidden" name="range_three" id="range_three" value="" />
-     <input type="hidden" name="range_four" id="range_four" value="" />
-     <input type="hidden" name="range_five" id="range_five" value="" />
-     <input type="hidden" name="range_six" id="range_six" value="" />
-     <input type="hidden" name="color-picker-one" id="color-picker-one" value="" />
-     <input type="hidden" name="color-picker-two" id="color-picker-two" value="" />
-     <input type="hidden" name="color-picker-three" id="color-picker-three" value="" />
+    <input type="hidden" name="hidden_id_esp" id="hidden_id_esp" value="" /> 
+    <input type="hidden" name="esp_list_name" id="esp_list_name" value="" /> 
+    <input type="hidden" name="esp_date" id="esp_date" value="" />
+    <input type="hidden" name="range_one" id="range_one" value="" />
+    <input type="hidden" name="range_two" id="range_two" value="" />
+    <input type="hidden" name="range_three" id="range_three" value="" />
+    <input type="hidden" name="range_four" id="range_four" value="" />
+    <input type="hidden" name="range_five" id="range_five" value="" />
+    <input type="hidden" name="range_six" id="range_six" value="" />
+    <input type="hidden" name="color-picker-one" id="color-picker-one" value="" />
+    <input type="hidden" name="color-picker-two" id="color-picker-two" value="" />
+    <input type="hidden" name="color-picker-three" id="color-picker-three" value="" />
 </form> 
 <script>
    
