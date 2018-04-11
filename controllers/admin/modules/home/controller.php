@@ -70,6 +70,7 @@ class homeController {
                 $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
                 $aListTitle = json_decode($aDetails);
                 $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
+                $aEspNameList[] = $aListTitle->payload->name;
                 //$aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
                 {   if(date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])
@@ -88,6 +89,7 @@ class homeController {
                 }
                 $nCount++;
             }
+            array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
         }
         require("dashboard.tpl.php");
     }
