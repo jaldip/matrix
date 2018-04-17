@@ -148,7 +148,7 @@
                                                 </td>
                                                 <td align="center" ><b>
                                                         <font  face="Arial" >
-                                                        <?php echo $aDataList['open_percentage']; ?>
+                                                        <?php echo $aDataList['opens_rate']; ?>
                                                         </font></b>
                                                 </td>
                                                 <td align="center" ><b>
