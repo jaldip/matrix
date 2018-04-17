@@ -39,7 +39,7 @@ class homeController {
               "esp_name",
               "isp_name",
               "success",
-              "opens",
+              "opens_rate",
               "sent",
               "clicks",
               "complaints",
@@ -58,7 +58,7 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        
+        var_dump($aListData); exit;
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
        
@@ -71,7 +71,7 @@ class homeController {
                 $aListTitle = json_decode($aDetails);
                 $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
                 $aEspNameList[] = $aListTitle->payload->name;
-                //$aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
+               // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
                 {   if(date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])
                     {   
