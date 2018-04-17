@@ -79,7 +79,6 @@
                                             <th width="150" align="center"><?php echo __('ESP'); ?></th>
                                             <th width="150" align="center"><?php echo __('Domain Grouped by ESP'); ?></th>
                                             <th width="100" align="center"><?php echo __('Success'); ?></th>
-                                            <th width="100" align="center"><?php echo __('Opens'); ?></th>
                                             <th width="100" align="center"><?php echo __('Open Percentage'); ?></th>
                                             <th width="150" align="center"><?php echo __('Clicks'); ?></th>
                                             <th width="100" align="center"><?php echo __('Complaints'); ?></th>
@@ -139,11 +138,6 @@
                                                 <td align="center" ><b>
                                                         <font  face="Arial" >
                                                         <?php echo $aDataList['success']; ?>
-                                                        </font></b>
-                                                </td>
-                                                <td align="center" ><b>
-                                                        <font  face="Arial" >
-                                                        <?php echo $aDataList['opens']; ?>
                                                         </font></b>
                                                 </td>
                                                 <td align="center" ><b>
