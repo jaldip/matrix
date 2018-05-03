@@ -142,7 +142,7 @@
                                                 </td>
                                                 <td align="center" ><b>
                                                         <font  face="Arial" >
-                                                        <?php echo $aDataList['opens_rate']; ?>
+                                                        <?php echo round($aDataList['opens_rate'],2).' %'; ?>
                                                         </font></b>
                                                 </td>
                                                 <td align="center" ><b>
@@ -164,14 +164,14 @@
                                                 <td align="center" >
                                                     <input type="text" name="range-one-<?php echo $nCount; ?>" id="range-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_one']) ? $aDataList['range_one'] : ''; ?>" style="width:30%" />
                                                     <input type="text" name="range-two-<?php echo $nCount; ?>" id="range-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_two']) ? $aDataList['range_two'] : ''; ?>" style="width:30%" /> 
-                                                                                       ​ <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
+                                                                                       â€‹ <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
                                                         <input type ="hidden" name="colomn-color-one-<?php echo $nCount; ?>" id="colomn-color-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_one']) ? $aDataList['color_picker_one'] : 'red'; ?>" class="form-control colorpicker-element" />
                                                         <span class="input-group-addon"><i style="background-color: red !important;"></i></span>
                                                     </div><br/>
                                                     <!--<input class="input-group-addon" type="color" name="colomn-color" id="colomn-color-<?php //echo $nCount;   ?>" value="#000000" onchange="changeColor(<?php //echo $nCount ;    ?>,<?php //echo $aDataList['success'];    ?>)"  style="width:30%" />-->
                                                     <input type="text" name="range-three-<?php echo $nCount; ?>" id="range-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_three']) ? $aDataList['range_three'] : ''; ?>" style="width:30%" />
                                                     <input type="text" name="range-four-<?php echo $nCount; ?>" id="range-four-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_four']) ? $aDataList['range_four'] : ''; ?>" style="width:30%" /> 
-                                                                                       ​  <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
+                                                                                       â€‹  <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
                                                         <input type ="hidden" name="colomn-color-two-<?php echo $nCount; ?>" id="colomn-color-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_two']) ? $aDataList['color_picker_two'] : 'yellow'; ?>" class="form-control colorpicker-element" />
                                                         <span class="input-group-addon"><i style="background-color: yellow !important;"></i></span>
                                                     </div><br/>
@@ -179,7 +179,7 @@
                                  <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)"  style="width:30%" />-->
                                                     <input type="text" name="range-five-<?php echo $nCount; ?>" id="range-five-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_five']) ? $aDataList['range_five'] : ''; ?>" style="width:30%" />
                                                     <input type="text" name="range-six-<?php echo $nCount; ?>" id="range-six-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_six']) ? $aDataList['range_six'] : ''; ?>" style="width:30%" /> 
-                                                                                       ​ <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)" style="width:30%"  />-->
+                                                                                       â€‹ <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)" style="width:30%"  />-->
                                                     <div class="input-group demo2 colorpicker-element" style="width:30%; float:right; margin-bottom: 2px;">
                                                         <input type ="hidden" name="colomn-color-three-<?php echo $nCount; ?>" id="colomn-color-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : 'green'; ?>" class="form-control colorpicker-element" />
                                                         <span class="input-group-addon"><i style="background-color: green;" ></i></span>

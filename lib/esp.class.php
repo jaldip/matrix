@@ -30,6 +30,13 @@ class esp extends siCommon {
                             'id_esp',
                             'esp_date',
                             'esp_list_name',
+                            'esp',
+                            'domain_grouped_by_esp',
+                            'success',
+                            'open_percentage',
+                            'clicks',
+                            'complaints',
+                            'complaints_rate',
                             'range_one',
                             'range_two',
                             'range_three',
@@ -49,6 +56,13 @@ class esp extends siCommon {
                 $aEspData['id_esp'],
                 $aEspData['esp_date'],
                 $aEspData['esp_list_name'],
+                $aEspData['esp'],
+                $aEspData['domain_grouped_by_esp'],
+                $aEspData['success'],
+                $aEspData['open_percentage'],
+                $aEspData['clicks'],
+                $aEspData['complaints'],
+                $aEspData['complaints_rate'],
                 $aEspData['range_one'],
                 $aEspData['range_two'],
                 $aEspData['range_three'],
@@ -80,7 +94,14 @@ class esp extends siCommon {
         $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.esp_date as esp_date,
-                        e.esp_list_name asesp_list_name,
+                        e.esp_list_name as esp_list_name,
+                        e.esp as esp,
+                        e.domain_grouped_by_esp as domain_grouped_by_esp,
+                        e.success as success,
+                        e.open_percentage as open_percentage, 
+                        e.clicks as clicks, 
+                        e.complaints as complaints,
+                        e.complaints_rate as complaints_rate, 
                         e.range_one as range_one,
                         e.range_two as range_two,
                         e.range_three as range_three,
@@ -97,6 +118,30 @@ class esp extends siCommon {
                             esp e
                     WHERE" . $sAndWhere;
 
+        //var_dump($sSql);            
+        $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
+        return $this->getData($sQueryHendler, "ARRAY");
+    }
+    public function getEspListByName($sListName) {
+        $sAndWhere = ' 1 = 1';
+        $sAndWhere .= " AND e.esp_list_name = ".'"'.$sListName.'"';
+        $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
+
+       $sSql = "SELECT 
+                        e.id_esp as id_esp,
+                        e.esp_date as esp_date,
+                        e.esp_list_name as esp_list_name,
+                        e.esp as esp,
+                        e.domain_grouped_by_esp as domain_grouped_by_esp,
+                        e.success as success,
+                        e.open_percentage as open_percentage, 
+                        e.clicks as clicks, 
+                        e.complaints as complaints,
+                        e.complaints_rate as complaints_rate
+                    FROM
+                            esp e
+                    WHERE" . $sAndWhere;
+        
         //var_dump($sSql);            
         $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
         return $this->getData($sQueryHendler, "ARRAY");

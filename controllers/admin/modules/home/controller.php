@@ -14,7 +14,7 @@ class homeController {
     public function __construct() {
         global $sAction;
         global $oUser;
-
+        
         //Login Is Required
         if ($this->aLoginRequired[$sAction]) {
             if (!$oUser->isLoggedin()) {
@@ -29,22 +29,28 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
+        $previousDate = date('Y-m-d',strtotime("-1 days"));
+        $dCreatedAt = date(getConfig('dtDateTime'));
+        
         $jRequest = json_decode('{ 
            "select":[
-              [ 
-                "MAX(`delivery_timestamp`)",
-                "delivery_date"
-             ],
-             "list_id",
-              "esp_name",
-              "isp_name",
-              "success",
-              "opens_rate",
-              "sent",
-              "clicks",
-              "complaints",
-              "complaints_rate"
+                [ 
+                    "MAX(`stats_date`)",
+                    "delivery_date"
+                ],
+                "list_id",
+                "esp_name",
+                "isp_name",
+                "success",
+                "opens_rate",
+                "sent",
+                "clicks",
+                "complaints",
+                "complaints_rate"
            ],
+           "filter": [
+                [ "delivery_date", "=", "'.$previousDate.'" ]
+            ],
            "from":"mailing",
            "order":[ 
               [ 
@@ -58,11 +64,75 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
+        //echo '<pre>';var_dump($aListData);exit;
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
-       
+        if(empty($aListEspData))
+        {   
+            $nCount=0;
+            foreach ($aListData["payload"] AS $aData)
+            {
+                if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com') 
+                {
+                    $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
+                    $aListTitle = json_decode($aDetails);
+                 
+                    $nIdEsp = '';
+                    $dEspDate = (date("Y-m-d H:i:s", $aData['delivery_date']) != null) ? date("Y-m-d H:i:s", $aData['delivery_date']) : '';
+                    $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
+                    $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
+                    $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
+                    $nSuccess = isset($aData['success']) ? $aData['success'] : '';
+                    $nOpenPercentage = isset($aData['opens_rate']) ? $aData['opens_rate'] : '';
+                    $nClicks = isset($aData['clicks']) ? $aData['clicks'] : '';
+                    $nComplaints = isset($aData['complaints']) ? $aData['complaints'] : '';
+                    $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
+                    $nRangeOne = '';
+                    $nRangeTwo = '';
+                    $nRangeThree = '';
+                    $nRangeFour = '';
+                    $nRangeFive = '';
+                    $nRangeSix = '';
+                    $sColorPickerOne = '';
+                    $sColorPickerTwo = '';
+                    $sColorPickerThree = '';
+
+                    $dUpdatedAt = date(getConfig('dtDateTime'));
+                    $aEspData = array(
+                        'id_esp' => $nIdEsp,
+                        'esp_date' => $dEspDate,
+                        'esp_list_name' => $sListName,
+                        'esp' => $sEsp,
+                        'domain_grouped_by_esp' => $sDomainGroupedByEsp,
+                        'success' => $nSuccess,
+                        'open_percentage' => $nOpenPercentage,
+                        'clicks' => $nClicks,
+                        'complaints' => $nComplaints,
+                        'complaints_rate' => $nComplaintsRate,
+                        'range_one' => $nRangeOne,
+                        'range_two' => $nRangeTwo,
+                        'range_three' => $nRangeThree,
+                        'range_four' => $nRangeFour,
+                        'range_five' => $nRangeFive,
+                        'range_six' => $nRangeSix,
+                        'color_picker_one' => $sColorPickerOne,
+                        'color_picker_two' => $sColorPickerTwo,
+                        'color_picker_three' => $sColorPickerThree,
+                        'created_at' => $dCreatedAt,
+                        'updated_at' => $dUpdatedAt,
+                        'activated' => 1, 
+                        'deleted' => 0   
+                    );
+
+                    $oEsp =new esp();
+                    $oEsp->addNewEsp($aEspData);
+                }
+                $nCount++;
+            }   
+        }    
         $nCount = 0;
+        
         if(isset($aListData["payload"]))
         {    
             foreach ($aListData["payload"] AS $aData)
@@ -73,7 +143,8 @@ class homeController {
                 $aEspNameList[] = $aListTitle->payload->name;
                // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
-                {   if(date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])
+                {   
+                    if((date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date']) && $aEspData['esp_list_name'] == $aListTitle->payload->name)
                     {   
                         $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
                         $aListData["payload"][$nCount]['range_one'] = $aEspData['range_one'];
@@ -85,7 +156,7 @@ class homeController {
                         $aListData["payload"][$nCount]['color_picker_one'] = $aEspData['color_picker_one'];
                         $aListData["payload"][$nCount]['color_picker_two'] = $aEspData['color_picker_two'];
                         $aListData["payload"][$nCount]['color_picker_three'] = $aEspData['color_picker_three'];
-                    }
+                    } 
                 }
                 $nCount++;
             }
@@ -96,8 +167,10 @@ class homeController {
     public function callAddEditEsp() {
         global $sAction;
         global $oUser, $oSession;
+        $oESP = new esp();
+        $aEspListData = $oESP->getEspListByName($_POST['esp_list_name']);
         
-        $nIdEsp = isset($_POST['hidden_id_esp']) ? $_POST['hidden_id_esp'] : ''; 
+        $nIdEsp = isset($aEspListData[0]['id_esp']) ? $aEspListData[0]['id_esp'] : ''; 
         $sListName = isset($_POST['esp_list_name']) ? $_POST['esp_list_name'] : '';
         $dEspDate = isset($_POST['esp_date']) ? $_POST['esp_date'] : '';
         $nRangeOne = isset($_POST['range_one']) ? $_POST['range_one'] : '';
@@ -135,6 +208,32 @@ class homeController {
         }   
         $oEsp =new esp();
         $oEsp->addNewEsp($aEspData);
+        
+        $aListEspData = $oEsp->getEspList();
+        $nCount = 0;
+        foreach ($aListEspData as $aEspDetails)
+        {    
+            $aListData["payload"][$nCount] = $aEspDetails['id_esp'];
+            $aListData["payload"][$nCount] = $aEspDetails['esp_date'];
+            $aListData["payload"][$nCount] = $aEspDetails['esp_list_name'];
+            $aListData["payload"][$nCount] = $aEspDetails['esp'];
+            $aListData["payload"][$nCount] = $aEspDetails['domain_grouped_by_esp'];
+            $aListData["payload"][$nCount] = $aEspDetails['success'];
+            $aListData["payload"][$nCount] = $aEspDetails['open_percentage'];
+            $aListData["payload"][$nCount] = $aEspDetails['clicks'];
+            $aListData["payload"][$nCount] = $aEspDetails['complaints'];
+            $aListData["payload"][$nCount] = $aEspDetails['complaints_rate'];
+            $aListData["payload"][$nCount] = $aEspDetails['range_one'];
+            $aListData["payload"][$nCount] = $aEspDetails['range_two'];
+            $aListData["payload"][$nCount] = $aEspDetails['range_three'];
+            $aListData["payload"][$nCount] = $aEspDetails['range_four'];
+            $aListData["payload"][$nCount] = $aEspDetails['range_five'];
+            $aListData["payload"][$nCount] = $aEspDetails['range_six'];
+            $aListData["payload"][$nCount] = $aEspDetails['color_picker_one'];
+            $aListData["payload"][$nCount] = $aEspDetails['color_picker_two'];
+            $aListData["payload"][$nCount] = $aEspDetails['color_picker_three'];
+            $nCount++;
+        }    
         redirect(getConfig('siteUrl') . '/home/dashboard');
     }     
 }   
