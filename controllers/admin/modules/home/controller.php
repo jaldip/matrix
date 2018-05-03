@@ -172,6 +172,13 @@ class homeController {
         
         $nIdEsp = isset($aEspListData[0]['id_esp']) ? $aEspListData[0]['id_esp'] : ''; 
         $sListName = isset($_POST['esp_list_name']) ? $_POST['esp_list_name'] : '';
+        $sEsp = isset($aEspListData[0]['esp']) ? $aEspListData[0]['esp'] : '';
+        $sDomainGroupedByEsp = isset($aEspListData[0]['domain_grouped_by_esp']) ? $aEspListData[0]['domain_grouped_by_esp'] : ''; 
+        $sSuccess = isset($aEspListData[0]['success']) ? $aEspListData[0]['success'] : ''; 
+        $nOpenPercentage = isset($aEspListData[0]['open_percentage']) ? $aEspListData[0]['open_percentage'] : ''; 
+        $nClick = isset($aEspListData[0]['clicks']) ? $aEspListData[0]['clicks'] : '';
+        $nComplaints = isset($aEspListData[0]['complaints']) ? $aEspListData[0]['complaints'] : ''; 
+        $nComplaintsRate = isset($aEspListData[0]['complaints_rate']) ? $aEspListData[0]['complaints_rate'] : ''; 
         $dEspDate = isset($_POST['esp_date']) ? $_POST['esp_date'] : '';
         $nRangeOne = isset($_POST['range_one']) ? $_POST['range_one'] : '';
         $nRangeTwo = isset($_POST['range_two']) ? $_POST['range_two'] : '';
@@ -188,6 +195,13 @@ class homeController {
                             'id_esp' => $nIdEsp,
                             'esp_date' => $dEspDate,
                             'esp_list_name' => $sListName,
+                            'esp' => $sEsp,
+                            'domain_grouped_by_esp' => $sDomainGroupedByEsp,
+                            'success' => $sSuccess,
+                            'open_percentage' => $nOpenPercentage, 
+                            'clicks' => $nClick, 
+                            'complaints' => $nComplaints,
+                            'complaints_rate' => $nComplaintsRate, 
                             'range_one' => $nRangeOne,
                             'range_two' => $nRangeTwo,
                             'range_three' => $nRangeThree,
