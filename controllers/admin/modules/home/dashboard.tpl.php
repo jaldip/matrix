@@ -90,7 +90,6 @@
                                     if (isset($aListData['payload'])) {
                                         $nCount = 1;
                                         foreach ($aListData['payload'] AS $aDataList) {
-                                            var_dump($aDataList);
                                             if ($aDataList['isp_name'] == 'gmail.com' || $aDataList['isp_name'] == 'yahoo.com') {
 
                                                 $nRangeOne = isset($aDataList['range_one']) ? $aDataList['range_one'] : 0;
