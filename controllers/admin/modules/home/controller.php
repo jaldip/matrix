@@ -76,7 +76,7 @@ class homeController {
             $previousDate .= " ".$aEspDate[1];
             $nCount = 0;
 
-            foreach($aListEspData AS $aListData)
+            foreach($aListEspData AS $aEspCOuntData)
             {    
                 if (array_search($previousDate,$aListEspData[$nCount])) {
                       $bFlag = TRUE;
@@ -86,7 +86,7 @@ class homeController {
         }   
         if(empty($aListEspData) || $bFlag == FALSE)
         {   
-            $nCount=0;
+            $nCount = 0;
             foreach ($aListData["payload"] AS $aData)
             {
                 if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com') 
