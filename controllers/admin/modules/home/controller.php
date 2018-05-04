@@ -88,7 +88,7 @@ class homeController {
         }   
         if(empty($aListEspData) || $bFlag == FALSE)
         {
-            var_dump(empty($aListEspData) || $bFlag == FALSE); exit;
+           // var_dump(empty($aListEspData) || $bFlag == FALSE); exit;
         
             $nCount = 0;
             foreach ($aListData["payload"] AS $aData)
