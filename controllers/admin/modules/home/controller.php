@@ -30,7 +30,7 @@ class homeController {
         global $oUser, $oSession;
         // example of how to create an export
         $previousDate = date('Y-m-d',strtotime("-1 days"));
-        //$previousDate = "2018-05-02";
+        $previousDate = "2018-05-02";
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
@@ -77,6 +77,7 @@ class homeController {
             foreach($aListEspData AS $aEspCOuntData)
             { 
                 $previousDate = date('Y-m-d',strtotime("-1 days"));
+                $previousDate = "2018-05-02";
                 $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
                 $previousDate .= " ".$aEspDate[1];
             
