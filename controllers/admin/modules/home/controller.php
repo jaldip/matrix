@@ -164,6 +164,7 @@ class homeController {
                 {   
                     if($aEspData['list_id'] == $aData['list_id'])
                     {   
+                        exit('sainath');
                         $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
                         $aListData["payload"][$nCount]['list_id'] = $aEspData['list_id'];
                         $aListData["payload"][$nCount]['range_one'] = $aEspData['range_one'];
