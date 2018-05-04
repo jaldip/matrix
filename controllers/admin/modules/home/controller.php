@@ -70,6 +70,9 @@ class homeController {
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
         $aEspDate = explode(' ',$aListEspData[0]['esp_date']);
+        if (in_array($previousDate, $aListEspData)) {
+               echo "date in table"; exit;
+        }
         if(empty($aListEspData) || $aEspDate[0] != $previousDate)
         {   
             $nCount=0;
