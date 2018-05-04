@@ -29,7 +29,8 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        $previousDate = date('Y-m-d',strtotime("-1 days"));
+        //$previousDate = date('Y-m-d',strtotime("-1 days"));
+        $previousDate = "2018-05-02";
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
