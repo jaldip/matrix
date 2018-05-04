@@ -68,7 +68,7 @@ class homeController {
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
-        if(empty($aListEspData))
+        if(empty($aListEspData) || $aListEspData['esp_date'] != $previousDate)
         {   
             $nCount=0;
             foreach ($aListData["payload"] AS $aData)
