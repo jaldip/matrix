@@ -29,8 +29,8 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        //$previousDate = date('Y-m-d',strtotime("-1 days"));
-        $previousDate = "2018-05-02";
+        $previousDate = date('Y-m-d',strtotime("-1 days"));
+        //$previousDate = "2018-05-02";
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
@@ -69,17 +69,21 @@ class homeController {
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
-        $aEspDate = explode(' ',$aListEspData[0]['esp_date']);
-        $previousDate .= " ".$aEspDate[1];
-        $nCount = 0;
         $bFlag = FALSE;
-        foreach($aListEspData AS $aListData)
+        if(isset($aListEspData))
         {    
-            if (array_search($previousDate,$aListEspData[$nCount])) {
-                  $bFlag = TRUE;
+            $aEspDate = explode(' ',$aListEspData[0]['esp_date']);
+            $previousDate .= " ".$aEspDate[1];
+            $nCount = 0;
+
+            foreach($aListEspData AS $aListData)
+            {    
+                if (array_search($previousDate,$aListEspData[$nCount])) {
+                      $bFlag = TRUE;
+                }
+                $nCount++;
             }
-            $nCount++;
-        }    
+        }   
         if(empty($aListEspData) || $bFlag == FALSE)
         {   
             $nCount=0;
