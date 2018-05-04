@@ -169,7 +169,6 @@ class homeController {
         global $oUser, $oSession;
         $oESP = new esp();
         $aEspListData = $oESP->getEspListByName($_POST['esp_list_name']);
-        var_dump($aEspListData); exit;
         $nIdEsp = isset($aEspListData[0]['id_esp']) ? $aEspListData[0]['id_esp'] : ''; 
         $sListName = isset($_POST['esp_list_name']) ? $_POST['esp_list_name'] : '';
         $sEsp = isset($aEspListData[0]['esp']) ? $aEspListData[0]['esp'] : '';
