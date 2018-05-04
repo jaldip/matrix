@@ -176,6 +176,7 @@ class homeController {
                 $nCount++;
             }
             array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
+            var_dump($aEspNameList); exit;
         }
         require("dashboard.tpl.php");
     }
