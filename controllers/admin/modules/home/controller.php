@@ -162,7 +162,7 @@ class homeController {
                // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
                 {   
-                    var_dump();
+                    var_dump($aEspData['list_id'],$aData['list_id']);
                     if($aEspData['list_id'] == $aData['list_id'])
                     {   
                         $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
