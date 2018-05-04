@@ -29,7 +29,7 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        $previousDate = date('Y-m-d h:m:s',strtotime("-1 days"));
+        $previousDate = date('Y-m-d',strtotime("-1 days"));
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
@@ -68,7 +68,7 @@ class homeController {
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
-        var_dump($aListEspData['esp_date']);
+        var_dump(explode(' ',$aListEspData['esp_date']));
         var_dump($previousDate);
         if(empty($aListEspData) || $aListEspData['esp_date'] != $previousDate)
         {   
