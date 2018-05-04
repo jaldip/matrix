@@ -111,6 +111,7 @@
                                                 ?>
                                                 <tr  id="<?php echo $nCount; ?>" style="background-color:<?php echo $sBGColor;?>">
                                                 <input type="hidden" name="id_esp_<?php echo $nCount; ?>" id="id_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['id_esp']; ?>" /> 
+                                                <input type="hidden" name="esp_list_id_<?php echo $nCount; ?>" id="esp_list_id_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_id']; ?>" /> 
                                                 <input type="hidden" name="esp_list_name_<?php echo $nCount; ?>" id="esp_list_name_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_name']; ?>" /> 
                                                 <input type="hidden" name="esp_date_<?php echo $nCount; ?>" id="esp_date_<?php echo $nCount; ?>" value="<?php echo date("Y-m-d H:i:s", $aDataList['delivery_date']); ?>" />
                                                 <td align="center" ><b>
@@ -216,6 +217,7 @@
 <form name="updateEspForm" id="updateEspForm" method="POST" action="<?php echo getConfig('siteUrl') . '/home/addeditesp'; ?>">
     <input type="hidden" name="hidden_id_esp" id="hidden_id_esp" value="" /> 
     <input type="hidden" name="esp_list_name" id="esp_list_name" value="" /> 
+    <input type="hidden" name="esp_list_id" id="esp_list_id" value="" /> 
     <input type="hidden" name="esp_date" id="esp_date" value="" />
     <input type="hidden" name="range_one" id="range_one" value="" />
     <input type="hidden" name="range_two" id="range_two" value="" />
@@ -232,6 +234,7 @@
     function changeColor(nCount,nSuccessValue)
     {
         document.getElementById('hidden_id_esp').value = $("#id_esp_"+nCount).val();
+        document.getElementById('esp_list_id').value = $("#esp_list_id_"+nCount).val();
         document.getElementById('esp_list_name').value = $("#esp_list_name_"+nCount).val();
         document.getElementById('esp_date').value = $("#esp_date_"+nCount).val();
         document.getElementById('range_one').value = $("#range-one-"+nCount).val();
