@@ -65,7 +65,7 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        //echo '<pre>';var_dump($aListData);exit;
+        echo '<pre>';var_dump($aListData);exit;
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
@@ -180,7 +180,6 @@ class homeController {
                 $nCount++;
             }
             array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
-            var_dump($aEspNameList); exit;
         }
         require("dashboard.tpl.php");
     }
