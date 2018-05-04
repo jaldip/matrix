@@ -28,6 +28,7 @@ class esp extends siCommon {
 
         $aInsertFieldArray = array(
                             'id_esp',
+                            'list_id',   
                             'esp_date',
                             'esp_list_name',
                             'esp',
@@ -54,6 +55,7 @@ class esp extends siCommon {
         $aInsertValueArray = array(
             array(
                 $aEspData['id_esp'],
+                $aEspData['list_id'],
                 $aEspData['esp_date'],
                 $aEspData['esp_list_name'],
                 $aEspData['esp'],
@@ -93,6 +95,7 @@ class esp extends siCommon {
 
         $sSql = "SELECT 
                         e.id_esp as id_esp,
+                        e.list_id as list_id,
                         e.esp_date as esp_date,
                         e.esp_list_name as esp_list_name,
                         e.esp as esp,
@@ -129,6 +132,7 @@ class esp extends siCommon {
 
        $sSql = "SELECT 
                         e.id_esp as id_esp,
+                        e.list_id as list_id,
                         e.esp_date as esp_date,
                         e.esp_list_name as esp_list_name,
                         e.esp as esp,
