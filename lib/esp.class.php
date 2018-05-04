@@ -125,9 +125,9 @@ class esp extends siCommon {
         $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
-    public function getEspListByName($sListName) {
+    public function getEspListByName($nListId) {
         $sAndWhere = ' 1 = 1';
-        $sAndWhere .= " AND e.esp_list_name = ".'"'.$sListName.'"';
+        $sAndWhere .= " AND e.list_id = ".'"'.$nListId.'"';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
 
        $sSql = "SELECT 
