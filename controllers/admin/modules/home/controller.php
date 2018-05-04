@@ -77,6 +77,7 @@ class homeController {
             foreach($aListEspData AS $aEspCOuntData)
             { 
                 $previousDate = date('Y-m-d',strtotime("-1 days"));
+                $previousDate = "2018-05-02";
                 $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
                 $previousDate .= " ".$aEspDate[1];
             
