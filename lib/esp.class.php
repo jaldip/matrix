@@ -129,7 +129,10 @@ class esp extends siCommon {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.list_id = ".'"'.$nListId.'"';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-
+        
+        $aSort[] =   array(
+                                   ' ORDER BY e.id_esp' => array(' DESC')
+                               );
        $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
@@ -147,7 +150,7 @@ class esp extends siCommon {
                     WHERE" . $sAndWhere;
         
         //var_dump($sSql);            
-        $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
+        $sQueryHendler = $this->getList($sSql, array(), array(), array(), $aSort, array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
 
