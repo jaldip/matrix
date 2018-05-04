@@ -68,7 +68,7 @@ class homeController {
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
-        var_dump(explode(' ',$aListEspData['esp_date']));
+        var_dump(explode(' ',$aListEspData[0]['esp_date']));
         var_dump($previousDate);
         if(empty($aListEspData) || $aListEspData['esp_date'] != $previousDate)
         {   
