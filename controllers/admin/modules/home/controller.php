@@ -80,8 +80,7 @@ class homeController {
             }
             $nCount++;
         }    
-        echo $bFlag; exit;
-        if(empty($aListEspData) || $aEspDate[0] != $previousDate)
+        if(empty($aListEspData) || $bFlag == FALSE)
         {   
             $nCount=0;
             foreach ($aListData["payload"] AS $aData)
