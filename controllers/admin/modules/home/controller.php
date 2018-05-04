@@ -79,6 +79,7 @@ class homeController {
                     $aListTitle = json_decode($aDetails);
                  
                     $nIdEsp = '';
+                    $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
                     $dEspDate = (date("Y-m-d H:i:s", $aData['delivery_date']) != null) ? date("Y-m-d H:i:s", $aData['delivery_date']) : '';
                     $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
                     $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
@@ -101,6 +102,7 @@ class homeController {
                     $dUpdatedAt = date(getConfig('dtDateTime'));
                     $aEspData = array(
                         'id_esp' => $nIdEsp,
+                        'list_id' => $nListId,
                         'esp_date' => $dEspDate,
                         'esp_list_name' => $sListName,
                         'esp' => $sEsp,
@@ -147,6 +149,7 @@ class homeController {
                     if((date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date']) && $aEspData['esp_list_name'] == $aListTitle->payload->name)
                     {   
                         $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
+                        $aListData["payload"][$nCount]['list_id'] = $aEspData['list_id'];
                         $aListData["payload"][$nCount]['range_one'] = $aEspData['range_one'];
                         $aListData["payload"][$nCount]['range_two'] = $aEspData['range_two'];
                         $aListData["payload"][$nCount]['range_three'] = $aEspData['range_three'];
@@ -170,6 +173,7 @@ class homeController {
         $oESP = new esp();
         $aEspListData = $oESP->getEspListByName($_POST['esp_list_name']);
         $nIdEsp = isset($aEspListData[0]['id_esp']) ? $aEspListData[0]['id_esp'] : ''; 
+        $nListId = isset($aEspListData[0]['list_id']) ? $aEspListData[0]['list_id'] : ''; 
         $sListName = isset($_POST['esp_list_name']) ? $_POST['esp_list_name'] : '';
         $sEsp = isset($aEspListData[0]['esp']) ? $aEspListData[0]['esp'] : '';
         $sDomainGroupedByEsp = isset($aEspListData[0]['domain_grouped_by_esp']) ? $aEspListData[0]['domain_grouped_by_esp'] : ''; 
@@ -192,6 +196,7 @@ class homeController {
         $dUpdatedAt = date(getConfig('dtDateTime'));
         $aEspData = array(
                             'id_esp' => $nIdEsp,
+                            'list_id' => $nListId,
                             'esp_date' => $dEspDate,
                             'esp_list_name' => $sListName,
                             'esp' => $sEsp,
@@ -227,6 +232,7 @@ class homeController {
         foreach ($aListEspData as $aEspDetails)
         {    
             $aListData["payload"][$nCount] = $aEspDetails['id_esp'];
+            $aListData["payload"][$nCount] = $aEspDetails['list_id'];
             $aListData["payload"][$nCount] = $aEspDetails['esp_date'];
             $aListData["payload"][$nCount] = $aEspDetails['esp_list_name'];
             $aListData["payload"][$nCount] = $aEspDetails['esp'];
