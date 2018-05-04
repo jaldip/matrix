@@ -71,10 +71,16 @@ class homeController {
         $aListEspData = $oEsp->getEspList();
         $aEspDate = explode(' ',$aListEspData[0]['esp_date']);
         $previousDate .= " ".$aEspDate[1];
-        var_dump($aListEspData);
-        if (array_search($previousDate, array_column($aListEspData,'esp_date'))) {
-               echo "date in table"; exit;
-        }
+        $nCount = 0;
+        $bFlag = FALSE;
+        foreach($aListEspData AS $aListData)
+        {    
+            if (array_search($previousDate,$aListEspData[$nCount])) {
+                  $bFlag = TRUE;
+            }
+            $nCount++;
+        }    
+        echo $bFlag; exit;
         if(empty($aListEspData) || $aEspDate[0] != $previousDate)
         {   
             $nCount=0;
