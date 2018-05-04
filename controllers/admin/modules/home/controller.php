@@ -86,6 +86,7 @@ class homeController {
                 $nCount++;
             }
         }   
+        var_dump($bFlag); exit;
         if(empty($aListEspData) || $bFlag == FALSE)
         {   
             $nCount = 0;
