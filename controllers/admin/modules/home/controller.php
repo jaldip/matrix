@@ -191,6 +191,7 @@ class homeController {
         $oESP = new esp();
         $aEspListData = $oESP->getEspListByName($_POST['esp_list_id']);
         $nLastRecordCount = count($aEspListData);
+        $nLastRecordCount = $nLastRecordCount-1;
         $nIdEsp = isset($aEspListData[$nLastRecordCount]['id_esp']) ? $aEspListData[$nLastRecordCount]['id_esp'] : ''; 
         $nListId = isset($aEspListData[$nLastRecordCount]['list_id']) ? $aEspListData[$nLastRecordCount]['list_id'] : ''; 
         $sListName = isset($_POST['esp_list_name']) ? $_POST['esp_list_name'] : '';
