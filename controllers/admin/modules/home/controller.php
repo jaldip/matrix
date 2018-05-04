@@ -72,12 +72,13 @@ class homeController {
         $bFlag = FALSE;
         if(isset($aListEspData))
         {    
-            $aEspDate = explode(' ',$aListEspData[0]['esp_date']);
-            $previousDate .= " ".$aEspDate[1];
             $nCount = 0;
 
             foreach($aListEspData AS $aEspCOuntData)
-            {    
+            { 
+                $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
+                $previousDate .= " ".$aEspDate[1];
+            
                 if (array_search($previousDate,$aListEspData[$nCount])) {
                       $bFlag = TRUE;
                 }
