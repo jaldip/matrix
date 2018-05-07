@@ -17,6 +17,10 @@
      <!-- color picker -->
     <script src="<?php echo getConfig('siteUrl') .'/js/colorpicker/bootstrap-colorpicker.min.js';?>"></script>
     <script src="<?php echo getConfig('siteUrl') .'/js/colorpicker/docs.js';?>"></script>
+    <!-- moris js -->
+    <script src="<?php echo getConfig('siteUrl') .'/js/moris/raphael-min.js'; ?>"></script>
     <script src="<?php echo getConfig('siteUrl') .'/js/moris/morris.min.js';?>"></script>
+    <script src="<?php echo getConfig('siteUrl') .'/js/moris/example.js';?>"></script>
+
   
           
