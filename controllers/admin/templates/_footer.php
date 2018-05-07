@@ -17,6 +17,6 @@
      <!-- color picker -->
     <script src="<?php echo getConfig('siteUrl') .'/js/colorpicker/bootstrap-colorpicker.min.js';?>"></script>
     <script src="<?php echo getConfig('siteUrl') .'/js/colorpicker/docs.js';?>"></script>
-    <script src="<?php echo getConfig('siteUrl') .'/js/moris/morris.js';?>"></script>
+    <script src="<?php echo getConfig('siteUrl') .'/js/moris/morris.min.js';?>"></script>
   
           
