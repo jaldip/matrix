@@ -7,10 +7,13 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> 
                                 <span class="text-muted text-xs block"><?php echo __('profile'); ?><b class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="<?php echo getConfig('siteUrl') . '/users/changepassword' ?>"><?php echo __('change_password'); ?></a></li>
-                            <li><a href="<?php echo getConfig('siteUrl') . '/users/logout' ?>"><?php echo __('logout'); ?></a></li>
-                        </ul>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="<?php echo getConfig('siteUrl') . '/users/changepassword' ?>"><?php echo __('change_password'); ?></a></li>
+                                    <li><a href="<?php echo getConfig('siteUrl') . '/users/logout' ?>"><?php echo __('logout'); ?></a></li>
+                                </ul>
+                                <ul class="nav side-menu">
+                                    <li><a href="<?php echo getConfig('siteUrl') . '/graph/linegraph' ?>"><i class="fa fa-bar-chart-o"><?php echo __('Line Graph'); ?></i></a></li>
+                                </ul>
                     </div>
                     <div class="logo-element">
                         <?php echo __('MATRIX'); ?>
