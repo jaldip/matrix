@@ -12,6 +12,7 @@
                             <li><a href="<?php echo getConfig('siteUrl') . '/users/logout' ?>"><?php echo __('logout'); ?></a></li>
                         </ul>
                     </div>
+                    
                     <div class="logo-element">
                         <?php echo __('MATRIX'); ?>
                     </div>
