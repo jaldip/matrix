@@ -21,6 +21,6 @@
     <script src="<?php echo getConfig('siteUrl') .'/js/moris/raphael-min.js'; ?>"></script>
     <script src="<?php echo getConfig('siteUrl') .'/js/moris/morris.min.js';?>"></script>
     <script src="<?php echo getConfig('siteUrl') .'/js/moris/example.js';?>"></script>
-
+    <script src="<?php echo getConfig('siteUrl') .'/js/jquery.min.js';?>"></script>
   
           
