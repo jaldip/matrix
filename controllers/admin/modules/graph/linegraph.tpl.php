@@ -71,50 +71,7 @@
           
           <div class="row">
 
-            <!-- bar chart -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                
-                <div class="x_content">
-                  <div id="graph_bar" style="width:100%; height:280px;"></div>
-                </div>
-              </div>
-            </div>
-            <!-- /bar charts -->
-
-            <!-- bar charts group -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_content1">
-                  <div id="graph_bar_group" style="width:100%; height:280px;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <!-- /bar charts group -->
-
-            <!-- bar charts group -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                
-                <div class="x_content2">
-                  <div id="graphx" style="width:100%; height:300px;"></div>
-                </div>
-              </div>
-            </div>
-            <!-- /bar charts group -->
-
-            <!-- pie chart -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                
-                <div class="x_content2">
-                  <div id="graph_donut" style="width:100%; height:300px;"></div>
-                </div>
-              </div>
-            </div>
-            <!-- /Pie chart -->
-
+            
             <!-- graph area -->
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="x_panel">
