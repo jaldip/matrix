@@ -7,7 +7,7 @@
         </title>
         <?php require('_include.php'); ?>
     </head>
-    <body>
+    <body class="nav-md">
         <?php
             require('_header.php');	
             eval('$oMainController->call'.$sAction.'();');
