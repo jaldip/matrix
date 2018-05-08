@@ -237,7 +237,7 @@
         xkey: 'date',
         ykeys: ['success'],
         labels: '<?php echo $aListEspData[0]['esp_list_name']; ?>',
-        barRatio: 1000,
+        barRatio: 100,
         barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         xLabelAngle: 1000,
         hideHover: 'auto'
