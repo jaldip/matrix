@@ -223,7 +223,7 @@
     </div>
 
   </div>
-  <?php var_dump($aListData["payload"]); ?>
+  <?php var_dump($aListData); ?>
   <script>
       $(function () {
 
