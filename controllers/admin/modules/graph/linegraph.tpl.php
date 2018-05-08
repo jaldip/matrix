@@ -20,7 +20,7 @@
                     <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home"><?php echo __('Home'); ?></i></a></li>
                 </ul>
                 <ul class="nav side-menu">
-                    <li><a href="<?php echo getConfig('siteUrl') . '/graph/linegraph' ?>"><i class="fa fa-bar-chart-o"><?php echo __('Line Graph'); ?></i></a></li>
+                    <li><a href="<?php echo getConfig('siteUrl') . '/graph/linegraph' ?>"><i class="fa fa-bar-chart-o"><?php echo __('Report'); ?></i></a></li>
                 </ul>
             </ul>
 
@@ -48,13 +48,13 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2><?php echo __('MATRIX GRAPH'); ?></h2>
+                <h2><?php echo __('REPORT'); ?></h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="<?php echo getConfig('siteUrl') . '/home/dashboard'; ?>"><?php echo __('home'); ?></a>
                     </li>
                     <li>
-                        <a><?php echo __('Matrix Graph'); ?></a>
+                        <a><?php echo __('Report'); ?></a>
                     </li>
                     <li class="active">
                         <strong><?php echo __('Data Graph'); ?></strong>

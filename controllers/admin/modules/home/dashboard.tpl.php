@@ -20,7 +20,7 @@
                     <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home"><?php echo __('Home'); ?></i></a></li>
                 </ul>
                 <ul class="nav side-menu">
-                    <li><a href="<?php echo getConfig('siteUrl') . '/graph/linegraph' ?>"><i class="fa fa-bar-chart-o"><?php echo __('Line Graph'); ?></i></a></li>
+                    <li><a href="<?php echo getConfig('siteUrl') . '/graph/linegraph' ?>"><i class="fa fa-bar-chart-o"><?php echo __('Report'); ?></i></a></li>
                 </ul>
             </ul>
 
