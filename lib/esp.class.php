@@ -153,13 +153,13 @@ class esp extends siCommon {
         $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
-    public function getLastThirtyDaysRecords() {
+    public function getLastThirtyDaysRecords($sListName='ALR') {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-        $sAndWhere .= " AND DATE(e.esp_date) < CURDATE() - INTERVAL 30 DAY ";
-        $sAndWhere .= " AND e.esp_list_name = 'ALR' ";
+        $sAndWhere .= " AND e.esp_date < CURDATE() - INTERVAL 30 DAY ";
+        $sAndWhere .= " AND e.esp_list_name = $sListName ";
         
-        echo $sSql = "SELECT 
+        $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
                         e.esp_date as esp_date,
@@ -185,7 +185,7 @@ class esp extends siCommon {
                        
                     FROM
                             esp e
-                    WHERE" . $sAndWhere; exit;
+                    WHERE" . $sAndWhere;
 
         //var_dump($sSql);            
         $sQueryHendler = $this->getList($sSql,array(), array(), array(), array(),array());
