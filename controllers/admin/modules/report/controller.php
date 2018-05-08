@@ -32,7 +32,7 @@ class reportController {
         $oEsp =new esp();
         $sListName = 'ALR';
         $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
-        var_dump($aListEspData); EXIT;
+        
         $nCount = 0;
         foreach ($aListEspData as $aEspDetails)
         {    
