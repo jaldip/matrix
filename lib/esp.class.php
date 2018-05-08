@@ -157,6 +157,7 @@ class esp extends siCommon {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND DATE(e.esp_date) < CURDATE() - INTERVAL 30 DAY ";
+        $sAndWhere .= " AND e.esp_list_name = 'ALR' ";
         
         $sSql = "SELECT 
                         e.id_esp as id_esp,
