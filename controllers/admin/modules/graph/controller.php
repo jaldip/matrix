@@ -30,7 +30,7 @@ class graphController {
         global $oUser, $oSession;
         
         $oEsp =new esp();
-        $aListEspData = $oEsp->getEspList();
+        $aListEspData = $oEsp->getLastThirtyDaysRecords();
         
         $nCount = 0;
         foreach ($aListEspData as $aEspDetails)
