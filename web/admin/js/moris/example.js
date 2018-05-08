@@ -13,16 +13,16 @@ $(function () {
         {"period": "2016-09-15", "licensed": 2401, "sorned": 1656},
         {"period": "2016-09-10", "licensed": 2115, "sorned": 1022}
     ];
-//    Morris.Bar({
-//        element: 'graph_bar_group',
-//        data: day_data,
-//        xkey: 'period',
-//        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-//        ykeys: ['licensed', 'sorned'],
-//        labels: ['Licensed', 'SORN'],
-//        hideHover: 'auto',
-//        xLabelAngle: 60
-//    });
+    Morris.Bar({
+        element: 'graph_bar_group',
+        data: day_data,
+        xkey: 'period',
+        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+        ykeys: ['licensed', 'sorned'],
+        labels: ['Licensed', 'SORN'],
+        hideHover: 'auto',
+        xLabelAngle: 60
+    });
 
 //    Morris.Bar({
 //        element: 'graph_bar',
