@@ -57,7 +57,7 @@
                         <a><?php echo __('Report'); ?></a>
                     </li>
                     <li class="active">
-                        <strong><?php echo __('Data Graph'); ?></strong>
+                        <strong><?php echo __('Data'); ?></strong>
                     </li>
                 </ol>
             </div>
