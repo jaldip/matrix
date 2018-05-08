@@ -27,16 +27,16 @@ $(function () {
     Morris.Bar({
         element: 'graph_bar',
         data: [
-            {device: 'iPhone 4', geekbench: 380},
-            {device: 'iPhone 4S', geekbench: 655},
-            {device: 'iPhone 3GS', geekbench: 275},
-            {device: 'iPhone 5', geekbench: 1571},
-            {device: 'iPhone 5S', geekbench: 655},
-            {device: 'iPhone 6', geekbench: 2154},
-            {device: 'iPhone 6 Plus', geekbench: 1144},
-            {device: 'iPhone 6S', geekbench: 2371},
-            {device: 'iPhone 6S Plus', geekbench: 1471},
-            {device: 'Other', geekbench: 1371}
+            {device: '2018-05-07', ALR: 0},
+            {device: '2018-05-06', ALR: 500},
+            {device: '2018-05-05', ALR: 685},
+            {device: '2018-05-04', ALR: 1571},
+            {device: '2018-05-03', ALR: 2655},
+            {device: '2018-05-02', ALR: 22154},
+            {device: '2018-05-01', ALR: 1144},
+            {device: '2018-04-30', ALR: 2371},
+            {device: '2018-04-29', ALR: 1471},
+            {device: 'Other', ALR: 1371}
         ],
         xkey: 'device',
         ykeys: ['geekbench'],
