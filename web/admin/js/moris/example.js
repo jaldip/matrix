@@ -2,16 +2,16 @@ $(function () {
 
     /* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
     var day_data = [
-        {"period": "2016-10-01", "licensed": 807, "sorned": 660},
-        {"period": "2016-09-30", "licensed": 1251, "sorned": 729},
-        {"period": "2016-09-29", "licensed": 1769, "sorned": 1018},
-        {"period": "2016-09-20", "licensed": 2246, "sorned": 1461},
-        {"period": "2016-09-19", "licensed": 2657, "sorned": 1967},
-        {"period": "2016-09-18", "licensed": 3148, "sorned": 2627},
-        {"period": "2016-09-17", "licensed": 3471, "sorned": 3740},
-        {"period": "2016-09-16", "licensed": 2871, "sorned": 2216},
-        {"period": "2016-09-15", "licensed": 2401, "sorned": 1656},
-        {"period": "2016-09-10", "licensed": 2115, "sorned": 1022}
+        {"period": "2018-05-07", "licensed": 80, "sorned": 60},
+        {"period": "2018-05-06", "licensed": 251, "sorned": 290},
+        {"period": "2018-05-05", "licensed": 769, "sorned": 800},
+        {"period": "2018-05-04", "licensed": 246, "sorned": 461},
+        {"period": "2018-05-03", "licensed": 657, "sorned": 967},
+        {"period": "2018-05-02", "licensed": 148, "sorned": 627},
+        {"period": "2018-05-01", "licensed": 471, "sorned": 740},
+        {"period": "2018-04-30", "licensed": 871, "sorned": 900},
+        {"period": "2018-04-29", "licensed": 401, "sorned": 656},
+        {"period": "2018-04-28", "licensed": 115, "sorned": 122}
     ];
 //    Morris.Bar({
 //        element: 'graph_bar_group',
@@ -27,14 +27,14 @@ $(function () {
     Morris.Bar({
         element: 'graph_bar',
         data: [
-            {device: '2018-05-07', ALR: 0},
-            {device: '2018-05-06', ALR: 500},
-            {device: '2018-05-05', ALR: 685},
-            {device: '2018-05-04', ALR: 1571},
-            {device: '2018-05-03', ALR: 2655},
-            {device: '2018-05-02', ALR: 22154},
-            {device: '2018-05-01', ALR: 1144},
-            {device: '2018-04-30', ALR: 2371},
+            {device: '2018-05-07', ALR: 10},
+            {device: '2018-05-06', ALR: 50},
+            {device: '2018-05-05', ALR: 85},
+            {device: '2018-05-04', ALR: 71},
+            {device: '2018-05-03', ALR: 55},
+            {device: '2018-05-02', ALR: 154},
+            {device: '2018-05-01', ALR: 44},
+            {device: '2018-04-30', ALR: 71},
             {device: '2018-04-29', ALR: 1471},
             {device: 'Other', ALR: 1371}
         ],
