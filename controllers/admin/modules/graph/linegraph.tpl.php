@@ -54,7 +54,7 @@
                         <a href="<?php echo getConfig('siteUrl') . '/home/dashboard'; ?>"><?php echo __('home'); ?></a>
                     </li>
                     <li>
-                        <a><?php echo __('MATRIX GRAPH'); ?></a>
+                        <a><?php echo __('Matrix Graph'); ?></a>
                     </li>
                     <li class="active">
                         <strong><?php echo __('Data Graph'); ?></strong>
