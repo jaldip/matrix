@@ -156,7 +156,8 @@ class esp extends siCommon {
     public function getLastThirtyDaysRecords($sListName='ALR') {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-        //$sAndWhere .= " AND e.esp_date < CURDATE() - INTERVAL 30 DAY ";
+        $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
+        $sAndWhere .= " AND e.esp_date < CURDATE() ";
         $sAndWhere .= " AND e.esp_list_name = '$sListName'";
         
         $sSql = "SELECT 
