@@ -252,4 +252,7 @@
 
 /* *********  /calender dropdown  **************************** */
 
-
+.panel_toolbox {
+  float: right;
+  min-width: 70px;
+}
