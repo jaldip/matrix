@@ -8,7 +8,7 @@
  */
 class graphController {
 
-    public $aLayout = array('linegraph' => '');
+    public $aLayout = array('linegraph' => 'main');
     public $aLoginRequired = array('linegraph' => true);
 
     public function __construct() {

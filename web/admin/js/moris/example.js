@@ -13,16 +13,16 @@ $(function () {
         {"period": "2016-09-15", "licensed": 2401, "sorned": 1656},
         {"period": "2016-09-10", "licensed": 2115, "sorned": 1022}
     ];
-    Morris.Bar({
-        element: 'graph_bar_group',
-        data: day_data,
-        xkey: 'period',
-        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        ykeys: ['licensed', 'sorned'],
-        labels: ['Licensed', 'SORN'],
-        hideHover: 'auto',
-        xLabelAngle: 60
-    });
+//    Morris.Bar({
+//        element: 'graph_bar_group',
+//        data: day_data,
+//        xkey: 'period',
+//        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+//        ykeys: ['licensed', 'sorned'],
+//        labels: ['Licensed', 'SORN'],
+//        hideHover: 'auto',
+//        xLabelAngle: 60
+//    });
 
     Morris.Bar({
         element: 'graph_bar',
@@ -47,59 +47,59 @@ $(function () {
         hideHover: 'auto'
     });
 
-    Morris.Bar({
-        element: 'graphx',
-        data: [
-            {x: '2015 Q1', y: 2, z: 3, a: 4},
-            {x: '2015 Q2', y: 3, z: 5, a: 6},
-            {x: '2015 Q3', y: 4, z: 3, a: 2},
-            {x: '2015 Q4', y: 2, z: 4, a: 5}
-        ],
-        xkey: 'x',
-        ykeys: ['y', 'z', 'a'],
-        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        hideHover: 'auto',
-        labels: ['Y', 'Z', 'A']
-    }).on('click', function (i, row) {
-        console.log(i, row);
-    });
-
-    Morris.Area({
-        element: 'graph_area',
-        data: [
-            {period: '2014 Q1', iphone: 2666, ipad: null, itouch: 2647},
-            {period: '2014 Q2', iphone: 2778, ipad: 2294, itouch: 2441},
-            {period: '2014 Q3', iphone: 4912, ipad: 1969, itouch: 2501},
-            {period: '2014 Q4', iphone: 3767, ipad: 3597, itouch: 5689},
-            {period: '2015 Q1', iphone: 6810, ipad: 1914, itouch: 2293},
-            {period: '2015 Q2', iphone: 5670, ipad: 4293, itouch: 1881},
-            {period: '2015 Q3', iphone: 4820, ipad: 3795, itouch: 1588},
-            {period: '2015 Q4', iphone: 15073, ipad: 5967, itouch: 5175},
-            {period: '2016 Q1', iphone: 10687, ipad: 4460, itouch: 2028},
-            {period: '2016 Q2', iphone: 8432, ipad: 5713, itouch: 1791}
-        ],
-        xkey: 'period',
-        ykeys: ['iphone', 'ipad', 'itouch'],
-        lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        labels: ['iPhone', 'iPad', 'iPod Touch'],
-        pointSize: 2,
-        hideHover: 'auto'
-    });
-
-
-    Morris.Donut({
-        element: 'graph_donut',
-        data: [
-            {label: 'Jam', value: 25},
-            {label: 'Frosted', value: 40},
-            {label: 'Custard', value: 25},
-            {label: 'Sugar', value: 10}
-        ],
-        colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        formatter: function (y) {
-            return y + "%"
-        }
-    });
+//    Morris.Bar({
+//        element: 'graphx',
+//        data: [
+//            {x: '2015 Q1', y: 2, z: 3, a: 4},
+//            {x: '2015 Q2', y: 3, z: 5, a: 6},
+//            {x: '2015 Q3', y: 4, z: 3, a: 2},
+//            {x: '2015 Q4', y: 2, z: 4, a: 5}
+//        ],
+//        xkey: 'x',
+//        ykeys: ['y', 'z', 'a'],
+//        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+//        hideHover: 'auto',
+//        labels: ['Y', 'Z', 'A']
+//    }).on('click', function (i, row) {
+//        console.log(i, row);
+//    });
+//
+//    Morris.Area({
+//        element: 'graph_area',
+//        data: [
+//            {period: '2014 Q1', iphone: 2666, ipad: null, itouch: 2647},
+//            {period: '2014 Q2', iphone: 2778, ipad: 2294, itouch: 2441},
+//            {period: '2014 Q3', iphone: 4912, ipad: 1969, itouch: 2501},
+//            {period: '2014 Q4', iphone: 3767, ipad: 3597, itouch: 5689},
+//            {period: '2015 Q1', iphone: 6810, ipad: 1914, itouch: 2293},
+//            {period: '2015 Q2', iphone: 5670, ipad: 4293, itouch: 1881},
+//            {period: '2015 Q3', iphone: 4820, ipad: 3795, itouch: 1588},
+//            {period: '2015 Q4', iphone: 15073, ipad: 5967, itouch: 5175},
+//            {period: '2016 Q1', iphone: 10687, ipad: 4460, itouch: 2028},
+//            {period: '2016 Q2', iphone: 8432, ipad: 5713, itouch: 1791}
+//        ],
+//        xkey: 'period',
+//        ykeys: ['iphone', 'ipad', 'itouch'],
+//        lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+//        labels: ['iPhone', 'iPad', 'iPod Touch'],
+//        pointSize: 2,
+//        hideHover: 'auto'
+//    });
+//
+//
+//    Morris.Donut({
+//        element: 'graph_donut',
+//        data: [
+//            {label: 'Jam', value: 25},
+//            {label: 'Frosted', value: 40},
+//            {label: 'Custard', value: 25},
+//            {label: 'Sugar', value: 10}
+//        ],
+//        colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+//        formatter: function (y) {
+//            return y + "%"
+//        }
+//    });
 
     new Morris.Line({
         element: 'graph_line',
