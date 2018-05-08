@@ -234,7 +234,9 @@
     Morris.Bar({
         element: 'graph_bar',
         data: [
-            {date: '2018-05-07', success: 00},
+            <?php foreach($aListData["payload"] AS $aDataList) { ?>
+            {date: '<?php echo $aDataList['esp_date']; ?>', success: <?php echo $aDataList['success']; ?>},
+            <?php } ?> 
             {date: '2018-05-06', success: 500},
             {date: '2018-05-05', success: 850},
             {date: '2018-05-04', success: 71000},
