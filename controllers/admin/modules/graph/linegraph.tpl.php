@@ -230,9 +230,9 @@
     /* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type 
      * 
      */
-    <?php foreach($aListEspData['payload'] AS $aListData){
+    <?php foreach($aListEspData['payload'] AS $aListData){ ?>
         alert($aListData['list_name']);
-    } ?>
+    <?php } ?>
     Morris.Bar({
         element: 'graph_bar',
         data: [
