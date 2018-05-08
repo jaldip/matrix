@@ -227,19 +227,10 @@
   <script>
       $(function () {
 
-    /* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
-//    var day_data = [
-//        {"period": "2018-05-07", "licensed": 80, "sorned": 60},
-//        {"period": "2018-05-06", "licensed": 251, "sorned": 290},
-//        {"period": "2018-05-05", "licensed": 769, "sorned": 800},
-//        {"period": "2018-05-04", "licensed": 246, "sorned": 461},
-//        {"period": "2018-05-03", "licensed": 657, "sorned": 967},
-//        {"period": "2018-05-02", "licensed": 148, "sorned": 627},
-//        {"period": "2018-05-01", "licensed": 471, "sorned": 740},
-//        {"period": "2018-04-30", "licensed": 871, "sorned": 900},
-//        {"period": "2018-04-29", "licensed": 401, "sorned": 656},
-//        {"period": "2018-04-28", "licensed": 115, "sorned": 122}
-//    ];
+    /* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type 
+     * 
+     */
+    <?php var_dump($aListEspData); ?>
     Morris.Bar({
         element: 'graph_bar',
         data: [
