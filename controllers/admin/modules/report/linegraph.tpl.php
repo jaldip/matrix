@@ -231,7 +231,7 @@
         element: 'graph_bar',
         data: [
     <?php foreach ($aListEspData AS $aRecords) { ?>
-            {date: '<?php echo $aRecords['esp_list_name']; ?>', success: <?php echo $aRecords['success']; ?>},
+            {date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
             <?Php } ?>  
 //            {date: '2018-05-06', success: 500},
 //            {date: '2018-05-05', success: 850},
