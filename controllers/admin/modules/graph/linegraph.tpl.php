@@ -72,14 +72,14 @@
           <div class="row">
 
             <!-- bar chart -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
+<!--            <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="x_panel">
                 
                 <div class="x_content">
                   <div id="graph_bar" style="width:100%; height:280px;"></div>
                 </div>
               </div>
-            </div>
+            </div>-->
             <!-- /bar charts -->
 
             <!-- bar chart -->
