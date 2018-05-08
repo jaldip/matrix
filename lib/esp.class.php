@@ -159,7 +159,7 @@ class esp extends siCommon {
         $sAndWhere .= " AND DATE(e.esp_date) < CURDATE() - INTERVAL 30 DAY ";
         $sAndWhere .= " AND e.esp_list_name = 'ALR' ";
         
-        $sSql = "SELECT 
+        echo $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
                         e.esp_date as esp_date,
@@ -185,7 +185,7 @@ class esp extends siCommon {
                        
                     FROM
                             esp e
-                    WHERE" . $sAndWhere;
+                    WHERE" . $sAndWhere; exit;
 
         //var_dump($sSql);            
         $sQueryHendler = $this->getList($sSql,array(), array(), array(), array(),array());
