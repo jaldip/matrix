@@ -96,7 +96,7 @@ class esp extends siCommon {
                                    ' ORDER BY e.id_esp' => array(' DESC')
                                );
         $aLimit[] = array(
-                               ' LIMIT 30'
+                               ' LIMIT 5'
                            );
         $sSql = "SELECT 
                         e.id_esp as id_esp,
