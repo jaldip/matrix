@@ -48,16 +48,16 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2><?php echo __('MATRIX FILTER'); ?></h2>
+                <h2><?php echo __('MATRIX GRAPH'); ?></h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="<?php echo getConfig('siteUrl') . '/home/dashboard'; ?>"><?php echo __('home'); ?></a>
                     </li>
                     <li>
-                        <a><?php echo __('MATRIX FILTER'); ?></a>
+                        <a><?php echo __('MATRIX GRAPH'); ?></a>
                     </li>
                     <li class="active">
-                        <strong><?php echo __('Data Tables'); ?></strong>
+                        <strong><?php echo __('Data Graph'); ?></strong>
                     </li>
                 </ol>
             </div>
