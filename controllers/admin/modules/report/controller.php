@@ -57,7 +57,8 @@ class reportController {
             $aListData["payload"][$nCount] = $aEspDetails['color_picker_two'];
             $aListData["payload"][$nCount] = $aEspDetails['color_picker_three'];
             $nCount++;
-        }    
+        } 
+        var_dump($aListData); exit;
         require("linegraph.tpl.php");
     }
     
