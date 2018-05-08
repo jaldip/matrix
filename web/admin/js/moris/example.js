@@ -38,12 +38,12 @@ $(function () {
             {device: '2018-04-29', ALR: 1471},
             {device: 'Other', ALR: 1371}
         ],
-        xkey: 'device',
-        ykeys: ['geekbench'],
-        labels: ['Geekbench'],
+        xkey: 'Date',
+        ykeys: ['success'],
+        labels: ['ALR'],
         barRatio: 1000,
         barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        xLabelAngle: 35,
+        xLabelAngle: 1000,
         hideHover: 'auto'
     });
 
