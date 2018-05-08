@@ -33,7 +33,7 @@ class reportController {
         $sListName = 'ALR';
         $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
          
-        var_dump($aListEspData); exit;
+        //var_dump($aListEspData); exit;
         require("linegraph.tpl.php");
     }
     
