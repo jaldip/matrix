@@ -28,11 +28,11 @@ class reportController {
     public function callLineGraph() {
         global $sAction;
         global $oUser, $oSession;
-        
+        $aListData["payload"] = array();
         $oEsp =new esp();
         $sListName = 'ALR';
         $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
-        var_dump($aListEspData); exit;
+        //var_dump($aListEspData); exit;
         $nCount = 0;
         foreach ($aListEspData as $aEspDetails)
         {    
