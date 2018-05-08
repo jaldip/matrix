@@ -27,16 +27,16 @@ $(function () {
     Morris.Bar({
         element: 'graph_bar',
         data: [
-            {date: '2018-05-07', ALR: 10},
-            {date: '2018-05-06', ALR: 50},
-            {date: '2018-05-05', ALR: 85},
-            {date: '2018-05-04', ALR: 71},
-            {date: '2018-05-03', ALR: 55},
-            {date: '2018-05-02', ALR: 154},
-            {date: '2018-05-01', ALR: 44},
-            {date: '2018-04-30', ALR: 71},
-            {date: '2018-04-29', ALR: 1471},
-            {date: 'Other', ALR: 1371}
+            {date: '2018-05-07', success: 10},
+            {date: '2018-05-06', success: 50},
+            {date: '2018-05-05', success: 85},
+            {date: '2018-05-04', success: 71},
+            {date: '2018-05-03', success: 55},
+            {date: '2018-05-02', success: 154},
+            {date: '2018-05-01', success: 44},
+            {date: '2018-04-30', success: 71},
+            {date: '2018-04-29', success: 1471},
+            {date: 'Other', success: 1371}
         ],
         xkey: 'date',
         ykeys: ['success'],
