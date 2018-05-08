@@ -223,14 +223,10 @@
     </div>
 
   </div>
-
+  <?php var_dump($aListData["payload"]); ?>
   <script>
       $(function () {
 
-    /* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type 
-     * 
-     */
-    <?php var_dump($aListData["payload"]); ?>
     Morris.Bar({
         element: 'graph_bar',
         data: [
