@@ -92,9 +92,12 @@ class esp extends siCommon {
     public function getEspList() {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-//        $aSort[] =   array(
-//                                   ' ORDER BY e.id_esp' => array(' DESC')
-//                               );
+        $aSort[] =   array(
+                                   ' ORDER BY e.id_esp' => array(' DESC')
+                               );
+        $aLimit[] = array(
+                               ' LIMIT 30'
+                           );
         $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
@@ -124,7 +127,7 @@ class esp extends siCommon {
                     WHERE" . $sAndWhere;
 
         //var_dump($sSql);            
-        $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
+        $sQueryHendler = $this->getList($sSql,$aLimit, array(), array(), array(), $aSort);
         return $this->getData($sQueryHendler, "ARRAY");
     }
     public function getEspListByName($nListId) {
