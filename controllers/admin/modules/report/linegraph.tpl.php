@@ -236,7 +236,7 @@
       $(function () {
         var day_data = [
             <?php foreach ($aListEspData AS $aRecords) { ?>
-            {"date": "<?php echo $aRecords['esp_date']; ?>", "total": 807, "sucess": <?php echo $aRecords['sucess']; ?>, "total open": 660, "total fail": 50},
+            {"date": "<?php echo $aRecords['esp_date']; ?>", "total": 807, "sucess": 200, "total open": 660, "total fail": 50},
             <?php } ?>
         ];
     Morris.Bar({
