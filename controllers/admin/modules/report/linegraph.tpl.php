@@ -285,8 +285,8 @@
         data: day_data,
         xkey: 'date',
         barColors: ['#0000FF', '#2ecc71','#f43015'],
-        ykeys: ['Success','Total Open','Total Fail'],
-        labels: ['Success','Total Open','Total Fail'],
+        ykeys: ['Total Success','Total Open','Total Fail'],
+        labels: ['Total Success','Total Open','Total Fail'],
         hideHover: 'auto',
         xLabelAngle: 60
     });
@@ -307,7 +307,7 @@
     Morris.Donut({
         element: 'graph_donut',
         data: [
-            {label: 'Success', value: <?php echo $nSuccessPercent; ?>},
+            {label: 'Total Success', value: <?php echo $nSuccessPercent; ?>},
             {label: 'Total Open', value: <?php echo $nOpensPercent; ?>},
             {label: 'Total Fail', value: <?php echo $nFailedPercent; ?>},
         ],
