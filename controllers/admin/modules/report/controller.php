@@ -34,7 +34,6 @@ class reportController {
         $sListName = isset($_POST['list_name']) ? $_POST['list_name'] : '';
         $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
         
-        var_dump($aListEspData);
         require("linegraph.tpl.php");
     }
     

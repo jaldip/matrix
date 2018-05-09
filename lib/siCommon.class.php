@@ -106,7 +106,7 @@ class siCommon extends mySql {
                 $ssHaving .= $eValue;
             }
         }
-        $aQuery = $sQuery . $ssSearch . $ssGroupBy . $ssHaving . $ssSort . $limit;
+        echo $aQuery = $sQuery . $ssSearch . $ssGroupBy . $ssHaving . $ssSort . $limit; exit;
         return $this->executeQuery($aQuery);
     }
 
