@@ -234,6 +234,9 @@
   </div>
    <script>
       $(function () {
+        <?php foreach ($aListEspData AS $aRecords) { ?>  
+        alert(<?php $aRecords['sucess']; ?>);
+        <?php } ?>
         var day_data = [
             <?php foreach ($aListEspData AS $aRecords) { ?>
             {"date": "<?php echo $aRecords['esp_date']; ?>", "total": 807, "sucess": 200, "total open": 660, "total fail": 50},
