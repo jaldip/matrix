@@ -235,7 +235,7 @@
    <script>
       $(function () {
         <?php foreach ($aListEspData AS $aRecords) { ?>  
-        alert(<?php $aRecords['success']; ?>);
+        alert(<?php echo $aRecords['success']; ?>);
         <?php } ?>
         var day_data = [
             <?php foreach ($aListEspData AS $aRecords) { ?>
