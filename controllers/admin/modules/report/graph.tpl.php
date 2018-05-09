@@ -79,9 +79,11 @@
                   <ul class="nav navbar-right panel_toolbox">
                     <li>
                         <select class="form-control" onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')">
-                            <?php foreach($aLists AS $sListName){  ?> 
-                                <option value="<?php echo $sListName;?>"><?php echo $sListName['esp_list_name'];?></option>
-                            <?php } ?>
+                                <option value="ALR">ALR</option>
+                                <option value="LP">LP</option>
+                                <option value="PFF">PFF</option>
+                                <option value="WA">WA</option>
+                                <option value="CPD">CPD</option>
                         </select>
                     <li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
