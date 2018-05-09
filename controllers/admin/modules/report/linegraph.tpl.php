@@ -78,7 +78,7 @@
                   <h2>Bar Chart Group <small>Sessions</small></h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li>
-                        <select class="form-control" onchange="getReportData()">
+                        <select class="form-control" onchange="getReportData(this.value)">
                             <option value="ALR">ALR</option>
                             <option value="FPP">FPP</option>
                             <option value="WA">WA</option>
@@ -240,8 +240,8 @@
 
 </script>    
 <script>
-    function getReportData()
+    function getReportData(sValue)
     {
-        alert('sai');
+        alert(sValue);
     }
 </script>    
