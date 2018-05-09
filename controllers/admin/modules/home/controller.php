@@ -46,7 +46,9 @@ class homeController {
                 "sent",
                 "clicks",
                 "complaints",
-                "complaints_rate"
+                "complaints_rate",
+                "opens",
+                "failed"
            ],
            "filter": [
                 [ "delivery_date", "=", "'.$previousDate.'" ]
@@ -64,7 +66,7 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        //echo '<pre>';var_dump($aListData);exit;
+        echo '<pre>';var_dump($aListData);exit;
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();

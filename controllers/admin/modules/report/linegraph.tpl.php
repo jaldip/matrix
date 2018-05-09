@@ -232,7 +232,6 @@
     </div>
 
   </div>
-  <?php var_dump($aListEspData); ?>
    <script>
       $(function () {
         var day_data = [
