@@ -1,7 +1,7 @@
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -16,23 +16,22 @@
                         <?php echo __('MATRIX'); ?>
                     </div>
                 </li>
-                <ul class="nav side-menu">
+<!--                <ul class="nav side-menu">
                     <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home" style="font-size: 20px;"><?php echo  ' '.__('Home'); ?></i></a></li>
                 </ul>
                 <ul class="nav side-menu">
                     <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" style="font-size: 20px;"><?php echo ' '.__('Report'); ?></i></a></li>
-                </ul>
+                </ul>-->
             </ul>
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-
-            <div class="menu_section">
-              <h3>General</h3>
-              <ul class="nav side-menu">
-                <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home"></i> Home </a>
-                </li>
-                <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" ><?php echo ' '.__('Report'); ?></i></a></li>
-              </ul>  
-        </div>
+                <div class="menu_section">
+                  <h3>General</h3>
+                  <ul class="nav side-menu">
+                    <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home"></i> Home </a>
+                    </li>
+                    <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" ><?php echo ' '.__('Report'); ?></i></a></li>
+                  </ul>  
+                </div>
+          </div>      
     </nav>
     <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
