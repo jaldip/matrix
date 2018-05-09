@@ -244,7 +244,12 @@
                 $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
                 $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;
                     
-        } ?>
+        }
+        $nTotal = $nTotalSuccess+ $nTotalOpens+$nTotalFailed;
+        $nSuccessPercent = $nTotalSuccess/$nTotal *100;
+        $nOpensPercent = $nTotalOpens/$nTotal *100;
+        $nFailedPercent = $nTotalFailed/$nTotal *100;
+        ?>
         var day_data = [
                 {"date": "All", "success": <?php echo $nTotalSuccess; ?>, "total open": <?php echo $nTotalOpens; ?>, "total fail": <?php echo $nTotalFailed; ?>},
         ];
@@ -258,23 +263,6 @@
         hideHover: 'auto',
         xLabelAngle: 60
     });
-    
-//    Morris.Bar({
-//        element: 'graph_bar',
-//        data: [
-//    <?php //foreach ($aListEspData AS $aRecords) { ?>
-//            {date: '<?php //echo $aRecords['esp_date']; ?>', success: <?php //echo $aRecords['success']; ?>},
-//            <?Php //} ?>  
-//        ],
-//        xkey: 'date',
-//        ykeys: ['success'],
-//        labels: '<?php //echo $aListEspData[0]['esp_list_name']; ?>',
-//        barRatio: 100,
-//        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-//        xLabelAngle: 1000,
-//        hideHover: 'auto'
-//    });
-
 
     new Morris.Line({
         element: 'graph_line',
@@ -282,12 +270,24 @@
         ykeys: ['success'],
         labels: ['Success'],
         hideHover: 'auto',
-        lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+        lineColors: ['#0000FF', '#2ecc71','#f43015'],
         data: [
             <?php foreach ($aListEspData AS $aRecords) { ?>
             {date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
             <?Php } ?>
         ]
+    });
+    Morris.Donut({
+        element: 'graph_donut',
+        data: [
+            {label: 'success', value: <?php echo $nSuccessPercent; ?>},
+            {label: 'total open', value: <?php echo $nOpensPercent; ?>},
+            {label: 'total fail', value: <?php echo $nFailedPercent; ?>},
+        ],
+        colors: ['#0000FF', '#2ecc71','#f43015'],
+        formatter: function (y) {
+            return y + "%"
+        }
     });
 
 });
