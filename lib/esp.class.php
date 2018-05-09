@@ -167,7 +167,7 @@ class esp extends siCommon {
                         e.esp_list_name as esp_list_name,
                         e.esp as esp,
                         e.domain_grouped_by_esp as domain_grouped_by_esp,
-                        SUM(e.success) as success,
+                        e.success as success,
                         e.open_percentage as open_percentage, 
                         e.clicks as clicks, 
                         e.complaints as complaints,
