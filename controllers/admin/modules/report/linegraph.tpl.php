@@ -73,7 +73,7 @@
 
           
             <!-- bar chart -->
-            <div class="col-md-12 col-sm-12 col-xs-12">
+<!--            <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Bar Charts <small>Sessions</small></h2>
@@ -98,11 +98,11 @@
                   <div id="graph_bar" style="width:100%; height:280px;"></div>
                 </div>
               </div>
-            </div>
+            </div>-->
             <!-- /bar charts --> 
 
              <!-- bar charts group -->
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Bar Chart Group <small>Sessions</small></h2>
@@ -232,7 +232,7 @@
     </div>
 
   </div>
-  
+  <?php var_dump($aListEspData); ?>
    <script>
       $(function () {
         var day_data = [
@@ -251,21 +251,21 @@
         xLabelAngle: 60
     });
     
-    Morris.Bar({
-        element: 'graph_bar',
-        data: [
-    <?php foreach ($aListEspData AS $aRecords) { ?>
-            {date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
-            <?Php } ?>  
-        ],
-        xkey: 'date',
-        ykeys: ['success'],
-        labels: '<?php echo $aListEspData[0]['esp_list_name']; ?>',
-        barRatio: 100,
-        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        xLabelAngle: 1000,
-        hideHover: 'auto'
-    });
+//    Morris.Bar({
+//        element: 'graph_bar',
+//        data: [
+//    <?php //foreach ($aListEspData AS $aRecords) { ?>
+//            {date: '<?php //echo $aRecords['esp_date']; ?>', success: <?php //echo $aRecords['success']; ?>},
+//            <?Php //} ?>  
+//        ],
+//        xkey: 'date',
+//        ykeys: ['success'],
+//        labels: '<?php //echo $aListEspData[0]['esp_list_name']; ?>',
+//        barRatio: 100,
+//        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+//        xLabelAngle: 1000,
+//        hideHover: 'auto'
+//    });
 
 
     new Morris.Line({
