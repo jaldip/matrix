@@ -178,6 +178,7 @@
     </div>
 
   </div>
+<?php var_dump($aListEspData); ?>
    <script>
       $(function () {
         <?php 
