@@ -1,30 +1,22 @@
 
-//function editUser(nIdUser)
-//{
-//     document.getElementById('user_id').value = nIdUser;
-//     document.getElementById("addedituser").submit();
-//}
-function uploadFileData(fileData,nImageId)
+function getReportData(sValue,sFrmAction)
 {
-   document.getElementById(nImageId).value = fileData.replace("C:\\fakepath\\", "");
-    //$("#addMoreButton").show();
+    //setting value of hidden variable         
+    $('#hidden_list_name').val(sValue);
+    //submitting form
+    $("#commonForm").attr("action",sFrmAction);
+    $('#commonForm').submit();
 }
-function displayMarketData(sUrl,sDivId){
-    $.ajax({
-        url:'sUrl',
-        dataType: "html",
-        success: function(response){
-        $("#"+sDivId).html(response);
-            setTimeout(function(){displayMarketData();}, 5000);
-        }
-    });
-}
-function getPreviousDate(sPreviousDate,nColumnNumber){ 
-    $('#previousDate').val(sPreviousDate);
-    $('#columnNumber').val(nColumnNumber);
-}
-function switchServer(bSwitch)
-{
-    $('#switch_server').val(bSwitch);
-    $("#form-switch-server").submit();
-}
+
+//    function getReportData(sValue,sFrmAction)
+//    {
+//        $.ajax({
+//            type: "POST",
+//            url :sFrmAction,
+//            data: {'list_name' : sValue},
+//            success: function(data) 
+//            {
+//                alert(data);
+//            }
+//        });
+//    }
