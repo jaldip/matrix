@@ -248,7 +248,7 @@
             data: {'list_name' : sValue},
             success: function(data) 
             {
-                alert('sai');
+                $("#wrapper").html(data);
             }
         });
     }
