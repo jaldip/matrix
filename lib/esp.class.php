@@ -167,11 +167,13 @@ class esp extends siCommon {
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
+        $aGroupBy = array();
         if($sListName != '')
         {    
             $sAndWhere .= " AND e.esp_list_name = '$sListName'";
+        }else {
+            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
         }
-        $aGroupBy = array(' GROUP BY' => ' e.esp_date');
         
         $sSql = "SELECT 
                         e.id_esp as id_esp,
