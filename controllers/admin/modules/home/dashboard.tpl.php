@@ -16,12 +16,6 @@
                         <?php echo __('MATRIX'); ?>
                     </div>
                 </li>
-<!--                <ul class="nav side-menu">
-                    <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home" style="font-size: 20px;"><?php echo  ' '.__('Home'); ?></i></a></li>
-                </ul>
-                <ul class="nav side-menu">
-                    <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" style="font-size: 20px;"><?php echo ' '.__('Report'); ?></i></a></li>
-                </ul>-->
             </ul>
                 <div class="menu_section">
                   <ul class="nav side-menu">

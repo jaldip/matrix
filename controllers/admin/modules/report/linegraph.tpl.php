@@ -16,12 +16,6 @@
                         <?php echo __('MATRIX'); ?>
                     </div>
                 </li>
-<!--                <ul class="nav side-menu">
-                    <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home" style="font-size: 20px;"><?php echo  ' '.__('Home'); ?></i></a></li>
-                </ul>
-                <ul class="nav side-menu">
-                    <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" style="font-size: 20px;"><?php echo ' '.__('Report'); ?></i></a></li>
-                </ul>-->
             </ul>
                 <div class="menu_section">
                   <ul class="nav side-menu">
@@ -77,36 +71,6 @@
           
           <div class="row">
 
-          
-            <!-- bar chart -->
-<!--            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Bar Charts <small>Sessions</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <div id="graph_bar" style="width:100%; height:280px;"></div>
-                </div>
-              </div>
-            </div>-->
-            <!-- /bar charts --> 
-
              <!-- bar charts group -->
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
@@ -136,64 +100,6 @@
             </div>
             <div class="clearfix"></div>
             <!-- /bar charts group -->
-
-            <!-- pie chart -->
-<!--            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Pie Chart <small>Sessions</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content2">
-                  <div id="graph_donut" style="width:100%; height:300px;"></div>
-                </div>
-              </div>
-            </div>-->
-            <!-- /Pie chart -->
-
-            <!-- graph area -->
-<!--            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Graph area <small>Sessions</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content2">
-                  <div id="graph_area" style="width:100%; height:300px;"></div>
-                </div>
-              </div>
-            </div>-->
-            <!-- /graph area -->
 
             <!-- line graph -->
             <div class="col-md-6 col-sm-6 col-xs-12">
