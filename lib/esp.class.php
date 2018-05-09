@@ -169,6 +169,8 @@ class esp extends siCommon {
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
         $sAndWhere .= " AND e.esp_list_name = '$sListName'";
         
+        $aGroupBy = array(' GROUP BY' => ' e.esp_date');
+        
         $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
@@ -176,13 +178,13 @@ class esp extends siCommon {
                         e.esp_list_name as esp_list_name,
                         e.esp as esp,
                         e.domain_grouped_by_esp as domain_grouped_by_esp,
-                        e.success as success,
+                        SUM(success) as success,
                         e.open_percentage as open_percentage, 
                         e.clicks as clicks, 
                         e.complaints as complaints,
                         e.complaints_rate as complaints_rate, 
-                        e.opens as opens,
-                        e.failed as failed,
+                        SUM(opens) as opens,
+                        SUM(failed) as failed,
                         e.range_one as range_one,
                         e.range_two as range_two,
                         e.range_three as range_three,
@@ -200,7 +202,7 @@ class esp extends siCommon {
                     WHERE" . $sAndWhere;
 
         //var_dump($sSql);            
-        $sQueryHendler = $this->getList($sSql,array(), array(), array(), array(),array());
+        $sQueryHendler = $this->getList($sSql,array(),$aGroupBy, array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
 }
