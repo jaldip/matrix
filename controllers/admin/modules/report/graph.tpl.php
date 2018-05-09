@@ -78,7 +78,7 @@
                   <h2>Bar Chart Group <small>Sessions</small></h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li>
-                        <select class="form-control" onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graphbylist';?>')">
+                        <select class="form-control" onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')">
                             <option value="ALR">ALR</option>
                             <option value="FPP">FPP</option>
                             <option value="WA">WA</option>
@@ -166,7 +166,9 @@
             <!-- /Pie chart -->
           </div>
         </div>
-
+        <form id="commonForm" name="commonForm" method="POST">
+            <input type="hidden" name="hidden_list_name" id="hidden_list_name" value=""/>
+        </form>    
         <div class="footer">
             <div>
                 <strong><?php echo __('for_any_query_please_contact_stepinsolutions'); ?></strong>
@@ -242,14 +244,23 @@
 <script>
     function getReportData(sValue,sFrmAction)
     {
-        $.ajax({
-            type: "POST",
-            url :sFrmAction,
-            data: {'list_name' : sValue},
-            success: function(data) 
-            {
-                alert(data);
-            }
-        });
+        //setting value of hidden variable         
+        $('#hidden_list_name').val(sValue);
+        //submitting form
+        $("#commonForm").attr("action",sFrmAction);
+        $('#commonForm').submit();
     }
+
+//    function getReportData(sValue,sFrmAction)
+//    {
+//        $.ajax({
+//            type: "POST",
+//            url :sFrmAction,
+//            data: {'list_name' : sValue},
+//            success: function(data) 
+//            {
+//                alert(data);
+//            }
+//        });
+//    }
 </script>    
