@@ -248,7 +248,7 @@
             data: {'list_name' : sValue},
             success: function(data) 
             {
-                $("#wrapper").html(data);
+                alert(data);
             }
         });
     }
