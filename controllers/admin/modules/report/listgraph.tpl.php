@@ -230,6 +230,7 @@
             <?Php } ?>
         ]
     });
+    alert('sainath');
     Morris.Donut({
         element: 'graph_donut',
         data: [
@@ -246,17 +247,4 @@
 });
 
 </script>    
-<script>
-    function getReportData(sValue,sFrmAction)
-    {
-        $.ajax({
-            type: "POST",
-            url :sFrmAction,
-            data: {'list_name' : sValue},
-            success: function(data) 
-            {
-                alert('sai');
-            }
-        });
-    }
-</script>    
+  
