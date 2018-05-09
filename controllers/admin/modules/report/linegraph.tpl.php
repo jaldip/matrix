@@ -278,15 +278,15 @@
         $nFailedPercent = $nTotalFailed/$nTotal *100;
         ?>
         var day_data = [
-                {"date": "All", "success": <?php echo $nTotalSuccess; ?>, "total open": <?php echo $nTotalOpens; ?>, "total fail": <?php echo $nTotalFailed; ?>},
+                {"date": "All", "Total Success": <?php echo $nTotalSuccess; ?>, "Total Open": <?php echo $nTotalOpens; ?>, "Total Fail": <?php echo $nTotalFailed; ?>},
         ];
     Morris.Bar({
         element: 'graph_bar_group',
         data: day_data,
         xkey: 'date',
         barColors: ['#0000FF', '#2ecc71','#f43015'],
-        ykeys: ['success','total open','total fail'],
-        labels: ['success','total open','total fail'],
+        ykeys: ['Success','Total Open','Total Fail'],
+        labels: ['Success','Total Open','Total Fail'],
         hideHover: 'auto',
         xLabelAngle: 60
     });
@@ -295,7 +295,7 @@
         element: 'graph_line',
         xkey: 'date',
         ykeys: ['success'],
-        labels: ['Success'],
+        labels: ['Total Success'],
         hideHover: 'auto',
         lineColors: ['#0000FF', '#2ecc71','#f43015'],
         data: [
@@ -307,9 +307,9 @@
     Morris.Donut({
         element: 'graph_donut',
         data: [
-            {label: 'success', value: <?php echo $nSuccessPercent; ?>},
-            {label: 'total open', value: <?php echo $nOpensPercent; ?>},
-            {label: 'total fail', value: <?php echo $nFailedPercent; ?>},
+            {label: 'Success', value: <?php echo $nSuccessPercent; ?>},
+            {label: 'Total Open', value: <?php echo $nOpensPercent; ?>},
+            {label: 'Total Fail', value: <?php echo $nFailedPercent; ?>},
         ],
         colors: ['#0000FF', '#2ecc71','#f43015'],
         formatter: function (y) {
