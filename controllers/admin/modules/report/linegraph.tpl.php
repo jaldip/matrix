@@ -234,27 +234,27 @@
   </div>
    <script>
       $(function () {
-        <?php foreach ($aListEspData AS $aRecords) { ?>  
-        alert(<?php echo $aRecords['success']; ?>);
-        <?php } ?>
+        <?php 
+                $nTotalSuccess = 0;
+                $nTotalOpens = 0;
+                $nTotalFailed = 0;
+                
+                foreach ($aListEspData AS $aRecords) {  
+                $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
+                $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
+                $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;
+                    
+        } ?>
         var day_data = [
-            <?php foreach ($aListEspData AS $aRecords) { ?>
-                    <?php
-                    $nSuccess = isset($aRecords['success']) ? $aRecords['success'] : 0;
-                    $nOpens = isset($aRecords['success']) ? $aRecords['success'] : 0;
-                    $nFailed = isset($aRecords['success']) ? $aRecords['success'] : 0;
-                    $nTotal = $nSuccess+$nFailed;
-                    ?>
-                    {"date": "<?php echo $aRecords['esp_date']; ?>", "total": <?php echo $nTotal; ?>, "sucess": <?php echo $nSuccess ?>, "total open": <?php echo $nOpens; ?>, "total fail": <?php echo $nFailed; ?>},
-            <?php } ?>
+                {"date": "<?php echo $aRecords['esp_date']; ?>", "success": <?php echo $nTotalSuccess; ?>, "total open": <?php echo $nTotalOpens; ?>, "total fail": <?php echo $nTotalFailed; ?>},
         ];
     Morris.Bar({
         element: 'graph_bar_group',
         data: day_data,
         xkey: 'date',
-        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        ykeys: ['total', 'sucess','total open','total fail'],
-        labels: ['total', 'sucess','total open','total fail'],
+        barColors: ['#0000FF', '#2ecc71','#f43015'],
+        ykeys: ['success','total open','total fail'],
+        labels: ['success','total open','total fail'],
         hideHover: 'auto',
         xLabelAngle: 60
     });
