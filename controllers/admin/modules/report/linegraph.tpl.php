@@ -24,11 +24,10 @@
                 </ul>-->
             </ul>
                 <div class="menu_section">
-                  <h3>General</h3>
                   <ul class="nav side-menu">
-                    <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home"></i> Home </a>
+                    <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home"></i>  Home </a>
                     </li>
-                    <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" ><?php echo ' '.__('Report'); ?></i></a></li>
+                    <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" ></i>  Report</a></li>
                   </ul>  
                 </div>
           </div>      
