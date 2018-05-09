@@ -241,12 +241,12 @@
                 
                 foreach ($aListEspData AS $aRecords) {  
                 $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
-                $nTotalOpens += isset($aRecords['opens']) ? 1000 : 1000;
-                $nTotalFailed += isset($aRecords['failed']) ? 1000 : 1000;
+                $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
+                $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;
                     
         } ?>
         var day_data = [
-                {"date": "<?php echo $aRecords['esp_date']; ?>", "success": <?php echo $nTotalSuccess; ?>, "total open": <?php echo $nTotalOpens; ?>, "total fail": <?php echo $nTotalFailed; ?>},
+                {"date": "All", "success": <?php echo $nTotalSuccess; ?>, "total open": <?php echo $nTotalOpens; ?>, "total fail": <?php echo $nTotalFailed; ?>},
         ];
     Morris.Bar({
         element: 'graph_bar_group',
