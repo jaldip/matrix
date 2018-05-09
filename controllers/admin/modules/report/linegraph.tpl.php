@@ -241,8 +241,8 @@
                 
                 foreach ($aListEspData AS $aRecords) {  
                 $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
-                $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
-                $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;
+                $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 100;
+                $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 100;
                     
         } ?>
         var day_data = [
