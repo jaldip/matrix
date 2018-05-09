@@ -35,6 +35,8 @@ class esp extends siCommon {
                             'domain_grouped_by_esp',
                             'success',
                             'open_percentage',
+                            'opens',
+                            'failed',
                             'clicks',
                             'complaints',
                             'complaints_rate',
@@ -65,6 +67,8 @@ class esp extends siCommon {
                 $aEspData['clicks'],
                 $aEspData['complaints'],
                 $aEspData['complaints_rate'],
+                $aEspData['opens'],
+                $aEspData['failed'],
                 $aEspData['range_one'],
                 $aEspData['range_two'],
                 $aEspData['range_three'],
@@ -104,7 +108,9 @@ class esp extends siCommon {
                         e.open_percentage as open_percentage, 
                         e.clicks as clicks, 
                         e.complaints as complaints,
-                        e.complaints_rate as complaints_rate, 
+                        e.complaints_rate as complaints_rate,
+                        e.opens as opens,
+                        e.failed as failed,
                         e.range_one as range_one,
                         e.range_two as range_two,
                         e.range_three as range_three,
@@ -144,7 +150,10 @@ class esp extends siCommon {
                         e.open_percentage as open_percentage, 
                         e.clicks as clicks, 
                         e.complaints as complaints,
-                        e.complaints_rate as complaints_rate
+                        e.complaints_rate as complaints_rate,
+                        e.opens as opens,
+                        e.failed as failed,
+                        
                     FROM
                             esp e
                     WHERE" . $sAndWhere;
@@ -172,6 +181,8 @@ class esp extends siCommon {
                         e.clicks as clicks, 
                         e.complaints as complaints,
                         e.complaints_rate as complaints_rate, 
+                        e.opens as opens,
+                        e.failed as failed,
                         e.range_one as range_one,
                         e.range_two as range_two,
                         e.range_three as range_three,

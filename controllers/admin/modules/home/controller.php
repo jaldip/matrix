@@ -66,7 +66,7 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        echo '<pre>';var_dump($aListData);exit;
+        //echo '<pre>';var_dump($aListData);exit;
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
@@ -108,6 +108,8 @@ class homeController {
                     $nClicks = isset($aData['clicks']) ? $aData['clicks'] : '';
                     $nComplaints = isset($aData['complaints']) ? $aData['complaints'] : '';
                     $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
+                    $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
+                    $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
                     $nRangeOne = '';
                     $nRangeTwo = '';
                     $nRangeThree = '';
@@ -131,6 +133,8 @@ class homeController {
                         'clicks' => $nClicks,
                         'complaints' => $nComplaints,
                         'complaints_rate' => $nComplaintsRate,
+                        'opens' => $nOpens,
+                        'failed' => $nFailed,
                         'range_one' => $nRangeOne,
                         'range_two' => $nRangeTwo,
                         'range_three' => $nRangeThree,
@@ -201,6 +205,8 @@ class homeController {
         $nClick = isset($aEspListData[0]['clicks']) ? $aEspListData[0]['clicks'] : '';
         $nComplaints = isset($aEspListData[0]['complaints']) ? $aEspListData[0]['complaints'] : ''; 
         $nComplaintsRate = isset($aEspListData[0]['complaints_rate']) ? $aEspListData[0]['complaints_rate'] : ''; 
+        $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
+        $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
         $dEspDate = isset($_POST['esp_date']) ? $_POST['esp_date'] : '';
         $nRangeOne = isset($_POST['range_one']) ? $_POST['range_one'] : '';
         $nRangeTwo = isset($_POST['range_two']) ? $_POST['range_two'] : '';
@@ -224,7 +230,9 @@ class homeController {
                             'open_percentage' => $nOpenPercentage, 
                             'clicks' => $nClick, 
                             'complaints' => $nComplaints,
-                            'complaints_rate' => $nComplaintsRate, 
+                            'complaints_rate' => $nComplaintsRate,
+                            'opens' => $nOpens,
+                            'failed' => $nFailed,
                             'range_one' => $nRangeOne,
                             'range_two' => $nRangeTwo,
                             'range_three' => $nRangeThree,
