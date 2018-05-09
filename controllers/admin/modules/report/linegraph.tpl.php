@@ -77,6 +77,13 @@
                 <div class="x_title">
                   <h2>Bar Chart Group <small>Sessions</small></h2>
                   <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <select class="form-control" onchange="getReportData()">
+                            <option value="ALR">ALR</option>
+                            <option value="FPP">FPP</option>
+                            <option value="WA">WA</option>
+                        </select>
+                    <li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
                     <li class="dropdown">
@@ -231,4 +238,10 @@
 
 });
 
+</script>    
+<script>
+    function getReportData()
+    {
+        alert('sai');
+    }
 </script>    
