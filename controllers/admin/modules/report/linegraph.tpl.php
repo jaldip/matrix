@@ -71,17 +71,7 @@
           
           <div class="row">
 
-            <!-- bar chart -->
-<!--            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                
-                <div class="x_content">
-                  <div id="graph_bar" style="width:100%; height:280px;"></div>
-                </div>
-              </div>
-            </div>-->
-            <!-- /bar charts -->
-
+          
             <!-- bar chart -->
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
@@ -111,15 +101,34 @@
             </div>
             <!-- /bar charts --> 
 
-             <!--bar charts group--> 
-<!--            <div class="col-md-6 col-sm-6 col-xs-12">
+             <!-- bar charts group -->
+            <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="x_panel">
-                
-                <div class="x_content2">
-                  <div id="graphx" style="width:100%; height:300px;"></div>
+                <div class="x_title">
+                  <h2>Bar Chart Group <small>Sessions</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content1">
+                  <div id="graph_bar_group" style="width:100%; height:280px;"></div>
                 </div>
               </div>
-            </div>-->
+            </div>
+            <div class="clearfix"></div>
             <!-- /bar charts group -->
 
             <!-- pie chart -->
@@ -226,7 +235,29 @@
   
    <script>
       $(function () {
-
+        var day_data = [
+            {"period": "2016-10-01", "licensed": 807, "sorned": 660},
+            {"period": "2016-09-30", "licensed": 1251, "sorned": 729},
+            {"period": "2016-09-29", "licensed": 1769, "sorned": 1018},
+            {"period": "2016-09-20", "licensed": 2246, "sorned": 1461},
+            {"period": "2016-09-19", "licensed": 2657, "sorned": 1967},
+            {"period": "2016-09-18", "licensed": 3148, "sorned": 2627},
+            {"period": "2016-09-17", "licensed": 3471, "sorned": 3740},
+            {"period": "2016-09-16", "licensed": 2871, "sorned": 2216},
+            {"period": "2016-09-15", "licensed": 2401, "sorned": 1656},
+            {"period": "2016-09-10", "licensed": 2115, "sorned": 1022}
+        ];
+    Morris.Bar({
+        element: 'graph_bar_group',
+        data: day_data,
+        xkey: 'period',
+        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+        ykeys: ['licensed', 'sorned'],
+        labels: ['Licensed', 'SORN'],
+        hideHover: 'auto',
+        xLabelAngle: 60
+    });
+    
     Morris.Bar({
         element: 'graph_bar',
         data: [
