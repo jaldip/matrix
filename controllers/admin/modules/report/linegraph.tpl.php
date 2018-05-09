@@ -239,7 +239,13 @@
         <?php } ?>
         var day_data = [
             <?php foreach ($aListEspData AS $aRecords) { ?>
-                    {"date": "<?php echo $aRecords['esp_date']; ?>", "total": 807, "sucess": <?php echo $aRecords['success']; ?>, "total open": <?php echo isset($aRecords['opens']) ? $aRecords['opens'] : 0; ?>, "total fail": <?php echo isset($aRecords['opens']) ? $aRecords['opens'] : 0; ?>},
+                    <?php
+                    $nSuccess = isset($aRecords['success']) ? $aRecords['success'] : 0;
+                    $nOpens = isset($aRecords['success']) ? $aRecords['success'] : 0;
+                    $nFailed = isset($aRecords['success']) ? $aRecords['success'] : 0;
+                    $nTotal = $nSuccess+$nFailed;
+                    ?>
+                    {"date": "<?php echo $aRecords['esp_date']; ?>", "total": <?php echo $nTotal; ?>, "sucess": <?php echo $nSuccess ?>, "total open": <?php echo $nOpens; ?>, "total fail": <?php echo $nFailed; ?>},
             <?php } ?>
         ];
     Morris.Bar({
