@@ -30,6 +30,7 @@ class reportController {
         global $oUser, $oSession;
         $aListData["payload"] = array();
         $oEsp =new esp();
+        var_dump($_POST); exit;
         $sListName = 'ALR';
         $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
         
