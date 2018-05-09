@@ -21,7 +21,7 @@
                   <ul class="nav side-menu">
                     <li><a href="<?php echo getConfig('siteUrl') . '/home/dashboard' ?>"><i class="fa fa-home"></i>  Home </a>
                     </li>
-                    <li><a href="<?php echo getConfig('siteUrl') . '/report/linegraph' ?>"><i class="fa fa-bar-chart-o" ></i>  Report</a></li>
+                    <li><a href="<?php echo getConfig('siteUrl') . '/report/graph' ?>"><i class="fa fa-bar-chart-o" ></i>  Report</a></li>
                   </ul>  
                 </div>
           </div>      
