@@ -158,7 +158,7 @@ class esp extends siCommon {
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
-        $sAndWhere .= " AND e.esp_list_name = '$sListName'";
+       // $sAndWhere .= " AND e.esp_list_name = '$sListName'";
         
         $sSql = "SELECT 
                         e.id_esp as id_esp,
@@ -167,7 +167,7 @@ class esp extends siCommon {
                         e.esp_list_name as esp_list_name,
                         e.esp as esp,
                         e.domain_grouped_by_esp as domain_grouped_by_esp,
-                        e.success as success,
+                        SUM(e.success as success),
                         e.open_percentage as open_percentage, 
                         e.clicks as clicks, 
                         e.complaints as complaints,
