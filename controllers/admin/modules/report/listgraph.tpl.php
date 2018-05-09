@@ -179,6 +179,7 @@
 
   </div>
    <script>
+       alert('sainath');
       $(function () {
         <?php 
                 $nTotalSuccess = 0;
@@ -230,7 +231,6 @@
             <?Php } ?>
         ]
     });
-    alert('sainath');
     Morris.Donut({
         element: 'graph_donut',
         data: [
