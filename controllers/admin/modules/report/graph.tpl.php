@@ -79,11 +79,9 @@
                   <ul class="nav navbar-right panel_toolbox">
                     <li>
                         <select class="form-control" onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')">
-                                <option value="ALR">ALR</option>
-                                <option value="LP">LP</option>
-                                <option value="PFF">PFF</option>
-                                <option value="WA">WA</option>
-                                <option value="CPD">CPD</option>
+                            <option value="ALR">ALR</option>
+                            <option value="FPP">FPP</option>
+                            <option value="WA">WA</option>
                         </select>
                     <li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
