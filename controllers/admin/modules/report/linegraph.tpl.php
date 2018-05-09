@@ -236,24 +236,17 @@
    <script>
       $(function () {
         var day_data = [
-            {"period": "2016-10-01", "licensed": 807, "sorned": 660},
-            {"period": "2016-09-30", "licensed": 1251, "sorned": 729},
-            {"period": "2016-09-29", "licensed": 1769, "sorned": 1018},
-            {"period": "2016-09-20", "licensed": 2246, "sorned": 1461},
-            {"period": "2016-09-19", "licensed": 2657, "sorned": 1967},
-            {"period": "2016-09-18", "licensed": 3148, "sorned": 2627},
-            {"period": "2016-09-17", "licensed": 3471, "sorned": 3740},
-            {"period": "2016-09-16", "licensed": 2871, "sorned": 2216},
-            {"period": "2016-09-15", "licensed": 2401, "sorned": 1656},
-            {"period": "2016-09-10", "licensed": 2115, "sorned": 1022}
+            <?php foreach ($aListEspData AS $aRecords) { ?>
+            {"date": "<?php echo $aRecords['esp_date']; ?>", "total": 807, "sucess": 660, "total open": 660, "total fail": 660},
+            <?php } ?>
         ];
     Morris.Bar({
         element: 'graph_bar_group',
         data: day_data,
-        xkey: 'period',
+        xkey: 'date',
         barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        ykeys: ['licensed', 'sorned'],
-        labels: ['Licensed', 'SORN'],
+        ykeys: ['total', 'sucess','total open','total fail'],
+        labels: ['total', 'sucess','total open','total fail'],
         hideHover: 'auto',
         xLabelAngle: 60
     });
