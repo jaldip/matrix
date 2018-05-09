@@ -8,8 +8,8 @@
  */
 class reportController {
 
-    public $aLayout = array('linegraph' => 'main');
-    public $aLoginRequired = array('linegraph' => true);
+    public $aLayout = array('graph' => 'main','graphbylist' => 'main');
+    public $aLoginRequired = array('graph' => true,'graphbylist' => true);
 
     public function __construct() {
         global $sAction;
@@ -25,7 +25,7 @@ class reportController {
 
     /* Last Modified on 13-01-18 */
 
-    public function callLineGraph() {
+    public function callGraph() {
         global $sAction;
         global $oUser, $oSession;
         $aListData["payload"] = array();
@@ -34,7 +34,17 @@ class reportController {
         $sListName = isset($_POST['list_name']) ? $_POST['list_name'] : '';
         $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
         
-        require("linegraph.tpl.php");
+        require("graph.tpl.php");
     }
-    
+    public function callGraphByList() {
+        global $sAction;
+        global $oUser, $oSession;
+        $aListData["payload"] = array();
+        $oEsp =new esp();
+        
+        $sListName = isset($_POST['list_name']) ? $_POST['list_name'] : '';
+        $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
+        
+        require("listgraph.tpl.php");
+    }
 }   
