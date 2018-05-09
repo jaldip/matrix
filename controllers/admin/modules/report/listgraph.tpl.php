@@ -178,7 +178,6 @@
     </div>
 
   </div>
-<?php var_dump($aListEspData); ?>
    <script>
       $(function () {
         <?php 
@@ -192,10 +191,17 @@
                 $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;
                     
         }
+        $nSuccessPercent = 0;
+        $nOpensPercent = 0;
+        $nFailedPercent = 0;
+        
         $nTotal = $nTotalSuccess+ $nTotalOpens+$nTotalFailed;
-        $nSuccessPercent = $nTotalSuccess/$nTotal *100;
-        $nOpensPercent = $nTotalOpens/$nTotal *100;
-        $nFailedPercent = $nTotalFailed/$nTotal *100;
+        if($nTotal != 0)
+        {    
+            $nSuccessPercent = $nTotalSuccess/$nTotal *100;
+            $nOpensPercent = $nTotalOpens/$nTotal *100;
+            $nFailedPercent = $nTotalFailed/$nTotal *100;
+        }   
         ?>
         var day_data = [
                 {"date": "All", "Total Success": <?php echo $nTotalSuccess; ?>, "Total Open": <?php echo $nTotalOpens; ?>, "Total Fail": <?php echo $nTotalFailed; ?>},
