@@ -30,21 +30,11 @@ class reportController {
         global $oUser, $oSession;
         $aListData["payload"] = array();
         $oEsp =new esp();
-        
+        $aLists = $oEsp->getAllListName();
         $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
         $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
         
         require("graph.tpl.php");
     }
-    public function callGraphByList() {
-        global $sAction;
-        global $oUser, $oSession;
-        $aListData["payload"] = array();
-        $oEsp =new esp();
-        
-        $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
-        $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
-        
-        require("graph.tpl.php");
-    }
+    
 }   
