@@ -76,28 +76,6 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Bar Chart Group <small>Sessions</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <select class="form-control" onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')">
-                            <?php foreach($aLists AS $aListData){ ?>
-                            <option value="<?php echo $aListData['esp_list_name']; ?>" <?php echo ($aListData['esp_list_name'] == $_POST['hidden_list_name']) ? 'selected' : ''; ?>><?php echo $aListData['esp_list_name']; ?></option>
-                            <?php } ?>
-                        </select>
-                    <li>
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content1">
@@ -113,21 +91,7 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Line Graph <small>Sessions</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
+                  
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content2">
@@ -141,21 +105,6 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Pie Chart <small>Sessions</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content2">
