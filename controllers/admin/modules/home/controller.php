@@ -29,7 +29,9 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        $previousDate = date('Y-m-d',strtotime("-26 days"));
+        for($nCountDays=1;$nCountDays < 31 $nCountDays++)
+        {
+        $previousDate = date('Y-m-d',strtotime("-".$nCountDays."days"));
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
@@ -187,6 +189,7 @@ class homeController {
                 $nCount++;
             }
             array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
+        }
         }
         require("dashboard.tpl.php");
     }
