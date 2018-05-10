@@ -76,7 +76,7 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Bar Chart Group <small>Sessions</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
+                  <ul class="nav panel_toolbox">
                     <li>
                         <select class="form-control" onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')">
                             <?php foreach($aLists AS $aListData){ ?>
