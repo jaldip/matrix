@@ -29,7 +29,7 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        $previousDate = date('Y-m-d',strtotime("-2 days"));
+        $previousDate = date('Y-m-d',strtotime("-3 days"));
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
@@ -77,7 +77,7 @@ class homeController {
 
             foreach($aListEspData AS $aEspCountData)
             { 
-                $previousDate = date('Y-m-d',strtotime("-2 days"));
+                $previousDate = date('Y-m-d',strtotime("-3 days"));
                 $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
                 $previousDate .= " ".$aEspDate[1];
             
@@ -100,7 +100,7 @@ class homeController {
                     $nIdEsp = '';
                     $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
                     $dEspDate = (date("Y-m-d H:i:s", $aData['delivery_date']) != null) ? date("Y-m-d H:i:s", $aData['delivery_date']) : '';
-                    echo $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
+                    $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
                     $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
                     $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
                     $nSuccess = isset($aData['success']) ? $aData['success'] : '';
@@ -108,7 +108,7 @@ class homeController {
                     $nClicks = isset($aData['clicks']) ? $aData['clicks'] : '';
                     $nComplaints = isset($aData['complaints']) ? $aData['complaints'] : '';
                     $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
-                    echo '->'.$nOpens = isset($aData['opens']) ? $aData['opens'] : '';
+                    $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
                     $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
                     $nRangeOne = '';
                     $nRangeTwo = '';
@@ -151,7 +151,6 @@ class homeController {
                     );
 
                     $oEsp =new esp();
-                    var_dump($aEspData);
                     $oEsp->addNewEsp($aEspData);
                 }
                 $nCount++;
