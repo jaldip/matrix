@@ -166,6 +166,7 @@ $(function () {
         ?>
         var day_data = [
             <?php foreach ($aListEspData AS $aRecords) {?>
+            <?php if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != ''){ $sLabel = $aRecords['esp_list_name'].' '.$aRecords['esp_date'];} ?>        
             {"date": "<?php echo $aRecords['esp_list_name']; ?>", "Total Success": <?php echo $aRecords['success']; ?>, "Total Open": <?php echo $aRecords['opens']; ?>, "Total Fail": <?php echo $aRecords['failed']; ?>},
             <?php } ?>
         ];
