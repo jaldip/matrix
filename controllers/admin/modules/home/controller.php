@@ -29,7 +29,7 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        for($nCountDays=1;$nCountDays < 31; $nCountDays++ )
+        for($nCountDays=1;$nCountDays > 31; $nCountDays++ )
         {
         $previousDate = date('Y-m-d',strtotime("-".$nCountDays."days"));
         $dCreatedAt = date(getConfig('dtDateTime'));
