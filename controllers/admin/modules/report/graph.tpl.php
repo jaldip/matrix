@@ -76,6 +76,16 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Bar Chart Group <small>Sessions</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <select class="form-control" onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')">
+                            <?php foreach($aLists AS $aListData){ ?>
+                            <option value="<?php echo $aListData['esp_list_name']; ?>" <?php echo ($aListData['esp_list_name'] == $_POST['hidden_list_name']) ? 'selected' : ''; ?>><?php echo $aListData['esp_list_name']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </li>
+                    
+                  </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content1">
