@@ -168,10 +168,12 @@ $(function () {
             <?php foreach ($aListEspData AS $aRecords) {?>
             <?php if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
                     { 
-                        $sLabel = $aRecords['esp_list_name'].' '.$aRecords['esp_date'];
+                        $aDate = explode(' ',$aRecords['esp_date']);
+                        $sLabel = $aRecords['esp_list_name'].' '.$aDate[0];
                     }else
                     {
-                        $sLabel = $aRecords['esp_list_name'];
+                        $aDate = explode(' ',$aRecords['esp_date']);
+                        $sLabel = $aDate[0];
                     } 
             ?>        
             {"date": "<?php echo $sLabel; ?>", "Total Success": <?php echo $aRecords['success']; ?>, "Total Open": <?php echo $aRecords['opens']; ?>, "Total Fail": <?php echo $aRecords['failed']; ?>},
@@ -198,7 +200,7 @@ $(function () {
         hideHover: 'auto',
         lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         data: [
-            <?php foreach ($aLineGraphData AS $aRecords) { ?>
+            <?php foreach ($aListEspData AS $aRecords) { ?>
             { date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
             <?Php } ?>
         ]

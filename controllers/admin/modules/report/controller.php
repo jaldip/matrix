@@ -35,14 +35,14 @@ class reportController {
         {    
             $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName);
-            $aLineGraphData = $aListEspData; 
+            //$aLineGraphData = $aListEspData; 
         }else{
             
-            $aGroupBy = array(' GROUP BY' => ' e.esp_list_name');
+            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
             $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
             
-            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
-            $aLineGraphData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
+//            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
+//            $aLineGraphData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
         }
         require("graph.tpl.php");
     }
