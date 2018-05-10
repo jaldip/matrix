@@ -166,11 +166,6 @@ $(function () {
         ?>
         var day_data = [
                 {"date": "<?php echo $aRecords['esp_date']; ?>", "Total Success": <?php echo $nTotalSuccess; ?>, "Total Open": <?php echo $nTotalOpens; ?>, "Total Fail": <?php echo $nTotalFailed; ?>},
-                {"date": "<?php echo $aRecords['esp_date']; ?>", "Total Success": 10000000, "Total Open": 2500000, "Total Fail": 250000},
-                {"date": "<?php echo $aRecords['esp_date']; ?>", "Total Success": 20000000, "Total Open": 3500002, "Total Fail": 350000},
-                {"date": "<?php echo $aRecords['esp_date']; ?>", "Total Success": 15000000, "Total Open": 3600000, "Total Fail": 550000},
-                {"date": "<?php echo $aRecords['esp_date']; ?>", "Total Success": 25000000, "Total Open": 3700000, "Total Fail": 850000},
-                
         ];
     Morris.Bar({
         element: 'graph_bar_group',
