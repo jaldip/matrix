@@ -151,6 +151,7 @@ class homeController {
                     );
 
                     $oEsp =new esp();
+                    var_dump($aEspData);
                     $oEsp->addNewEsp($aEspData);
                 }
                 $nCount++;
