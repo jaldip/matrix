@@ -31,9 +31,13 @@ class reportController {
         $aListData["payload"] = array();
         $oEsp =new esp();
         $aLists = $oEsp->getAllListName();
-        $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
-        $aListEspData = $oEsp->getLastThirtyDaysRecords($sListName);
-        
+        if(isset($_POST['hidden_list_name']))
+        {    
+            $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
+            $aListEspData = $oEsp->getRecordsByList($sListName);
+        }else{
+            $aListEspData = $oEsp->getLastThirtyDaysRecords();
+        }
         require("graph.tpl.php");
     }
     

@@ -162,20 +162,14 @@ class esp extends siCommon {
         $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
-    public function getLastThirtyDaysRecords($sListName='') {
+    public function getLastThirtyDaysRecords() {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
-        $aGroupBy = array();
-        if($sListName != '')
-        {    
-            $sAndWhere .= " AND e.esp_list_name = '$sListName'";
-        }else {
-            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
-        }
+        $aGroupBy = array(' GROUP BY' => ' e.esp_date');
         
-        echo $sSql = "SELECT 
+        $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
                         e.esp_date as esp_date,
@@ -215,6 +209,47 @@ class esp extends siCommon {
         
         $sSql = "SELECT 
                         e.esp_list_name as esp_list_name
+                    FROM
+                            esp e
+                    WHERE" . $sAndWhere;
+
+        //var_dump($sSql);            
+        $sQueryHendler = $this->getList($sSql,array(),array(), array(), array(),array());
+        return $this->getData($sQueryHendler, "ARRAY");
+    }
+    public function getRecordsByList($sListName='') {
+        $sAndWhere = ' 1 = 1';
+        $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
+        $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
+        $sAndWhere .= " AND e.esp_date < CURDATE() ";
+        $sAndWhere .= " AND e.esp_list_name = '$sListName'";
+        
+        $sSql = "SELECT 
+                        e.id_esp as id_esp,
+                        e.list_id as list_id,
+                        e.esp_date as esp_date,
+                        e.esp_list_name as esp_list_name,
+                        e.esp as esp,
+                        e.domain_grouped_by_esp as domain_grouped_by_esp,
+                        e.success as success,
+                        e.open_percentage as open_percentage, 
+                        e.clicks as clicks, 
+                        e.complaints as complaints,
+                        e.complaints_rate as complaints_rate, 
+                        e.opens as opens,
+                        e.failed as failed,
+                        e.range_one as range_one,
+                        e.range_two as range_two,
+                        e.range_three as range_three,
+                        e.range_four as range_four,
+                        e.range_five as range_five,
+                        e.range_six as range_six,
+                        e.color_picker_one as color_picker_one,
+                        e.color_picker_two as color_picker_two,
+                        e.color_picker_three as color_picker_three,
+                        e.created_at as created_at,
+                        e.updated_at as updated_at
+                       
                     FROM
                             esp e
                     WHERE" . $sAndWhere;
