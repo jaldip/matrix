@@ -187,7 +187,7 @@ class homeController {
                 $nCount++;
             }
             array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
-        }
+        }exit;
         require("dashboard.tpl.php");
     }
     public function callAddEditEsp() {
