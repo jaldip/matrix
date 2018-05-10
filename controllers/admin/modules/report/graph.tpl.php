@@ -160,7 +160,7 @@ $(function () {
         element: 'graph_bar_group',
         data: day_data,
         xkey: 'date',
-        barColors: ['#0000FF', '#2ecc71','#f43015'],
+        barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         ykeys: ['Total Success','Total Open','Total Fail'],
         labels: ['Total Success','Total Open','Total Fail'],
         hideHover: 'auto',
@@ -173,7 +173,7 @@ $(function () {
         ykeys: ['success'],
         labels: ['Total Success'],
         hideHover: 'auto',
-        lineColors: ['#0000FF', '#2ecc71','#f43015'],
+        lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         data: [
             <?php foreach ($aListEspData AS $aRecords) { ?>
             {date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
@@ -187,7 +187,7 @@ $(function () {
             {label: 'Total Open', value: <?php echo $nOpensPercent; ?>},
             {label: 'Total Fail', value: <?php echo $nFailedPercent; ?>},
         ],
-        colors: ['#0000FF', '#2ecc71','#f43015'],
+        colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         formatter: function (y) {
             return y + "%"
         }
