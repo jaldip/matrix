@@ -172,6 +172,7 @@ $(function () {
         data: day_data,
         xkey: 'date',
         stacked: true,
+        barSizeRatio:0.55,
         barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         ykeys: ['Total Success','Total Open','Total Fail'],
         labels: ['Total Success','Total Open','Total Fail'],
