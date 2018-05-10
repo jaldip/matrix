@@ -166,7 +166,7 @@ $(function () {
         ?>
         var day_data = [
             <?php foreach ($aListEspData AS $aRecords) {?>
-            {"date": "<?php echo $aRecords['esp_date']; ?>", "Total Success": <?php echo $aRecords['success']; ?>, "Total Open": <?php echo $aRecords['opens']; ?>, "Total Fail": <?php echo $aRecords['failed']; ?>},
+            {"date": "<?php echo $aRecords['esp_list_name']; ?>", "Total Success": <?php echo $aRecords['success']; ?>, "Total Open": <?php echo $aRecords['opens']; ?>, "Total Fail": <?php echo $aRecords['failed']; ?>},
             <?php } ?>
         ];
     Morris.Bar({
@@ -191,7 +191,7 @@ $(function () {
         lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         data: [
             <?php foreach ($aListEspData AS $aRecords) { ?>
-            {date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
+            {date: '<?php echo $aRecords['esp_list_name']; ?>', success: <?php echo $aRecords['success']; ?>},
             <?Php } ?>
         ]
     });
