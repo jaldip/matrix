@@ -159,9 +159,9 @@ $(function () {
         $nTotal = $nTotalSuccess+ $nTotalOpens+$nTotalFailed;
         if($nTotal != 0)
         {    
-            $nSuccessPercent = $nTotalSuccess/$nTotal *100;
-            $nOpensPercent = $nTotalOpens/$nTotal *100;
-            $nFailedPercent = $nTotalFailed/$nTotal *100;
+            $nSuccessPercent = round($nTotalSuccess/$nTotal *100,2);
+            $nOpensPercent = round($nTotalOpens/$nTotal *100,2);
+            $nFailedPercent = round($nTotalFailed/$nTotal *100,2);
         }   
         ?>
         var day_data = [
