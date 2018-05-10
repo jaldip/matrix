@@ -66,7 +66,7 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        echo '<pre>';var_dump($aListData);exit;
+       // echo '<pre>';var_dump($aListData);exit;
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
@@ -75,9 +75,9 @@ class homeController {
         {    
             $nCount = 0;
 
-            foreach($aListEspData AS $aEspCOuntData)
+            foreach($aListEspData AS $aEspCountData)
             { 
-                $previousDate = date('Y-m-d',strtotime("-1 days"));
+                $previousDate = date('Y-m-d',strtotime("-2 days"));
                 $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
                 $previousDate .= " ".$aEspDate[1];
             
