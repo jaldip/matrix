@@ -100,7 +100,7 @@ class homeController {
                     $nIdEsp = '';
                     $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
                     $dEspDate = (date("Y-m-d H:i:s", $aData['delivery_date']) != null) ? date("Y-m-d H:i:s", $aData['delivery_date']) : '';
-                    $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
+                    echo $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
                     $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
                     $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
                     $nSuccess = isset($aData['success']) ? $aData['success'] : '';
@@ -108,7 +108,7 @@ class homeController {
                     $nClicks = isset($aData['clicks']) ? $aData['clicks'] : '';
                     $nComplaints = isset($aData['complaints']) ? $aData['complaints'] : '';
                     $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
-                    $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
+                    echo '->'.$nOpens = isset($aData['opens']) ? $aData['opens'] : '';
                     $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
                     $nRangeOne = '';
                     $nRangeTwo = '';
