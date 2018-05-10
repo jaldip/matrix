@@ -31,7 +31,7 @@ class reportController {
         $aListData["payload"] = array();
         $oEsp =new esp();
         $aLists = $oEsp->getAllListName();
-        if(isset($_POST['hidden_list_name']))
+        if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
         {    
             $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName);
