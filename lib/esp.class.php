@@ -206,7 +206,7 @@ class esp extends siCommon {
                     WHERE" . $sAndWhere;
 
         //var_dump($sSql);            
-        $sQueryHendler = $this->getList($sSql,array(),$aGroupBy, array(), array(),array());
+        echo $sQueryHendler = $this->getList($sSql,array(),$aGroupBy, array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
     public function getAllListName() {
