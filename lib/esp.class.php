@@ -175,7 +175,7 @@ class esp extends siCommon {
             $aGroupBy = array(' GROUP BY' => ' e.esp_date');
         }
         
-        $sSql = "SELECT 
+        echo $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
                         e.esp_date as esp_date,
@@ -206,7 +206,7 @@ class esp extends siCommon {
                     WHERE" . $sAndWhere;
 
         //var_dump($sSql);            
-        echo $sQueryHendler = $this->getList($sSql,array(),$aGroupBy, array(), array(),array());
+        $sQueryHendler = $this->getList($sSql,array(),$aGroupBy, array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
     public function getAllListName() {
