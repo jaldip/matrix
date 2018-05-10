@@ -190,7 +190,7 @@ $(function () {
         hideHover: 'auto',
         lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
         data: [
-            <?php foreach ($aListEspData AS $aRecords) { ?>
+            <?php foreach ($aLineGraphData AS $aRecords) { ?>
             { date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
             <?Php } ?>
         ]

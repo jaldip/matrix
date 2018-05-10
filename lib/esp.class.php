@@ -162,12 +162,11 @@ class esp extends siCommon {
         $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
-    public function getLastThirtyDaysRecords() {
+    public function getLastThirtyDaysRecords($aGroupBy) {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
-        $aGroupBy = array(' GROUP BY' => ' e.esp_list_name');
         
         $sSql = "SELECT 
                         e.id_esp as id_esp,

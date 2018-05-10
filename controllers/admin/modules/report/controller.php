@@ -36,7 +36,12 @@ class reportController {
             $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName);
         }else{
-            $aListEspData = $oEsp->getLastThirtyDaysRecords();
+            
+            $aGroupBy = array(' GROUP BY' => ' e.esp_list_name');
+            $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
+            
+            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
+            $aLineGraphData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
         }
         require("graph.tpl.php");
     }
