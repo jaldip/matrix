@@ -29,9 +29,7 @@ class homeController {
         global $sAction;
         global $oUser, $oSession;
         // example of how to create an export
-        for($nCountDays=1;$nCountDays > 31; $nCountDays++ )
-        {
-        $previousDate = date('Y-m-d',strtotime("-".$nCountDays."days"));
+        $previousDate = date('Y-m-d',strtotime("-2 days"));
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
@@ -68,7 +66,7 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        //echo '<pre>';var_dump($aListData);exit;
+        echo '<pre>';var_dump($aListData);exit;
         
         $oEsp =new esp();
         $aListEspData = $oEsp->getEspList();
@@ -189,8 +187,6 @@ class homeController {
                 $nCount++;
             }
             array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
-        }
-        $nCountDays++;
         }
         require("dashboard.tpl.php");
     }
