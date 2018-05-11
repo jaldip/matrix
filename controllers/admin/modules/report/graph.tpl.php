@@ -168,12 +168,12 @@ $(function () {
             <?php foreach ($aListEspData AS $aRecords) {?>
             <?php if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
                     { 
-                        //$aDate = $aRecords['esp_date'];
-                        $sLabel = $aRecords['esp_list_name'].' '.$aRecords['esp_date'];
+                        $aDate = explode(' ',$aRecords['esp_date']);
+                        $sLabel = $aRecords['esp_list_name'].' '.$aDate[0];
                     }else
                     {
-                        //$aDate = explode(' ',$aRecords['esp_date']);
-                        $sLabel = $aRecords['esp_date'];
+                        $aDate = explode(' ',$aRecords['esp_date']);
+                        $sLabel = $aDate[0];
                     } 
             ?>        
             {"date": "<?php echo $sLabel; ?>", "Total Success": <?php echo $aRecords['success']; ?>, "Total Open": <?php echo $aRecords['opens']; ?>, "Total Fail": <?php echo $aRecords['failed']; ?>},
