@@ -78,8 +78,8 @@ class homeController {
             foreach($aListEspData AS $aEspCountData)
             { 
                 $previousDate = date('Y-m-d',strtotime("-2 days"));
-                $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
-                $previousDate .= " ".$aEspDate[1];
+                //$aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
+                //$previousDate .= " ".$aEspDate[1];
             
                 if (array_search($previousDate,$aListEspData[$nCount])) {
                       $bFlag = TRUE;
@@ -99,7 +99,7 @@ class homeController {
                  
                     $nIdEsp = '';
                     $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
-                    $dEspDate = (date("Y-m-d H:i:s", $aData['delivery_date']) != null) ? date("Y-m-d H:i:s", $aData['delivery_date']) : '';
+                    $dEspDate = (date("Y-m-d", $aData['delivery_date']) != null) ? date("Y-m-d", $aData['delivery_date']) : '';
                     $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
                     $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
                     $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
@@ -169,7 +169,7 @@ class homeController {
                // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
                 {   
-                    if($aEspData['list_id'] == $aData['list_id'] && date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])
+                    if($aEspData['list_id'] == $aData['list_id'] && date("Y-m-d", $aData['delivery_date']) == $aEspData['esp_date'])
                     {   
                         $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
                         $aListData["payload"][$nCount]['list_id'] = $aEspData['list_id'];
