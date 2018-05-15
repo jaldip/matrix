@@ -207,7 +207,7 @@ class esp extends siCommon {
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         
         $sSql = "SELECT 
-                        e.esp_list_name as esp_list_name
+                       DISTINCT e.esp_list_name as esp_list_name
                     FROM
                             esp e
                     WHERE" . $sAndWhere;
