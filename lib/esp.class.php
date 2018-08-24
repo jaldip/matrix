@@ -24,7 +24,7 @@ class esp extends siCommon {
      * @return boolean
      */
     public function addNewEsp($aEspData) {
-        $sTableName = 'esp_cron';
+        $sTableName = 'esp';
 
         $aInsertFieldArray = array(
                             'id_esp',

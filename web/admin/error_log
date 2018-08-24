@@ -1,0 +1,70 @@
+[17-Aug-2018 07:49:18 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:18 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:20 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:20 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:25 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:25 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:27 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:27 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:27 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:49:27 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:54:57 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 07:54:57 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:06:28 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:06:28 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:33:08 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:33:08 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:33:14 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:33:14 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:34:37 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 08:34:37 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 10:51:46 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 10:51:46 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 14:53:17 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[17-Aug-2018 14:53:17 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[18-Aug-2018 06:18:50 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[18-Aug-2018 06:18:50 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[18-Aug-2018 06:18:51 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[18-Aug-2018 06:18:51 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[18-Aug-2018 06:18:53 UTC] PHP Warning:  require(/home/stepinso/projects/mark_matrix/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[18-Aug-2018 06:18:53 UTC] PHP Fatal error:  require(): Failed opening required '/home/stepinso/projects/mark_matrix/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[18-Aug-2018 06:24:47 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'stepinso_mark'@'localhost' (using password: YES)' in /home/lm/public_html/matrix/lib/mySql.class.php:15
+Stack trace:
+#0 /home/lm/public_html/matrix/lib/mySql.class.php(15): PDO->__construct('mysql:host=loca...', 'stepinso_mark', '$!matrix$!')
+#1 /home/lm/public_html/matrix/lib/siCommon.class.php(13): mySql->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#2 /home/lm/public_html/matrix/lib/users.class.php(19): siCommon->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#3 /home/lm/public_html/matrix/inc/bootstrap.inc.php(13): users->__construct()
+#4 /home/lm/public_html/matrix/web/index.php(9): require('/home/lm/public...')
+#5 /home/lm/public_html/matrix/web/admin/index.php(10): require('/home/lm/public...')
+#6 {main}
+  thrown in /home/lm/public_html/matrix/lib/mySql.class.php on line 15
+[18-Aug-2018 06:24:49 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'stepinso_mark'@'localhost' (using password: YES)' in /home/lm/public_html/matrix/lib/mySql.class.php:15
+Stack trace:
+#0 /home/lm/public_html/matrix/lib/mySql.class.php(15): PDO->__construct('mysql:host=loca...', 'stepinso_mark', '$!matrix$!')
+#1 /home/lm/public_html/matrix/lib/siCommon.class.php(13): mySql->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#2 /home/lm/public_html/matrix/lib/users.class.php(19): siCommon->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#3 /home/lm/public_html/matrix/inc/bootstrap.inc.php(13): users->__construct()
+#4 /home/lm/public_html/matrix/web/index.php(9): require('/home/lm/public...')
+#5 /home/lm/public_html/matrix/web/admin/index.php(10): require('/home/lm/public...')
+#6 {main}
+  thrown in /home/lm/public_html/matrix/lib/mySql.class.php on line 15
+[18-Aug-2018 06:24:51 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'stepinso_mark'@'localhost' (using password: YES)' in /home/lm/public_html/matrix/lib/mySql.class.php:15
+Stack trace:
+#0 /home/lm/public_html/matrix/lib/mySql.class.php(15): PDO->__construct('mysql:host=loca...', 'stepinso_mark', '$!matrix$!')
+#1 /home/lm/public_html/matrix/lib/siCommon.class.php(13): mySql->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#2 /home/lm/public_html/matrix/lib/users.class.php(19): siCommon->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#3 /home/lm/public_html/matrix/inc/bootstrap.inc.php(13): users->__construct()
+#4 /home/lm/public_html/matrix/web/index.php(9): require('/home/lm/public...')
+#5 /home/lm/public_html/matrix/web/admin/index.php(10): require('/home/lm/public...')
+#6 {main}
+  thrown in /home/lm/public_html/matrix/lib/mySql.class.php on line 15
+[18-Aug-2018 06:24:52 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'stepinso_mark'@'localhost' (using password: YES)' in /home/lm/public_html/matrix/lib/mySql.class.php:15
+Stack trace:
+#0 /home/lm/public_html/matrix/lib/mySql.class.php(15): PDO->__construct('mysql:host=loca...', 'stepinso_mark', '$!matrix$!')
+#1 /home/lm/public_html/matrix/lib/siCommon.class.php(13): mySql->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#2 /home/lm/public_html/matrix/lib/users.class.php(19): siCommon->__construct('localhost', 'stepinso_mark', '$!matrix$!', 'stepinso_mark_m...')
+#3 /home/lm/public_html/matrix/inc/bootstrap.inc.php(13): users->__construct()
+#4 /home/lm/public_html/matrix/web/index.php(9): require('/home/lm/public...')
+#5 /home/lm/public_html/matrix/web/admin/index.php(10): require('/home/lm/public...')
+#6 {main}
+  thrown in /home/lm/public_html/matrix/lib/mySql.class.php on line 15

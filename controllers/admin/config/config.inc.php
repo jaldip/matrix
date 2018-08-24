@@ -15,21 +15,21 @@
 //     define("HOME_ACTION","index");
             
             $aConfig[$sAppName] = array(
-                                                    'siteUrl' => "http://".$_SERVER["HTTP_HOST"],
-                                                    'language'=>'en',
-                                                    'homeModule'=>'home',
-                                                    'homeAction'=>'dashboard',
-                                                    'dbHost'=>'localhost',
-                                                    'dbUser'=>'stepinso_mark',
-                                                    'dbPassword'=>'$!matrix$!',
-                                                    'dbName'=>'stepinso_mark_matrix',
-                                                    'nPagerLength'=>'',
-                                                    'nPerPageRecords'=>'',
-                                                    'checkSlug'=>false,
-                                                    'sSessionName'=>'userSession',
-                                                    'DEVELOPERSTRING' => '!@#123!@#',
-                                                    'routerClassName' => 'routers',
-                                                );
+                                'siteUrl' => "http://".$_SERVER["HTTP_HOST"],
+                                'language'=>'en',
+                                'homeModule'=>'home',
+                                'homeAction'=>'dashboard',
+                                'dbHost'=>'localhost',
+                                'dbUser'=>'lm_matrixuser',
+                                'dbPassword'=>'lopMatrix123!@#',
+                                'dbName'=>'lm_matrix',
+                                'nPagerLength'=>'',
+                                'nPerPageRecords'=>'',
+                                'checkSlug'=>false,
+                                'sSessionName'=>'userSession',
+                                'DEVELOPERSTRING' => '!@#123!@#',
+                                'routerClassName' => 'routers',
+                            );
 
      /* Database Credentials */
 //     $sDbHost = "";

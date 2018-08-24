@@ -120,7 +120,7 @@ if (empty($aListEspData) || $bFlag == FALSE) {
                 'activated' => 1,
                 'deleted' => 0
             );
-
+            
             $oEsp = new esp();
             $oEsp->addNewEsp($aEspData);
         }

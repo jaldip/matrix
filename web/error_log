@@ -1,0 +1,2 @@
+[17-Aug-2018 08:06:19 UTC] PHP Warning:  require(../../inc/bootstrap.inc.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/web/index.php on line 9
+[17-Aug-2018 08:06:19 UTC] PHP Fatal error:  require(): Failed opening required '../../inc/bootstrap.inc.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/web/index.php on line 9
