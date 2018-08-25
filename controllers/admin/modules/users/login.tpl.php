@@ -1,12 +1,12 @@
 <body class="gray-bg">
+    
+    <div>
 
+        <h1 class="logo-name"><center><?php echo __('Matrix'); ?></center></h1>
+
+    </div>
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
-            <div>
-
-                <h1 class="logo-name"><?php echo __('Matrix'); ?></h1>
-
-            </div>
             <h3><?php echo __('welcome_to_Matrix'); ?></h3>
             <br>
             <p><?php echo __('login_to_see_action');?></p>
