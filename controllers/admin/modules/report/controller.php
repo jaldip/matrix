@@ -40,7 +40,6 @@ class reportController {
             
             $aGroupBy = array(' GROUP BY' => ' e.esp_date');
             $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
-            
 //            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
 //            $aLineGraphData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
         }

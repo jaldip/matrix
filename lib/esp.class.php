@@ -221,7 +221,10 @@ class esp extends siCommon {
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
-        $sAndWhere .= " AND e.esp_list_name = '$sListName'";
+        if($sListName != ""){
+            $sAndWhere .= " AND e.esp_list_name IN $sListName";
+        }
+        $sAndWhere .= "ORDER BY e.esp_date ASC";
         
         $sSql = "SELECT 
                         e.id_esp as id_esp,
@@ -237,15 +240,6 @@ class esp extends siCommon {
                         e.complaints_rate as complaints_rate, 
                         e.opens as opens,
                         e.failed as failed,
-                        e.range_one as range_one,
-                        e.range_two as range_two,
-                        e.range_three as range_three,
-                        e.range_four as range_four,
-                        e.range_five as range_five,
-                        e.range_six as range_six,
-                        e.color_picker_one as color_picker_one,
-                        e.color_picker_two as color_picker_two,
-                        e.color_picker_three as color_picker_three,
                         e.created_at as created_at,
                         e.updated_at as updated_at
                        
