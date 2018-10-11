@@ -68,3 +68,300 @@ Stack trace:
 #5 /home/lm/public_html/matrix/web/admin/index.php(10): require('/home/lm/public...')
 #6 {main}
   thrown in /home/lm/public_html/matrix/lib/mySql.class.php on line 15
+[26-Sep-2018 11:45:58 UTC] PHP Warning:  require(/home/chirag/Web-Projects/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[26-Sep-2018 11:45:58 UTC] PHP Fatal error:  require(): Failed opening required '/home/chirag/Web-Projects/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[26-Sep-2018 11:45:58 UTC] PHP Warning:  require(/home/chirag/Web-Projects/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[26-Sep-2018 11:45:58 UTC] PHP Fatal error:  require(): Failed opening required '/home/chirag/Web-Projects/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[26-Sep-2018 11:45:58 UTC] PHP Warning:  require(/home/chirag/Web-Projects/matrix/i18n/en.php): failed to open stream: No such file or directory in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[26-Sep-2018 11:45:58 UTC] PHP Fatal error:  require(): Failed opening required '/home/chirag/Web-Projects/matrix/i18n/en.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/lm/public_html/matrix/inc/bootstrap.inc.php on line 11
+[10-Oct-2018 03:00:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 91 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[10-Oct-2018 08:56:19 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[10-Oct-2018 09:35:18 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[10-Oct-2018 11:11:47 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[10-Oct-2018 11:11:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[10-Oct-2018 11:11:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 01:19:26 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 91 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:13:13 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:13:36 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 91 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:13:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:13:42 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:13:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:14:22 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:14:32 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:14:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:14:44 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:16:48 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:16:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:16:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:17:00 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:17:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 91 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:18:30 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:18:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:20:14 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:21:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:23:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:24:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 91 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:25:12 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 86 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:25:29 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 81 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:25:37 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 81 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:27:02 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:27:14 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:27:18 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:28:00 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:28:02 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:41:32 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:41:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:41:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:42:02 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:42:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:45:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 2 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:45:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:46:29 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 84 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:46:39 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:46:42 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 80 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:48:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 89 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 05:49:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 07:07:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 07:11:55 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:55 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:55 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:11:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:12:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:13 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:13 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:13:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:25:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 07:41:30 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:07 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 72 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 08:47:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 08:47:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:34 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:34 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:34 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:47:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:13 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:13 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:13 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:49:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:54:05 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 09:56:21 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 76 bytes) in /home/lm/public_html/matrix/lib/mySql.class.php on line 48
+[11-Oct-2018 09:56:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 09:56:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:51 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:51 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:51 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:41:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170
+[11-Oct-2018 10:42:13 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lm/public_html/matrix/controllers/admin/modules/home/controller.php on line 170

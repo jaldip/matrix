@@ -33,7 +33,7 @@ class homeController {
         $dCreatedAt = date(getConfig('dtDateTime'));
         
         $jRequest = json_decode('{ 
-           "select":[
+          "select":[
                 [ 
                     "MAX(`stats_date`)",
                     "delivery_date"
@@ -49,27 +49,27 @@ class homeController {
                 "complaints_rate",
                 "opens",
                 "failed"
-           ],
-           "filter": [
+          ],
+          "filter": [
                 [ "delivery_date", "=", "'.$previousDate.'" ]
             ],
-           "from":"mailing",
-           "order":[ 
+          "from":"mailing",
+          "order":[ 
               [ 
                  "list_id",
                  "desc"
               ]
-           ],
-           "group":[ 
+          ],
+          "group":[ 
               "esp_connection_id"
-           ]
+          ]
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-       // echo '<pre>';var_dump($aListData);exit;
-        
+      // echo '<pre>';var_dump($aListData);exit;
+        $previousDate = date('Y-m-d',strtotime("-1 days"));
         $oEsp =new esp();
-        $aListEspData = $oEsp->getEspList();
+        $aListEspData = $oEsp->getEspList($previousDate);
         $bFlag = FALSE;
         if(isset($aListEspData))
         {    
@@ -77,7 +77,7 @@ class homeController {
 
             foreach($aListEspData AS $aEspCountData)
             { 
-                $previousDate = date('Y-m-d',strtotime("-1 days"));
+                
                 $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
                 $previousDate .= " ".$aEspDate[1];
             
@@ -166,7 +166,7 @@ class homeController {
                 $aListTitle = json_decode($aDetails);
                 $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
                 $aEspNameList[] = $aListTitle->payload->name;
-               // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
+              // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
                 {   
                     if($aEspData['list_id'] == $aData['list_id'] && date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])

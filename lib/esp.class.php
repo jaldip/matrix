@@ -93,10 +93,12 @@ class esp extends siCommon {
      * @param type 
      * @return boolean
      */
-    public function getEspList() {
+    public function getEspList($sPreviousESPDate = "") {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-        
+        if($sPreviousESPDate != ""){
+            $sAndWhere .= " AND CAST(e.esp_date AS DATE) = '$sPreviousESPDate'";
+        }
         $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
@@ -127,7 +129,7 @@ class esp extends siCommon {
                             esp e
                     WHERE" . $sAndWhere;
 
-        //var_dump($sSql);            
+        //var_dump($sSql); exit;           
         $sQueryHendler = $this->getList($sSql,array(), array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
