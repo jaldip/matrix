@@ -79,7 +79,7 @@
 
                                     <thead>
                                         <tr>
-                                            <th width="150" align="center"><?php echo __('Date'); ?></th>
+                                            <th width="150" align="center"><?php echo __('Last Stats Date'); ?></th>
                                             <th width="150" align="center"><?php echo __('Esp List Name'); ?></th>
                                             <th width="150" align="center"><?php echo __('ESP'); ?></th>
                                             <th width="150" align="center"><?php echo __('Domain Grouped by ESP'); ?></th>
@@ -115,13 +115,13 @@
                                                 }
                                                 ?>
                                                 <tr  id="<?php echo $nCount; ?>" style="background-color:<?php echo $sBGColor;?>">
-                                                <input type="hidden" name="id_esp_<?php echo $nCount; ?>" id="id_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['id_esp']; ?>" /> 
+                                                <!-- <input type="hidden" name="id_esp_<?php echo $nCount; ?>" id="id_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['id_esp']; ?>" /> --> 
                                                 <input type="hidden" name="esp_list_id_<?php echo $nCount; ?>" id="esp_list_id_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_id']; ?>" /> 
                                                 <input type="hidden" name="esp_list_name_<?php echo $nCount; ?>" id="esp_list_name_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_name']; ?>" /> 
-                                                <input type="hidden" name="esp_date_<?php echo $nCount; ?>" id="esp_date_<?php echo $nCount; ?>" value="<?php echo date("Y-m-d H:i:s", $aDataList['delivery_date']); ?>" />
+                                                <input type="hidden" name="esp_date_<?php echo $nCount; ?>" id="esp_date_<?php echo $nCount; ?>" value="<?php echo date("Y-m-d H:i:s", $aDataList['stats_date']); ?>" />
                                                 <td align="center" ><b>
                                                         <font  face="Arial" >
-                                                            <?php echo date("Y-m-d H:i:s", $aDataList['delivery_date']); ?>
+                                                            <?php echo date("Y-m-d H:i:s", $aDataList['stats_date']); ?>
                                                         </font></b>
                                                 </td>
 

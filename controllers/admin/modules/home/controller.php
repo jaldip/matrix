@@ -32,43 +32,47 @@ class homeController {
         $previousDate = date('Y-m-d',strtotime("-1 days"));
         $dCreatedAt = date(getConfig('dtDateTime'));
         
-        $jRequest = json_decode('{ 
-          "select":[
-                [ 
-                    "MAX(`stats_date`)",
-                    "delivery_date"
-                ],
-                "list_id",
-                "esp_name",
-                "isp_name",
-                "success",
-                "opens_rate",
-                "sent",
-                "clicks",
-                "complaints",
-                "complaints_rate",
-                "opens",
-                "failed"
-          ],
-          "filter": [
-                [ "delivery_date", "=", "'.$previousDate.'" ]
-            ],
-          "from":"mailing",
-          "order":[ 
+        $jRequest = json_decode('{
+           "select":[
+              "stats_date",
+              "list_id",
+              "isp_id",
+              "esp_name",
+              "isp_name",
+              "list_name",
+              "sum(`success`)",
+              "sum(`opens`)",
+              "sum(`clicks`)",
+              "sum(`complaints`)",
+              "complaints_rate",
+              "sum(`opens`)",
+              "opens_rate",
+              "sum(`failed`)"
+           ],
+           "from":"mailing",
+           "group":[
+              "list_id",
+              "isp_id"
+           ],
+           "list_ids" : "all",
+           "filter":[
               [ 
-                 "list_id",
-                 "desc"
+                "is_test_campaign",
+                "=",
+                0
+              ],
+              [
+                "stats_date",
+                "=",
+                "'.$previousDate.'"
               ]
-          ],
-          "group":[ 
-              "esp_connection_id"
-          ]
+           ]
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-      // echo '<pre>';var_dump($aListData);exit;
+        //echo '<pre>';var_dump($aListData);exit;
         $previousDate = date('Y-m-d',strtotime("-1 days"));
-        $oEsp =new esp();
+        $oEsp = new esp();
         $aListEspData = $oEsp->getEspList($previousDate);
         $bFlag = FALSE;
         if(isset($aListEspData))
@@ -99,7 +103,7 @@ class homeController {
                  
                     $nIdEsp = '';
                     $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
-                    $dEspDate = (date("Y-m-d H:i:s", $aData['delivery_date']) != null) ? date("Y-m-d H:i:s", $aData['delivery_date']) : '';
+                    $dEspDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['stats_date']) : '';
                     $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
                     $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
                     $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
@@ -169,7 +173,7 @@ class homeController {
               // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
                 foreach($aListEspData as $aEspData)
                 {   
-                    if($aEspData['list_id'] == $aData['list_id'] && date("Y-m-d H:i:s", $aData['delivery_date']) == $aEspData['esp_date'])
+                    if($aEspData['list_id'] == $aData['list_id'] && date("Y-m-d H:i:s", $aData['stats_date']) == $aEspData['esp_date'])
                     {   
                         $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
                         $aListData["payload"][$nCount]['list_id'] = $aEspData['list_id'];
