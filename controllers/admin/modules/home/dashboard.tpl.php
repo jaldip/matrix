@@ -78,7 +78,7 @@
                                 <table class="table table-bordered table-hover" >
 
                                     <thead>
-                                        <tr>
+                                        <tr id="dashboard_table">
                                             <th width="150" align="center"><?php echo __('Last Stats Date'); ?></th>
                                             <th width="150" align="center"><?php echo __('Last Sent Date'); ?></th>
                                             <th width="150" align="center"><?php echo __('Esp List Name'); ?></th>

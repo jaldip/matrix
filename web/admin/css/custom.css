@@ -523,3 +523,6 @@ article.media {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 } 
+#dashboard_table th{
+  text-align: center;
+}
