@@ -89,7 +89,7 @@
                                             <th width="150" align="center"><?php echo __('Clicks'); ?></th>
                                             <th width="100" align="center"><?php echo __('Complaints'); ?></th>
                                             <th width="100" align="center"><?php echo __('Complaints Rate'); ?></th>
-                                            <th width="250" align="center"><?php echo __('Thrash Hold'); ?></th>
+                                            <th width="250" align="center"><?php echo __('Threshold'); ?></th>
                                         </tr>
                                     </thead>
                                     <?php
