@@ -35,6 +35,7 @@ class homeController {
         $jRequest = json_decode('{
            "select":[
               "stats_date",
+              "mailing_sending_end_date",
               "list_id",
               "isp_id",
               "esp_name",
@@ -104,6 +105,7 @@ class homeController {
                     $nIdEsp = '';
                     $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
                     $dEspDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['stats_date']) : '';
+                    $dSentDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['mailing_sending_end_date']) : '';
                     $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
                     $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
                     $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
