@@ -526,3 +526,6 @@ article.media {
 #dashboard_table th{
   text-align: center;
 }
+#tableDataColor{
+  color:black;
+}

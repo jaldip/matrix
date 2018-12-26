@@ -75,7 +75,7 @@
                         <div class="ibox-content">
                             <div class="table-responsive" >
 
-                                <table class="table table-bordered table-hover" >
+                                <table class="table table-bordered table-hover" id="tableDataColor">
 
                                     <thead>
                                         <tr id="dashboard_table">
@@ -294,7 +294,7 @@ foreach ($aThresholdFilterData as $aThresholdData) {
    
     function changeColor(nCount,nSuccessValue)
     {
-        alert($("#colomn-color-one-"+nCount).val());
+        
         document.getElementById('esp_connection_id').value = $("#esp_connection_id_"+nCount).val();
         document.getElementById('id_threshold').value = $("#id_threshold_1").val();
 
