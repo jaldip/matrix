@@ -93,10 +93,17 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                    if (isset($aListData['payload'])) {
+                                    if (isset($aListData['payload'])) { 
                                         $nCount = 1;
+                                        $thresholdkey="";
+                                        $nThresholdId="";
                                         foreach ($aListData['payload'] AS $aDataList) {
                                             if ($aDataList['isp_name'] == 'gmail.com' || $aDataList['isp_name'] == 'yahoo.com') {
+                                                
+                                                $thresholdkey=$aDataList['esp_connection_id']."_".$aDataList['list_id']."_".$aDataList['isp_id'];                      
+                                                $nThresholdId= isset($aUniqueField[$thresholdkey]['id_threshold']) ? $aUniqueField[$thresholdkey]['id_threshold'] : 0;
+                                                
+
 
                                                 $nRangeOne = isset($aDataList['range_one']) ? $aDataList['range_one'] : 0;
                                                 $nRangeTwo = isset($aDataList['range_two']) ? $aDataList['range_two'] : 10;
@@ -104,23 +111,51 @@
                                                 $nRangeFour = isset($aDataList['range_four']) ? $aDataList['range_four'] : 20;
                                                 $nRangeFive = isset($aDataList['range_five']) ? $aDataList['range_five'] : 21;
                                                 $sBGColor ='';
-                                               
-                                                if ($aDataList['success'] >= $nRangeOne && $aDataList['success'] <= $nRangeTwo) {
-                                                   $sBGColor = isset($aDataList['color_picker_one']) ? $aDataList['color_picker_one'] : '';
-                                                } elseif ($aDataList['success'] >= $nRangeThree && $aDataList['success'] <= $nRangeFour) {
-                                                   $sBGColor = isset($aDataList['color_picker_two']) ? $aDataList['color_picker_two'] : '';
+
+                                                if ($nRangeOne >= 0 && $nRangeTwo <= 25000) {
+                                                   $sBGColor =isset($aUniqueField[$thresholdkey]['color_picker_one']) ? $aUniqueField[$thresholdkey]['color_picker_one'] : '';
+                                                   
+                                                   // $sBGColor = isset($aDataList['color_picker_one']) ? $aDataList['color_picker_one'] : '';
+
+                                                } elseif ($nRangeThree >= 26000 && $nRangeFour <= 50000) {
+                                                   
+                                                   $sBGColor =isset($aUniqueField[$thresholdkey]['color_picker_two']) ? $aUniqueField[$thresholdkey]['color_picker_two'] : '';
+
+                                                   // $sBGColor = isset($aDataList['color_picker_two']) ? $aDataList['color_picker_two'] : '';
                                                 } else {
-                                                    if ($aDataList['success'] >= $nRangeFive) {
-                                                        $sBGColor = isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : '';
+                                                    if ($nRangeFive >= 51000) {
+                                                    
+                                                        $sBGColor =isset($aUniqueField[$thresholdkey]['color_picker_three']) ? $aUniqueField[$thresholdkey]['color_picker_three'] : '';
+
+
+                                                        // $sBGColor = isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : '';
+                                                    
                                                     }   
                                                 }
+                                                // if($aDataList['list_id'] == $aThresholdData['list_id'] && $aDataList['isp_id'] == $aThresholdData['isp_id'] && $aDataList['esp_connection_id'] == $aDataList['id_esp']){
+                                                //     echo "yes";
+
+                                                // }
                                                 ?>
-                                                <tr  id="<?php echo $nCount; ?>" style="background-color:<?php echo $sBGColor;?>">
-                                                <!-- <input type="hidden" name="id_esp_<?php echo $nCount; ?>" id="id_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['id_esp']; ?>" /> --> 
+                                                <tr id="<?php echo $nCount; ?>" style="background-color:<?php echo $sBGColor;?>">
+                                                <input type="hidden" name="esp_connection_id_<?php echo $nCount; ?>" id="esp_connection_id_<?php echo $nCount; ?>" value="<?php echo $aDataList['esp_connection_id']; ?>" />
+
+                                                <input type="hidden" name="isp_id_<?php echo $nCount; ?>" id="isp_id_<?php echo $nCount; ?>" value="<?php echo $aDataList['isp_id']; ?>" />  
+
+
+                                                <input type="hidden" name="domain_grouped_by_esp_<?php echo $nCount; ?>" id="domain_grouped_by_esp_<?php echo $nCount; ?>" value="<?php echo $aDataList['isp_name']; ?>" />
+
                                                 <input type="hidden" name="esp_list_id_<?php echo $nCount; ?>" id="esp_list_id_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_id']; ?>" /> 
+
                                                 <input type="hidden" name="esp_list_name_<?php echo $nCount; ?>" id="esp_list_name_<?php echo $nCount; ?>" value="<?php echo $aDataList['list_name']; ?>" /> 
+
                                                 <input type="hidden" name="esp_date_<?php echo $nCount; ?>" id="esp_date_<?php echo $nCount; ?>" value="<?php echo date("Y-m-d H:i:s", $aDataList['stats_date']); ?>" />
+
                                                 <input type="hidden" name="send_date_<?php echo $nCount; ?>" id="send_date_<?php echo $nCount; ?>" value="<?php echo date("Y-m-d H:i:s", $aDataList['mailing_sending_end_date']); ?>" />
+
+                                                <input type="hidden" name="id_threshold" id="id_threshold_1" value="<?php echo isset($aUniqueField[$thresholdkey]['id_threshold']) ? $aUniqueField[$thresholdkey]['id_threshold'] : 0; ?>" />
+                                                <!-- id for edit functionality -->
+
                                                 <td align="center" ><b>
                                                         <font  face="Arial" >
                                                             <?php echo date("Y-m-d H:i:s", $aDataList['stats_date']); ?>
@@ -174,25 +209,29 @@
                                                         <?php echo $aDataList['complaints_rate']; ?>
                                                         </font></b>
                                                 </td>
-
+                                                           
                                                 <td align="center" >
-                                                    <input type="text" name="range-one-<?php echo $nCount; ?>" id="range-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_one']) ? $aDataList['range_one'] : ''; ?>" style="width:30%" />
-                                                    <input type="text" name="range-two-<?php echo $nCount; ?>" id="range-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_two']) ? $aDataList['range_two'] : ''; ?>" style="width:30%" /> 
+                                                    <input type="text" name="range-one-<?php echo $nCount; ?>" id="range-one-<?php echo $nCount; ?>" value="<?php echo isset($aUniqueField[$thresholdkey]['range_one']) ? $aUniqueField[$thresholdkey]['range_one'] : ''; ?>" style="width:30%" />
+                                                    <!-- <?php echo $aThresholdFilterData['range_one']?> -->
+                                                    <input type="text" name="range-two-<?php echo $nCount; ?>" id="range-two-<?php echo $nCount; ?>" value="<?php echo isset($aUniqueField[$thresholdkey]['range_two']) ? $aUniqueField[$thresholdkey]['range_two'] : ''; ?>" style="width:30%" /> 
                                                     <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
                                                         <input type ="hidden" name="colomn-color-one-<?php echo $nCount; ?>" id="colomn-color-one-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_one']) ? $aDataList['color_picker_one'] : 'red'; ?>" class="form-control colorpicker-element" />
+
+                                                        
+                                                        <!-- uper ip for threshold -->
                                                         <span class="input-group-addon"><i style="background-color: red !important;"></i></span>
                                                     </div><br/>
                                                     <!--<input class="input-group-addon" type="color" name="colomn-color" id="colomn-color-<?php //echo $nCount;   ?>" value="#000000" onchange="changeColor(<?php //echo $nCount ;    ?>,<?php //echo $aDataList['success'];    ?>)"  style="width:30%" />-->
-                                                    <input type="text" name="range-three-<?php echo $nCount; ?>" id="range-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_three']) ? $aDataList['range_three'] : ''; ?>" style="width:30%" />
-                                                    <input type="text" name="range-four-<?php echo $nCount; ?>" id="range-four-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_four']) ? $aDataList['range_four'] : ''; ?>" style="width:30%" /> 
+                                                    <input type="text" name="range-three-<?php echo $nCount; ?>" id="range-three-<?php echo $nCount; ?>" value="<?php echo isset($aUniqueField[$thresholdkey]['range_three']) ? $aUniqueField[$thresholdkey]['range_three'] : ''; ?>" style="width:30%" />
+                                                    <input type="text" name="range-four-<?php echo $nCount; ?>" id="range-four-<?php echo $nCount; ?>" value="<?php echo isset($aUniqueField[$thresholdkey]['range_four']) ? $aUniqueField[$thresholdkey]['range_four'] : ''; ?>" style="width:30%" /> 
                                                     <div class="input-group demo2 colorpicker-element" style="width:30%; float:right">
                                                         <input type ="hidden" name="colomn-color-two-<?php echo $nCount; ?>" id="colomn-color-two-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_two']) ? $aDataList['color_picker_two'] : 'yellow'; ?>" class="form-control colorpicker-element" />
                                                         <span class="input-group-addon"><i style="background-color: yellow !important;"></i></span>
                                                     </div><br/>
 
                                  <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)"  style="width:30%" />-->
-                                                    <input type="text" name="range-five-<?php echo $nCount; ?>" id="range-five-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_five']) ? $aDataList['range_five'] : ''; ?>" style="width:30%" />
-                                                    <input type="text" name="range-six-<?php echo $nCount; ?>" id="range-six-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['range_six']) ? $aDataList['range_six'] : ''; ?>" style="width:30%" /> 
+                                                    <input type="text" name="range-five-<?php echo $nCount; ?>" id="range-five-<?php echo $nCount; ?>" value="<?php echo isset($aUniqueField[$thresholdkey]['range_five']) ? $aUniqueField[$thresholdkey]['range_five'] : ''; ?>" style="width:30%" />
+                                                    <input type="text" name="range-six-<?php echo $nCount; ?>" id="range-six-<?php echo $nCount; ?>" value="<?php echo isset($aUniqueField[$thresholdkey]['range_six']) ? $aUniqueField[$thresholdkey]['range_six'] : ''; ?>" style="width:30%" /> 
                                                     <!--<input type="color" name="colomn-color" id="colomn-color-<?php echo $nCount; ?>" value="#000000" onchange="changeColor(<?php echo $nCount; ?>,<?php echo $aDataList['success']; ?>)" style="width:30%"  />-->
                                                     <div class="input-group demo2 colorpicker-element" style="width:30%; float:right; margin-bottom: 2px;">
                                                         <input type ="hidden" name="colomn-color-three-<?php echo $nCount; ?>" id="colomn-color-three-<?php echo $nCount; ?>" value="<?php echo isset($aDataList['color_picker_three']) ? $aDataList['color_picker_three'] : 'green'; ?>" class="form-control colorpicker-element" />
@@ -227,8 +266,17 @@
         </div>
     </div>
 </div>
+<?php
+$aThresholdData="";
+foreach ($aThresholdFilterData as $aThresholdData) {
+    
+}
+?>
 <form name="updateEspForm" id="updateEspForm" method="POST" action="<?php echo getConfig('siteUrl') . '/home/addeditesp'; ?>">
-    <input type="hidden" name="hidden_id_esp" id="hidden_id_esp" value="" /> 
+    <input type="hidden" name="id_threshold" id="id_threshold" value="" />
+    <input type="hidden" name="esp_connection_id" id="esp_connection_id" value="" />
+    <input type="hidden" name="isp_id" id="isp_id" value="" /> 
+    <input type="hidden" name="domain_grouped_by_esp" id="domain_grouped_by_esp" value="" />
     <input type="hidden" name="esp_list_name" id="esp_list_name" value="" /> 
     <input type="hidden" name="esp_list_id" id="esp_list_id" value="" /> 
     <input type="hidden" name="esp_date" id="esp_date" value="" />
@@ -246,7 +294,13 @@
    
     function changeColor(nCount,nSuccessValue)
     {
-        document.getElementById('hidden_id_esp').value = $("#id_esp_"+nCount).val();
+        alert($("#colomn-color-one-"+nCount).val());
+        document.getElementById('esp_connection_id').value = $("#esp_connection_id_"+nCount).val();
+        document.getElementById('id_threshold').value = $("#id_threshold_1").val();
+
+        document.getElementById('isp_id').value = $("#isp_id_"+nCount).val();
+        document.getElementById('domain_grouped_by_esp').value = $("#domain_grouped_by_esp_"+nCount).val();
+        // document.getElementById('hidden_id_esp').value = $("#id_esp_"+nCount).val();
         document.getElementById('esp_list_id').value = $("#esp_list_id_"+nCount).val();
         document.getElementById('esp_list_name').value = $("#esp_list_name_"+nCount).val();
         document.getElementById('esp_date').value = $("#esp_date_"+nCount).val();

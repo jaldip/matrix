@@ -38,6 +38,7 @@ class homeController {
               "mailing_sending_end_date",
               "list_id",
               "isp_id",
+              "esp_connection_id",
               "esp_name",
               "isp_name",
               "list_name",
@@ -71,10 +72,25 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        //echo '<pre>';var_dump($aListData);exit;
+        // echo '<pre>';var_dump($aListData);exit;
         $previousDate = date('Y-m-d',strtotime("-1 days"));
         $oEsp = new esp();
         $aListEspData = $oEsp->getEspList($previousDate);
+        // var_dump($aListEspData);exit;
+        $oThreshold = new threshold();
+        $aThresholdFilterData=$oThreshold->getthresholdData();
+        $aUniqueField = array();
+        foreach ($aThresholdFilterData as $aData) {
+            $aUniqueField[$aData['threshold key']] = $aData;
+        }
+        // var_dump($aUniqueField);exit;
+        // foreach ($aListEspData as $aListDataForFilter) {
+        //     $sespConnectionIdForFilter=$aListDataForFilter['esp_connection_id'];
+        //     $sIspIdForFilter=$aListDataForFilter['isp_id'];
+        //     $sListidForFilter=$aListDataForFilter['list_id'];
+        //     $aThresholdFilterData=$oThreshold->getthresholdData($sespConnectionIdForFilter,$sIspIdForFilter,$sListidForFilter);
+        // }
+
         $bFlag = FALSE;
         if(isset($aListEspData))
         {    
@@ -103,6 +119,8 @@ class homeController {
                     $aListTitle = json_decode($aDetails);
                  
                     $nIdEsp = '';
+                    $nEspConnectionId = isset($aData['esp_connection_id']) ? $aData['esp_connection_id'] : '';
+                    $nIspId = isset($aData['isp_id']) ? $aData['isp_id'] : '';
                     $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
                     $dEspDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['stats_date']) : '';
                     $dSentDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['mailing_sending_end_date']) : '';
@@ -116,19 +134,12 @@ class homeController {
                     $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
                     $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
                     $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
-                    $nRangeOne = '';
-                    $nRangeTwo = '';
-                    $nRangeThree = '';
-                    $nRangeFour = '';
-                    $nRangeFive = '';
-                    $nRangeSix = '';
-                    $sColorPickerOne = '';
-                    $sColorPickerTwo = '';
-                    $sColorPickerThree = '';
 
                     $dUpdatedAt = date(getConfig('dtDateTime'));
                     $aEspData = array(
                         'id_esp' => $nIdEsp,
+                        'esp_connection_id' => $nEspConnectionId,
+                        'isp_id' => $nIspId, 
                         'list_id' => $nListId,
                         'esp_date' => $dEspDate,
                         'esp_list_name' => $sListName,
@@ -141,15 +152,6 @@ class homeController {
                         'complaints_rate' => $nComplaintsRate,
                         'opens' => $nOpens,
                         'failed' => $nFailed,
-                        'range_one' => $nRangeOne,
-                        'range_two' => $nRangeTwo,
-                        'range_three' => $nRangeThree,
-                        'range_four' => $nRangeFour,
-                        'range_five' => $nRangeFive,
-                        'range_six' => $nRangeSix,
-                        'color_picker_one' => $sColorPickerOne,
-                        'color_picker_two' => $sColorPickerTwo,
-                        'color_picker_three' => $sColorPickerThree,
                         'created_at' => $dCreatedAt,
                         'updated_at' => $dUpdatedAt,
                         'activated' => 1, 
@@ -164,39 +166,111 @@ class homeController {
         }    
         $nCount = 0;
         
-        if(isset($aListData["payload"]))
-        {    
-            foreach ($aListData["payload"] AS $aData)
-            {   
-                $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
-                $aListTitle = json_decode($aDetails);
-                $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
-                $aEspNameList[] = $aListTitle->payload->name;
-              // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
-                foreach($aListEspData as $aEspData)
-                {   
-                    if($aEspData['list_id'] == $aData['list_id'] && date("Y-m-d H:i:s", $aData['stats_date']) == $aEspData['esp_date'])
-                    {   
-                        $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
-                        $aListData["payload"][$nCount]['list_id'] = $aEspData['list_id'];
-                        $aListData["payload"][$nCount]['range_one'] = $aEspData['range_one'];
-                        $aListData["payload"][$nCount]['range_two'] = $aEspData['range_two'];
-                        $aListData["payload"][$nCount]['range_three'] = $aEspData['range_three'];
-                        $aListData["payload"][$nCount]['range_four'] = $aEspData['range_four'];
-                        $aListData["payload"][$nCount]['range_five'] = $aEspData['range_five'];
-                        $aListData["payload"][$nCount]['range_six'] = $aEspData['range_six'];
-                        $aListData["payload"][$nCount]['color_picker_one'] = $aEspData['color_picker_one'];
-                        $aListData["payload"][$nCount]['color_picker_two'] = $aEspData['color_picker_two'];
-                        $aListData["payload"][$nCount]['color_picker_three'] = $aEspData['color_picker_three'];
-                    } 
-                }
-                $nCount++;
-            }
-            array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
-        }
+        // if(isset($aListData["payload"]))
+        // {    
+        //     foreach ($aListData["payload"] AS $aData)
+        //     {   
+        //         $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
+        //         $aListTitle = json_decode($aDetails);
+        //         $aListData["payload"][$nCount]['list_name'] = $aListTitle->payload->name;
+        //         $aEspNameList[] = $aListTitle->payload->name;
+        //       // $aListData["payload"][$nCount]['open_percentage'] = ($aData['opens'] / $aData['sent']) * 100;
+        //         foreach($aListEspData as $aEspData)
+        //         {   
+        //             if($aEspData['list_id'] == $aData['list_id'] && date("Y-m-d H:i:s", $aData['stats_date']) == $aEspData['esp_date'])
+        //             {   
+        //                 $aListData["payload"][$nCount]['id_esp'] = $aEspData['id_esp'];
+        //                 $aListData["payload"][$nCount]['list_id'] = $aEspData['list_id'];
+        //                 $aListData["payload"][$nCount]['range_one'] = $aEspData['range_one'];
+        //                 $aListData["payload"][$nCount]['range_two'] = $aEspData['range_two'];
+        //                 $aListData["payload"][$nCount]['range_three'] = $aEspData['range_three'];
+        //                 $aListData["payload"][$nCount]['range_four'] = $aEspData['range_four'];
+        //                 $aListData["payload"][$nCount]['range_five'] = $aEspData['range_five'];
+        //                 $aListData["payload"][$nCount]['range_six'] = $aEspData['range_six'];
+        //                 $aListData["payload"][$nCount]['color_picker_one'] = $aEspData['color_picker_one'];
+        //                 $aListData["payload"][$nCount]['color_picker_two'] = $aEspData['color_picker_two'];
+        //                 $aListData["payload"][$nCount]['color_picker_three'] = $aEspData['color_picker_three'];
+        //             } 
+        //         }
+        //         $nCount++;
+        //     }
+        //     array_multisort($aEspNameList, SORT_ASC, $aListData["payload"] );
+        // }
         require("dashboard.tpl.php");
     }
     public function callAddEditEsp() {
+        global $sAction;
+        global $oUser, $oSession;
+        // var_dump($_POST);exit;
+        $nThreshoId = isset( $_POST['id_threshold']) ? $_POST['id_threshold'] : '0'; 
+        $nIdEsp = isset( $_POST['esp_connection_id']) ? $_POST['esp_connection_id'] : ''; 
+        $sListid = isset($_POST['esp_list_id']) ? $_POST['esp_list_id'] : '';
+        $sIspId = isset($_POST['isp_id']) ? $_POST['isp_id'] : '';
+        $sDomainGroupdByEsp = isset($_POST['domain_grouped_by_esp']) ? $_POST['domain_grouped_by_esp'] : '';
+        $nRangeOne = isset($_POST['range_one']) ? $_POST['range_one'] : '';
+        $nRangeTwo = isset($_POST['range_two']) ? $_POST['range_two'] : '';
+        $nRangeThree = isset($_POST['range_three']) ? $_POST['range_three'] : '';
+        $nRangeFour = isset($_POST['range_four']) ? $_POST['range_four'] : '';
+        $nRangeFive = isset($_POST['range_five']) ? $_POST['range_five'] : '';
+        $nRangeSix = isset($_POST['range_six']) ? $_POST['range_six'] : '';
+        $sColorPickerOne = isset($_POST['color-picker-one']) ? $_POST['color-picker-one'] : '';
+        $sColorPickerTwo = isset($_POST['color-picker-two']) ? $_POST['color-picker-two'] : '';
+        $sColorPickerThree = isset($_POST['color-picker-three']) ? $_POST['color-picker-three'] : '';
+        $dUpdatedAt = date(getConfig('dtDateTime'));
+        $oEsp = new esp();
+
+             // exit();   
+         $aThresholdData = array(
+                            'id_threshold' => $nThreshoId,
+                            'id_esp' => $nIdEsp,
+                            'id_list' => $sListid,
+                            'id_isp' => $sIspId,
+                            'domain_groupd_by_esp' => $sDomainGroupdByEsp,
+                            'range_one' => $nRangeOne,
+                            'range_two' => $nRangeTwo,
+                            'range_three' => $nRangeThree,
+                            'range_four' => $nRangeFour, 
+                            'range_five' => $nRangeFive, 
+                            'range_six' => $nRangeSix,
+                            'color_picker_one' => $sColorPickerOne,
+                            'color_picker_two' => $sColorPickerTwo,
+                            'color_picker_three' => $sColorPickerThree,
+                            'created_at' => $dUpdatedAt,
+                            'updated_at' => $dUpdatedAt,
+                            
+                        );
+        
+        $oEsp->addnewthreshold($aThresholdData,$nThreshoId);
+        
+        redirect(getConfig('siteUrl') . '/home/dashboard');
+
+        // echo isset($_POST['hidden_id_esp']) ? $_POST['hidden_id_esp'] : 'hidden_id_esp';
+        // echo "<br>";
+        // echo isset($_POST['esp_list_name']) ? $_POST['esp_list_name'] : 'No esp_list_name';
+        // echo "<br>";
+        // echo isset($_POST['esp_list_id']) ? $_POST['esp_list_id'] : 'No esp_list_id'; 
+        // echo "<br>";
+        // echo isset($_POST['esp_date']) ? $_POST['esp_date'] : 'No esp_date';
+        // echo "<br>";
+        // echo isset($_POST['range_one']) ? $_POST['range_one'] : 'No range one';
+        // echo "<br>";
+        // echo isset($_POST['range_two']) ? $_POST['range_two'] : 'No range two';
+        // echo "<br>";
+        // echo isset($_POST['range_three']) ? $_POST['range_three'] : 'No range three';
+        // echo "<br>";
+        // echo isset($_POST['range_four']) ? $_POST['range_four'] : 'No range four';
+        // echo "<br>";
+        // echo isset($_POST['range_five']) ? $_POST['range_five'] : 'No range five';
+        // echo "<br>";
+        // echo isset($_POST['range_six']) ? $_POST['range_six'] : 'No range six';
+        // echo "<br>";
+        // echo isset($_POST['color-picker-one']) ? $_POST['color-picker-one'] : 'No color-picker-one';
+        // echo "<br>";
+        // echo isset($_POST['color-picker-two']) ? $_POST['color-picker-two'] : 'No color-picker-two';
+        // echo "<br>";
+        // echo isset($_POST['color-picker-three']) ? $_POST['color-picker-three'] : 'No color-picker-three';
+        
+        // exit;
         global $sAction;
         global $oUser, $oSession;
         $oESP = new esp();

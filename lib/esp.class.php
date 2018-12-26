@@ -28,7 +28,9 @@ class esp extends siCommon {
 
         $aInsertFieldArray = array(
                             'id_esp',
-                            'list_id',   
+                            'list_id', 
+                            'esp_connection_id',
+                            'isp_id',  
                             'esp_date',
                             'esp_list_name',
                             'esp',
@@ -40,15 +42,6 @@ class esp extends siCommon {
                             'complaints_rate',
                             'opens',
                             'failed',
-                            'range_one',
-                            'range_two',
-                            'range_three',
-                            'range_four',
-                            'range_five',
-                            'range_six',
-                            'color_picker_one',
-                            'color_picker_two',
-                            'color_picker_three',
                             'created_at', 
                             'updated_at',
                             'activated', 
@@ -58,6 +51,8 @@ class esp extends siCommon {
             array(
                 $aEspData['id_esp'],
                 $aEspData['list_id'],
+                $aEspData['esp_connection_id'],
+                $aEspData['isp_id'],
                 $aEspData['esp_date'],
                 $aEspData['esp_list_name'],
                 $aEspData['esp'],
@@ -69,22 +64,12 @@ class esp extends siCommon {
                 $aEspData['complaints_rate'],
                 $aEspData['opens'],
                 $aEspData['failed'],
-                $aEspData['range_one'],
-                $aEspData['range_two'],
-                $aEspData['range_three'],
-                $aEspData['range_four'],
-                $aEspData['range_five'],
-                $aEspData['range_six'],
-                $aEspData['color_picker_one'],
-                $aEspData['color_picker_two'],
-                $aEspData['color_picker_three'],
                 $aEspData['created_at'],
                 $aEspData['updated_at'],
                 $aEspData['activated'],
                 $aEspData['deleted']
             )
         );
-        
         $this->saveRecords($sTableName, $aInsertFieldArray, $aInsertValueArray);
     }
 
@@ -102,6 +87,8 @@ class esp extends siCommon {
         $sSql = "SELECT 
                         e.id_esp as id_esp,
                         e.list_id as list_id,
+                        e.esp_connection_id as esp_connection_id,
+                        e.isp_id as isp_id,
                         e.esp_date as esp_date,
                         e.esp_list_name as esp_list_name,
                         e.esp as esp,
@@ -113,15 +100,6 @@ class esp extends siCommon {
                         e.complaints_rate as complaints_rate,
                         e.opens as opens,
                         e.failed as failed,
-                        e.range_one as range_one,
-                        e.range_two as range_two,
-                        e.range_three as range_three,
-                        e.range_four as range_four,
-                        e.range_five as range_five,
-                        e.range_six as range_six,
-                        e.color_picker_one as color_picker_one,
-                        e.color_picker_two as color_picker_two,
-                        e.color_picker_three as color_picker_three,
                         e.created_at as created_at,
                         e.updated_at as updated_at
                        
@@ -214,7 +192,7 @@ class esp extends siCommon {
                             esp e
                     WHERE" . $sAndWhere;
 
-        //var_dump($sSql);            
+        
         $sQueryHendler = $this->getList($sSql,array(),array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
@@ -252,6 +230,50 @@ class esp extends siCommon {
         //var_dump($sSql);exit;            
         $sQueryHendler = $this->getList($sSql,array(),array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
+    }
+    public function addnewthreshold($aThresholdData,$nThreshoId)
+    {
+        $sTableName = 'threshold';
+
+        $aInsertFieldArray = array(
+                            'id_threshold',
+                            'id_esp',
+                            'id_list', 
+                            'id_isp',
+                            'domain_groupd_by_esp',  
+                            'range_one',
+                            'range_two',
+                            'range_three',
+                            'range_four',
+                            'range_five',
+                            'range_six',
+                            'color_picker_one',
+                            'color_picker_two',
+                            'color_picker_three',
+                            'created_at',
+                            'updated_at',
+        );
+        $aInsertValueArray = array(
+            array(
+                $nThreshoId,
+                $aThresholdData['id_esp'],
+                $aThresholdData['id_list'],
+                $aThresholdData['id_isp'],
+                $aThresholdData['domain_groupd_by_esp'],
+                $aThresholdData['range_one'],
+                $aThresholdData['range_two'],
+                $aThresholdData['range_three'],
+                $aThresholdData['range_four'],
+                $aThresholdData['range_five'],
+                $aThresholdData['range_six'],
+                $aThresholdData['color_picker_one'],
+                $aThresholdData['color_picker_two'],
+                $aThresholdData['color_picker_three'],
+                $aThresholdData['created_at'],
+                $aThresholdData['updated_at'],
+            )
+        );
+        $this->saveRecords($sTableName, $aInsertFieldArray, $aInsertValueArray);   
     }
 }
 
