@@ -7,36 +7,42 @@ global $oUser, $oSession;
 $previousDate = date('Y-m-d', strtotime("-1 days"));
 $dCreatedAt = date(getConfig('dtDateTime'));
 
-$jRequest = json_decode('{ 
+$jRequest = json_decode('{
            "select":[
-                [ 
-                    "MAX(`stats_date`)",
-                    "delivery_date"
-                ],
-                "list_id",
-                "esp_name",
-                "isp_name",
-                "success",
-                "opens_rate",
-                "sent",
-                "clicks",
-                "complaints",
-                "complaints_rate",
-                "opens",
-                "failed"
+              "stats_date",
+              "mailing_sending_end_date",
+              "list_id",
+              "isp_id",
+              "esp_connection_id",
+              "esp_name",
+              "isp_name",
+              "list_name",
+              "sum(`success`)",
+              "sum(`opens`)",
+              "sum(`clicks`)",
+              "sum(`complaints`)",
+              "complaints_rate",
+              "sum(`opens`)",
+              "opens_rate",
+              "sum(`failed`)"
            ],
-           "filter": [
-                [ "delivery_date", "=", "' . $previousDate . '" ]
-            ],
            "from":"mailing",
-           "order":[ 
-              [ 
-                 "list_id",
-                 "desc"
-              ]
+           "group":[
+              "list_id",
+              "isp_id"
            ],
-           "group":[ 
-              "esp_connection_id"
+           "list_ids" : "all",
+           "filter":[
+              [ 
+                "is_test_campaign",
+                "=",
+                0
+              ],
+              [
+                "stats_date",
+                "=",
+                "'.$previousDate.'"
+              ]
            ]
         }', TRUE);
 
@@ -69,6 +75,8 @@ if (empty($aListEspData) || $bFlag == FALSE) {
             $aListTitle = json_decode($aDetails);
 
             $nIdEsp = '';
+            $nEspConnectionId = isset($aData['esp_connection_id']) ? $aData['esp_connection_id'] : '';
+            $nIspId = isset($aData['isp_id']) ? $aData['isp_id'] : '';
             $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
             $dEspDate = (date("Y-m-d H:i:s", $aData['delivery_date']) != null) ? date("Y-m-d H:i:s", $aData['delivery_date']) : '';
             $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
@@ -81,19 +89,12 @@ if (empty($aListEspData) || $bFlag == FALSE) {
             $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
             $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
             $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
-            $nRangeOne = '';
-            $nRangeTwo = '';
-            $nRangeThree = '';
-            $nRangeFour = '';
-            $nRangeFive = '';
-            $nRangeSix = '';
-            $sColorPickerOne = '';
-            $sColorPickerTwo = '';
-            $sColorPickerThree = '';
-
             $dUpdatedAt = date(getConfig('dtDateTime'));
+
             $aEspData = array(
                 'id_esp' => $nIdEsp,
+                'esp_connection_id' => $nEspConnectionId,
+                'isp_id' => $nIspId, 
                 'list_id' => $nListId,
                 'esp_date' => $dEspDate,
                 'esp_list_name' => $sListName,
@@ -106,15 +107,6 @@ if (empty($aListEspData) || $bFlag == FALSE) {
                 'complaints_rate' => $nComplaintsRate,
                 'opens' => $nOpens,
                 'failed' => $nFailed,
-                'range_one' => $nRangeOne,
-                'range_two' => $nRangeTwo,
-                'range_three' => $nRangeThree,
-                'range_four' => $nRangeFour,
-                'range_five' => $nRangeFive,
-                'range_six' => $nRangeSix,
-                'color_picker_one' => $sColorPickerOne,
-                'color_picker_two' => $sColorPickerTwo,
-                'color_picker_three' => $sColorPickerThree,
                 'created_at' => $dCreatedAt,
                 'updated_at' => $dUpdatedAt,
                 'activated' => 1,
