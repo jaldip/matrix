@@ -162,15 +162,6 @@ class esp extends siCommon {
                         e.complaints_rate as complaints_rate, 
                         SUM(opens) as opens,
                         SUM(failed) as failed,
-                        e.range_one as range_one,
-                        e.range_two as range_two,
-                        e.range_three as range_three,
-                        e.range_four as range_four,
-                        e.range_five as range_five,
-                        e.range_six as range_six,
-                        e.color_picker_one as color_picker_one,
-                        e.color_picker_two as color_picker_two,
-                        e.color_picker_three as color_picker_three,
                         e.created_at as created_at,
                         e.updated_at as updated_at
                        
