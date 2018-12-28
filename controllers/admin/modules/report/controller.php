@@ -8,8 +8,8 @@
  */
 class reportController {
 
-    public $aLayout = array('graph' => 'main','graphbylist' => 'main');
-    public $aLoginRequired = array('graph' => true,'graphbylist' => true);
+    public $aLayout = array('graph' => 'main','graphbylist' => 'main','bargraphgata' => '','linegraphdata' => '','donutgraphdata' => '');
+    public $aLoginRequired = array('graph' => true,'graphbylist' => true,'bargraphgata' => true,'linegraphdata' => true,'donutgraphdata' => true);
 
     public function __construct() {
         global $sAction;
@@ -35,6 +35,8 @@ class reportController {
         {    
             $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName);
+            
+            // exit;
             // var_dump($aListEspData);exit;
             //$aLineGraphData = $aListEspData; 
         }else{
@@ -46,4 +48,16 @@ class reportController {
         require("graph.tpl.php");
     }
     
+
+    public function callBarGraphData(){
+
+    }
+
+    public function callLineGraphData(){
+
+    }
+
+    public function callDonutGraphData(){
+
+    }
 }   

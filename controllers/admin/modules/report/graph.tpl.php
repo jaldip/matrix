@@ -33,7 +33,6 @@
     $nTotalFailed = 0;
     $Tmp = 0;
     foreach ($aListEspData AS $aRecords) {
-        // var_dump($aRecords['success']);
         $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
         $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
         $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;                    
@@ -96,7 +95,7 @@
      //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
      //    $aDomain[$aRecords['domain_grouped_by_esp']] = $aFinalBarData;
 
-     
+
     foreach ($aListNames as $item){
         foreach ($aDates as $date){
             $sDate = date_format(date_create($date),"m/d/Y");
@@ -185,7 +184,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                     <h2>Bar Chart Group <small>Sessions</small></h2>
+                     <h2>Success,Open and Failed total for every list name.<small></small></h2>
                       <label class="checkbox-container">
                           <input type="checkbox" id="idChkAll" value="" <?php echo ($sHiddenListName == "ALL" || $sHiddenListName == "") ? 'checked' : ''; ?>  onchange="onCheckboxAllChanged(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')"> ALL &nbsp;
                         <span class="checkmark" style="background-color: #000000;"></span>
@@ -202,12 +201,13 @@
                                 <?php } ?>
                             </label>
                         <?php } ?>
+                        
                   <ul class="nav panel_toolbox">                    
                   </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content1">                  
-		  <div id="container" style="width:100%; height:650px;"></div>
+		          <div id="container" style="width:100%; height:650px;"></div>
                 </div>
               </div>
             </div>
@@ -218,8 +218,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Line Graph <small>Sessions</small></h2>
-                  
+                  <h2>Total success of esp list name for each day<small></small></h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content2">
@@ -228,11 +227,12 @@
               </div>
             </div>
             <!-- /line graph -->
+
             <!-- pie chart -->
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Pie Chart <small>Sessions</small></h2>
+                  <h2>Total Sucess and Open percentage <small></small></h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content2">
@@ -243,6 +243,7 @@
             <!-- /Pie chart -->
           </div>
         </div>
+
         <form id="commonForm" name="commonForm" method="POST">
             <input type="hidden" name="hidden_list_name" id="hidden_list_name" value=""/>
         </form>    
@@ -367,4 +368,9 @@ Highcharts.chart('container', {
     });
 
 });    
+</script>
+<script>
+$( document ).ready(function() {
+    
+});
 </script>
