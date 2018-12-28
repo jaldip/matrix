@@ -31,7 +31,9 @@
     $nTotalSuccess = 0;
     $nTotalOpens = 0;
     $nTotalFailed = 0;
-    foreach ($aListEspData AS $aRecords) {  
+    $Tmp = 0;
+    foreach ($aListEspData AS $aRecords) {
+        // var_dump($aRecords['success']);
         $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
         $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
         $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;                    
@@ -48,12 +50,53 @@
     } 
 
      $aFinalBarData = array();
-     foreach ($aListEspData as $aRecords){            
-            $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+     // for ($nCount=0; $nCount < sizeof($aListEspData) ; $nCount++) { 
+     //    $sDate = date_format(date_create($aListEspData[$nCount]['esp_date']),"m/d/Y");
+     //    if(findKey($aFinalBarData,$sDate) && findKey($aFinalBarData,$aListEspData[$nCount]["esp_list_name"]))
+     //    {
+     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["opens"] += $aListEspData[$nCount]['opens'];
+     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["success"] += $aListEspData[$nCount]['success'];
+     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["failed"] += $aListEspData[$nCount]['failed'];    
+     //    }
+     //    else
+     //    {
+     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["opens"] = $aListEspData[$nCount]['opens'];
+     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["success"] = $aListEspData[$nCount]['success'];
+     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["failed"] = $aListEspData[$nCount]['failed'];   
+     //    }
+        
+     //    // $nCount++;
+     //    // $sDate = date_format(date_create($aListEspData[$i]['esp_date']),"m/d/Y");
+     //    // $aFinalBarData[$aListEspData[$i]["esp_list_name"]]["$sDate"]["opens"] += $aListEspData[$i]['opens'];
+     //    // $aFinalBarData[$aListEspData[$i]["esp_list_name"]]["$sDate"]["success"] += $aListEspData[$i]['success'];
+     //    // $aFinalBarData[$aListEspData[$i]["esp_list_name"]]["$sDate"]["failed"] += $aListEspData[$i]['failed'];
+     // }
+     foreach ($aListEspData as $aRecords){
+        $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = 0;
+        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = 0;
+        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = 0;
+        if(findKey($aFinalBarData,$sDate) && findKey($aFinalBarData,$aRecords["esp_list_name"]))
+        {
+            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] += $aRecords['opens'];
+            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] += $aRecords['success'];
+            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] += $aRecords['failed'];    
+        }
+        else
+        {
             $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
             $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
-            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
+            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];    
+        }
      }
+
+     //    $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
+     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
+     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
+     //    $aDomain[$aRecords['domain_grouped_by_esp']] = $aFinalBarData;
+
+     
     foreach ($aListNames as $item){
         foreach ($aDates as $date){
             $sDate = date_format(date_create($date),"m/d/Y");

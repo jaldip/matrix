@@ -35,6 +35,7 @@ class reportController {
         {    
             $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName);
+            // var_dump($aListEspData);exit;
             //$aLineGraphData = $aListEspData; 
         }else{
             $aGroupBy = array(' GROUP BY' => ' e.esp_date');

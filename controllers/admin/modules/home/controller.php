@@ -113,7 +113,7 @@ class homeController {
             $nCount = 0;
             foreach ($aListData["payload"] AS $aData)
             {
-                if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com') 
+                if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com' || $aData['isp_name'] == 'hotmail.com') 
                 {
                     $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
                     $aListTitle = json_decode($aDetails);
