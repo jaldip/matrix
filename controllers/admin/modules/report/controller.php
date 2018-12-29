@@ -6,8 +6,10 @@
  * @package stepOne
  */
 class reportController {
+
     public $aLayout = array('graph' => 'main','graphbylist' => 'main','bargraphgata' => '','linegraphdata' => '','DonutGraphData' => '');
     public $aLoginRequired = array('graph' => true,'graphbylist' => true,'bargraphgata' => true,'linegraphdata' => true,'DonutGraphData' => false);
+
     public function __construct() {
         global $sAction;
         global $oUser;
@@ -43,10 +45,10 @@ class reportController {
         require("graph.tpl.php");
     }
     
+
     public function callBarGraphData(){
     }
     public function callLineGraphData(){
-        echo "hello";
     }
     public function callDonutGraphData(){
         $oGraphData =new graphData();
@@ -79,6 +81,5 @@ class reportController {
         echo json_encode($aDonetGraphData[3]);
         
         
-
     }
 }   

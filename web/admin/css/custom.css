@@ -529,3 +529,7 @@ article.media {
 #tableDataColor{
   color:black;
 }
+#bar_chart_progressbar
+{
+  text-align: center;
+}

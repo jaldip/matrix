@@ -285,3 +285,15 @@ function fromRGB($R, $G, $B)
     }
     return '#' . $R . $G . $B;
 }
+function findKey($aArray, $sKeySearch) { 
+	foreach ($aArray as $sKey => $sItem) { 
+		if ($sKey == $sKeySearch) { 
+			// echo 'yes, it exists'; 
+			return true; 
+		} 
+		elseif(is_array($sItem) && findKey($sItem, $sKeySearch)) { 
+			return true; 
+		} 
+	} 
+	return false; 
+}
