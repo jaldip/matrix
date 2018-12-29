@@ -164,7 +164,7 @@ class esp extends siCommon {
                         SUM(failed) as failed,
                         e.created_at as created_at,
                         e.updated_at as updated_at
-                       
+                      
                     FROM
                             esp e
                     WHERE" . $sAndWhere;

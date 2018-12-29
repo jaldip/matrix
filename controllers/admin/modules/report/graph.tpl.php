@@ -31,7 +31,7 @@
     $nTotalSuccess = 0;
     $nTotalOpens = 0;
     $nTotalFailed = 0;
-    foreach ($aListEspData AS $aRecords) {  
+    foreach ($aListEspData AS $aRecords) { 
         $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
         $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
         $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;                    
@@ -193,6 +193,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content2">
+                    <img id="load" src='<?php echo getConfig('siteUrl').'/img/source.gif' ?>' height='50px' width='50px' />
                   <div id="graph_donut" style="width:100%; height:300px;"></div>
                 </div>
               </div>
@@ -297,6 +298,46 @@ Highcharts.chart('container', {
     series: sDataSeries
 });
 
+$( document ).ready(function() { 
+    $.ajax({
+        url: "<?php echo getConfig('siteUrl').'/report/DonutGraphData' ?>",
+        method: "POST", 
+        beforeSend: function() {
+        $('#load').show();
+        },
+        success: function(result){
+            $('#load').hide();
+            
+            var JSONObject
+            if(result !== "")
+            {   
+                JSONObject = JSON.parse(result);
+
+        
+            }
+            Morris.Donut({
+                element: 'graph_donut',
+                data: [
+                {label: 'Total Success', value: JSONObject.success},
+                {label: 'Total Open', value: JSONObject.opens},
+                {label: 'Total Fail', value: JSONObject.failed},
+                ],
+                colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+                formatter: function (y) {
+                return y + "%"
+                }
+                });
+  }});
+});
+$( document ).ready(function() { 
+    $.ajax({
+        url: "<?php echo getConfig('siteUrl').'/report/linegraphdata' ?>",
+        method: "POST",
+        success: function(data){
+        alert(data);
+  }});
+});
+
     new Morris.Line({
         element: 'graph_line',
         xkey: 'date',
@@ -310,18 +351,7 @@ Highcharts.chart('container', {
             <?Php } ?>
         ]
     });
-    Morris.Donut({
-        element: 'graph_donut',
-        data: [
-            {label: 'Total Success', value: <?php echo $nSuccessPercent; ?>},
-            {label: 'Total Open', value: <?php echo $nOpensPercent; ?>},
-            {label: 'Total Fail', value: <?php echo $nFailedPercent; ?>},
-        ],
-        colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        formatter: function (y) {
-            return y + "%"
-        }
-    });
+    
 
 });    
 </script>
