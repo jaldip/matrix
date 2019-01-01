@@ -7,8 +7,9 @@
  */
 class reportController {
 
-    public $aLayout = array('graph' => 'main','graphbylist' => 'main','bargraphgata' => '','linegraphdata' => '','DonutGraphData' => '');
-    public $aLoginRequired = array('graph' => true,'graphbylist' => true,'bargraphgata' => true,'linegraphdata' => true,'DonutGraphData' => false);
+    public $aLayout = array('graph' => 'main','graphbylist' => 'main','bargraphdata' => '','linegraphdata' => '','DonutGraphData' => '');
+    public $aLoginRequired = array('graph' => true,'graphbylist' => true,'bargraphdata' => false
+        ,'linegraphdata' => false,'DonutGraphData' => false);
 
     public function __construct() {
         global $sAction;
@@ -47,9 +48,34 @@ class reportController {
     
 
     public function callBarGraphData(){
+       global $sAction;
+        global $oUser, $oSession;
+        $aListData["payload"] = array();
+        $oEsp =new esp();
+        $aLists = $oEsp->getAllListName();
+        $oGraphData =new graphData();
+
+
+        $aListEspData = $oGraphData->getbargraphdata();
+        $bargraphdata="";
+        foreach ($aListEspData as $bargraphdata) {
+            $bargraphdata=$bargraphdata;
+            
+            echo json_encode($bargraphdata);
+        }    
     }
-    public function callLineGraphData(){
+
+    public function callLineGraphData()
+    {
+        $oLineGraphData =new graphData();
+        $aGetLineGraphData = $oLineGraphData->getlinegraphdata();
+        $aLineData="";
+        
+            echo json_encode($aGetLineGraphData);
+        
+        
     }
+
     public function callDonutGraphData(){
         $oGraphData =new graphData();
         $aGraphData = $oGraphData->getdenotChartData();

@@ -28,14 +28,53 @@ class graphData extends siCommon {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND DATE_SUB(  CURDATE(), INTERVAL 30 DAY )";
-        $sSql = "SELECT 
+        $sSql = "SELECT
                         SUM(success) as success,
                         SUM(opens) as opens,
                         SUM(failed) as failed
                     FROM
                             esp e
                     WHERE" . $sAndWhere;
-                    
+        $sQueryHendler = $this->getList($sSql,array(), array(), array(),array());
+        return $this->getData($sQueryHendler, "ARRAY");
+    }
+    public function getbargraphdata()
+    {
+        $sAndWhere = ' 1 = 1';
+        $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
+        $sAndWhere .= " AND DATE_SUB( CURDATE( ) , INTERVAL 30 DAY )";
+        $sAndWhere .= " GROUP BY esp_date";
+        
+        $sSql = "SELECT 
+                        esp_list_name,
+                        esp_date,
+                        SUM( success ) AS success,
+                        SUM( opens ) AS opens,
+                        SUM( failed ) AS failed
+                      
+                    FROM
+                            esp e
+                    WHERE" . $sAndWhere;
+
+
+        $sQueryHendler = $this->getList($sSql,array(), array(), array(),array());
+        return $this->getData($sQueryHendler, "ARRAY");
+    }
+    public function getlinegraphdata()
+    {
+        $sAndWhere = ' 1 = 1';
+        $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
+        $sAndWhere .= " AND DATE_SUB( CURDATE( ) , INTERVAL 30 DAY )";
+        $sAndWhere .= " GROUP BY DATE( esp_date )";
+        
+        $sSql = "SELECT 
+                        SUM( success ) AS success,
+                        esp_date
+                    FROM
+                            esp e
+                    WHERE" . $sAndWhere;
+
+        
         $sQueryHendler = $this->getList($sSql,array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }

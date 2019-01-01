@@ -169,7 +169,7 @@ class esp extends siCommon {
                             esp e
                     WHERE" . $sAndWhere;
 
-        //var_dump($sSql);            
+             
         $sQueryHendler = $this->getList($sSql,array(),$aGroupBy, array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }

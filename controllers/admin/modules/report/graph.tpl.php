@@ -46,7 +46,6 @@
         $nOpensPercent = round($nTotalOpens/$nTotal *100,2);
         $nFailedPercent = round($nTotalFailed/$nTotal *100,2);
     } 
-
      $aFinalBarData = array();
      // for ($nCount=0; $nCount < sizeof($aListEspData) ; $nCount++) { 
      //    $sDate = date_format(date_create($aListEspData[$nCount]['esp_date']),"m/d/Y");
@@ -87,14 +86,11 @@
             $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];    
         }
      }
-
      //    $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
      //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
      //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
      //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
      //    $aDomain[$aRecords['domain_grouped_by_esp']] = $aFinalBarData;
-
-
     foreach ($aListNames as $item){
         foreach ($aDates as $date){
             $sDate = date_format(date_create($date),"m/d/Y");
@@ -206,7 +202,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content1">                  
-		          <div id="container" style="width:100%; height:650px;"></div>
+                  <div id="container" style="width:100%; height:650px;"></div>
                 </div>
               </div>
             </div>
@@ -259,6 +255,14 @@
 
   </div>
 <script>
+// $( document ).ready(function() { 
+//     $.ajax({
+//         url: "<?php echo getConfig('siteUrl').'/report/bargraphdata' ?>",
+//         method: "POST",
+//         success: function(data){
+//             // JSONObject = JSON.parse(data);
+//   }});
+// });
 $(function () {
         <?php   
         $i = 0;
@@ -301,19 +305,15 @@ $(function () {
        
             
 Highcharts.chart('container', {
-
     chart: {
         type: 'column'
     },
-
     title: {
         text: ''
     },
-
     xAxis: {
         categories: sCategories
     },
-
     yAxis: {
         allowDecimals: false,
         min: 0,
@@ -323,7 +323,6 @@ Highcharts.chart('container', {
             text: ''
         }
     },
-
     tooltip: {
         formatter: function () {
             return '<b>' + this.x + '</b><br/>' +
@@ -331,16 +330,13 @@ Highcharts.chart('container', {
                 'Total: ' + this.point.stackTotal;
         }
     },
-
     plotOptions: {
         column: {
             stacking: 'normal'
         }
     },
-
     series: sDataSeries
 });
-
 $( document ).ready(function() { 
     $.ajax({
         url: "<?php echo getConfig('siteUrl').'/report/DonutGraphData' ?>",
@@ -355,7 +351,6 @@ $( document ).ready(function() {
             if(result !== "")
             {   
                 JSONObject = JSON.parse(result);
-
         
             }
             Morris.Donut({
@@ -372,28 +367,36 @@ $( document ).ready(function() {
                 });
   }});
 });
+
 $( document ).ready(function() { 
+    var success="";
+    var esp_date="";
     $.ajax({
         url: "<?php echo getConfig('siteUrl').'/report/linegraphdata' ?>",
         method: "POST",
-        success: function(data){
+        success: function(Response){
+                
+                var data=JSON.parse(Response);
+                var length = data.length;
+                
+                new Morris.Line({
+                element: 'graph_line',
+                xkey: 'date',
+                ykeys: ['success'],
+                labels: ['Total Success'],
+                
+                lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+                data: [
+                <?php foreach ($aListEspData AS $aRecords) { ?>
+                { date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
+                <?Php } ?>
+                ]
+                
+                });
+
+
   }});
 });
-
-    new Morris.Line({
-        element: 'graph_line',
-        xkey: 'date',
-        ykeys: ['success'],
-        labels: ['Total Success'],
-        hideHover: 'auto',
-        lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-        data: [
-            <?php foreach ($aListEspData AS $aRecords) { ?>
-            { date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
-            <?Php } ?>
-        ]
-    });
     
-
 });    
 </script>
