@@ -69,11 +69,7 @@ class reportController {
     {
         $oLineGraphData =new graphData();
         $aGetLineGraphData = $oLineGraphData->getlinegraphdata();
-        $aLineData="";
-        
-            echo json_encode($aGetLineGraphData);
-        
-        
+        echo json_encode($aGetLineGraphData);
     }
 
     public function callDonutGraphData(){
@@ -82,15 +78,14 @@ class reportController {
         // echo json_encode($aGraphData);
         // var_dump($aGraphData);
 
-
         $nTotalSuccess = 0;
         $nTotalOpens = 0;
         $nTotalFailed = 0;
         $aDonetGraphData[]="";
         foreach ($aGraphData as $aDonetGraphData) {
-        $nTotalSuccess += isset($aDonetGraphData['success']) ? $aDonetGraphData['success'] : 0;
-        $nTotalOpens += isset($aDonetGraphData['opens']) ? $aDonetGraphData['opens'] : 0;
-        $nTotalFailed += isset($aDonetGraphData['failed']) ? $aDonetGraphData['failed'] : 0;
+            $nTotalSuccess += isset($aDonetGraphData['success']) ? $aDonetGraphData['success'] : 0;
+            $nTotalOpens += isset($aDonetGraphData['opens']) ? $aDonetGraphData['opens'] : 0;
+            $nTotalFailed += isset($aDonetGraphData['failed']) ? $aDonetGraphData['failed'] : 0;
         }
         $nSuccessPercent = 0;
         $nOpensPercent = 0;

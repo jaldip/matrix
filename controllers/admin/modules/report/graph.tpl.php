@@ -337,12 +337,14 @@ Highcharts.chart('container', {
     },
     series: sDataSeries
 });
+});
+
 $( document ).ready(function() { 
     $.ajax({
         url: "<?php echo getConfig('siteUrl').'/report/DonutGraphData' ?>",
         method: "POST", 
         beforeSend: function() {
-        $('#load').show();
+            $('#load').show();
         },
         success: function(result){
             $('#load').hide();
@@ -350,8 +352,7 @@ $( document ).ready(function() {
             var JSONObject
             if(result !== "")
             {   
-                JSONObject = JSON.parse(result);
-        
+                JSONObject = JSON.parse(result);        
             }
             Morris.Donut({
                 element: 'graph_donut',
@@ -364,39 +365,36 @@ $( document ).ready(function() {
                 formatter: function (y) {
                 return y + "%"
                 }
-                });
-  }});
+            });
+        }
+    });
 });
 
 $( document ).ready(function() { 
-    var success="";
-    var esp_date="";
+    var success = "";
+    var esp_date = "";
     $.ajax({
         url: "<?php echo getConfig('siteUrl').'/report/linegraphdata' ?>",
+        dataType: 'json',
         method: "POST",
-        success: function(Response){
-                
-                var data=JSON.parse(Response);
-                var length = data.length;
-                
-                new Morris.Line({
+        success: function(data)
+        {
+            var morrisData = [];
+
+            $.each(data, function(key, val){
+                morrisData.push({'date': val.esp_date, 'success' : val.success}); 
+            })
+
+            new Morris.Line({
                 element: 'graph_line',
                 xkey: 'date',
                 ykeys: ['success'],
                 labels: ['Total Success'],
-                
+                hideHover: 'auto',
                 lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-                data: [
-                <?php foreach ($aListEspData AS $aRecords) { ?>
-                { date: '<?php echo $aRecords['esp_date']; ?>', success: <?php echo $aRecords['success']; ?>},
-                <?Php } ?>
-                ]
-                
-                });
-
-
-  }});
-});
-    
+                data: morrisData
+            });
+        }
+    });
 });    
 </script>
