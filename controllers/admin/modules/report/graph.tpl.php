@@ -217,6 +217,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content2">
+                    <img id="load" src='<?php echo getConfig('siteUrl').'/img/source.gif' ?>' height='50px' width='50px' />
                   <div id="graph_line" style="width:100%; height:300px;"></div>
                 </div>
               </div>
@@ -231,7 +232,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content2">
-                    <img id="load" src='<?php echo getConfig('siteUrl').'/img/source.gif' ?>' height='50px' width='50px' />
+                    <img id="loading" src='<?php echo getConfig('siteUrl').'/img/source.gif' ?>' height='50px' width='50px' />
                   <div id="graph_donut" style="width:100%; height:300px;"></div>
                 </div>
               </div>
@@ -344,10 +345,10 @@ $( document ).ready(function() {
         url: "<?php echo getConfig('siteUrl').'/report/DonutGraphData' ?>",
         method: "POST", 
         beforeSend: function() {
-            $('#load').show();
+            $('#loading').show();
         },
         success: function(result){
-            $('#load').hide();
+            $('#loading').hide();
             
             var JSONObject
             if(result !== "")
@@ -377,8 +378,11 @@ $( document ).ready(function() {
         url: "<?php echo getConfig('siteUrl').'/report/linegraphdata' ?>",
         dataType: 'json',
         method: "POST",
+        beforeSend: function() {
+            $('#load').show();
+        },
         success: function(data)
-        {
+        {   $('#load').hide()
             var morrisData = [];
 
             $.each(data, function(key, val){
