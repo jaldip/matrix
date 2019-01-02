@@ -256,89 +256,96 @@
 
   </div>
 <script>
-// $( document ).ready(function() { 
-//     $.ajax({
-//         url: "<?php echo getConfig('siteUrl').'/report/bargraphdata' ?>",
-//         method: "POST",
-//         success: function(data){
-//             // JSONObject = JSON.parse(data);
-//   }});
-// });
-$(function () {
-        <?php   
-        $i = 0;
-        $sSeries = "[";
-        foreach ($aListNames as $item){
-            $sDataSeries = "{ name: 'open', data: [";
-            $sDataSeries1 = "{ name: 'success', data: [";
-            $sDataSeries2 = "{ name: 'failed', data: [";
-            foreach ($aDates as $date){
-                $sDate = date_format(date_create($date),"m/d/Y");
-                $sDataSeries .= $aFinalBarData[$item][$sDate]["opens"].",";
-                $sDataSeries1 .= $aFinalBarData[$item][$sDate]["success"].",";
-                $sDataSeries2 .= $aFinalBarData[$item][$sDate]["failed"].",";
+
+
+
+$( document ).ready(function() { 
+    $.ajax({
+        url: "<?php echo getConfig('siteUrl').'/report/bargraphdata' ?>",
+        dataType: 'json',
+        method: "POST",
+        success: function(data){
+            var barChartData = [];
+
+            $.each(data, function(key, val){
+                barChartData.push({'date': val.esp_date, 'success' : val.success}); 
+            })
+        // $(function () {
+            <?php   
+            $i = 0;
+            $sSeries = "[";
+            foreach ($aListNames as $item){
+                $sDataSeries = "{ name: 'open', data: [";
+                $sDataSeries1 = "{ name: 'success', data: [";
+                $sDataSeries2 = "{ name: 'failed', data: [";
+                foreach ($aDates as $date){
+                    $sDate = date_format(date_create($date),"m/d/Y");
+                    $sDataSeries .= $aFinalBarData[$item][$sDate]["opens"].",";
+                    $sDataSeries1 .= $aFinalBarData[$item][$sDate]["success"].",";
+                    $sDataSeries2 .= $aFinalBarData[$item][$sDate]["failed"].",";
+                }
+                $sDataSeries .= "], stack: '".$item."', color: '".$rgbOpens[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
+                $sDataSeries1 .= "], stack: '".$item."', color: '".$rgbSuccess[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
+                $sDataSeries2 .= "], stack: '".$item."', color: '".$rgbFailed[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
+                $sDataSeries .= $sDataSeries1.$sDataSeries2;
+                $sSeries .= $sDataSeries;
+                $i++;
             }
-            $sDataSeries .= "], stack: '".$item."', color: '".$rgbOpens[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
-            $sDataSeries1 .= "], stack: '".$item."', color: '".$rgbSuccess[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
-            $sDataSeries2 .= "], stack: '".$item."', color: '".$rgbFailed[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
-            $sDataSeries .= $sDataSeries1.$sDataSeries2;
-            $sSeries .= $sDataSeries;
-            $i++;
-        }
-        $sSeries .= "]";
-        $sSeries = str_replace(",]","]",$sSeries);
-        echo "var sDataSeries = ".$sSeries;
-        ?>
-        
-        var sCategories = [
-            <?php
-                $sPrevDate = ""; 
-                foreach ($aDates AS $sDate) {
-                    if($sPrevDate != ""){
-                        echo ", ";
-                    }
-                    $sPrevDate = $sDate;
-                    echo "'".$sDate."'";
-                 }
+            $sSeries .= "]";
+            $sSeries = str_replace(",]","]",$sSeries);
+            echo "var sDataSeries = ".$sSeries;
             ?>
-        ];
-        
-       
-            
-Highcharts.chart('container', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: ''
-    },
-    xAxis: {
-        categories: sCategories
-    },
-    yAxis: {
-        allowDecimals: false,
-        min: 0,
-        lineColor: '#FF0000',
-        lineWidth: 1,
-        title: {
-            text: ''
-        }
-    },
-    tooltip: {
-        formatter: function () {
-            return '<b>' + this.x + '</b><br/>' +
-                this.series.name + ': ' + this.y + '<br/>' +
-                'Total: ' + this.point.stackTotal;
-        }
-    },
-    plotOptions: {
-        column: {
-            stacking: 'normal'
-        }
-    },
-    series: sDataSeries
-});
-});
+
+            var sCategories = [
+                <?php
+                    $sPrevDate = ""; 
+                    foreach ($aDates AS $sDate) {
+                        if($sPrevDate != ""){
+                            echo ", ";
+                        }
+                        $sPrevDate = $sDate;
+                        echo "'".$sDate."'";
+                     }
+                ?>
+            ];
+                
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: sCategories
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    min: 0,
+                    lineColor: '#FF0000',
+                    lineWidth: 1,
+                    title: {
+                        text: ''
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.x + '</b><br/>' +
+                            this.series.name + ': ' + this.y + '<br/>' +
+                            'Total: ' + this.point.stackTotal;
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    }
+                },
+                series: sDataSeries
+                });
+            // });
+        },
+    });
+});  
 
 $( document ).ready(function() { 
     $.ajax({
@@ -371,9 +378,7 @@ $( document ).ready(function() {
     });
 });
 
-$( document ).ready(function() { 
-    var success = "";
-    var esp_date = "";
+$( document ).ready(function() {
     $.ajax({
         url: "<?php echo getConfig('siteUrl').'/report/linegraphdata' ?>",
         dataType: 'json',
@@ -382,7 +387,8 @@ $( document ).ready(function() {
             $('#load').show();
         },
         success: function(data)
-        {   $('#load').hide()
+        {   
+            $('#load').hide();
             var morrisData = [];
 
             $.each(data, function(key, val){
@@ -400,5 +406,5 @@ $( document ).ready(function() {
             });
         }
     });
-});    
+});  
 </script>

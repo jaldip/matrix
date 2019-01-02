@@ -27,7 +27,7 @@ class reportController {
         global $sAction;
         global $oUser, $oSession;
         $aListData["payload"] = array();
-        $oEsp =new esp();
+        $oEsp = new esp();
         $aLists = $oEsp->getAllListName();
         if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
         {    
@@ -48,21 +48,19 @@ class reportController {
     
 
     public function callBarGraphData(){
-       global $sAction;
+        global $sAction;
         global $oUser, $oSession;
         $aListData["payload"] = array();
         $oEsp =new esp();
         $aLists = $oEsp->getAllListName();
         $oGraphData =new graphData();
 
-
         $aListEspData = $oGraphData->getbargraphdata();
-        $bargraphdata="";
+        $Bargraphdata = "";
         foreach ($aListEspData as $bargraphdata) {
-            $bargraphdata=$bargraphdata;
-            
-            echo json_encode($bargraphdata);
-        }    
+            $Bargraphdata[]=$bargraphdata;      
+        }
+        echo json_encode($Bargraphdata);  
     }
 
     public function callLineGraphData()

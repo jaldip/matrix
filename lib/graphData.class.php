@@ -53,7 +53,7 @@ class graphData extends siCommon {
                         SUM( failed ) AS failed
                       
                     FROM
-                            esp e
+                        esp e
                     WHERE" . $sAndWhere;
 
 
