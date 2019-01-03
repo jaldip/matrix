@@ -1,18 +1,18 @@
 <?php
     $sHexColorCodes = array('#8A2BE2','#CC5500','#E30022','#DE6FA1','#03C03C','#00BFFF','#FFD300','#556B2F','#77B5FE','#81613C','#4169E1','#E34234','#7FFF00','#36454F','#2F847C','#88540B','#BF4F51','#87A96B','#665D1E','#FFBF00','#9966CC','#8DB600','#007FFF','#9C2542','#54626F','#3B3C36');
     $sHiddenListName = (isset($_POST['hidden_list_name'])) ? $_POST['hidden_list_name'] : 'ALL';
-    $aDates = array();
-    $aListNames = array();
-    foreach ($aListEspData AS $aRecords) {
-            $sLabel = date_format(date_create($aRecords['esp_date']),"m/d/Y");
-            $sListName = $aRecords['esp_list_name'];
-            if(!in_array($sLabel, $aDates)){
-                $aDates[] = $sLabel;
-            }
-            if(!in_array($sListName, $aListNames)){
-                $aListNames[] = $sListName;
-            }
-    }
+    // $aDates = array();
+    // $aListNames = array();
+    // foreach ($aListEspData AS $aRecords) {
+    //         $sLabel = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+    //         $sListName = $aRecords['esp_list_name'];
+    //         if(!in_array($sLabel, $aDates)){
+    //             $aDates[] = $sLabel;
+    //         }
+    //         if(!in_array($sListName, $aListNames)){
+    //             $aListNames[] = $sListName;
+    //         }
+    // }
      
     //for color codes
     $i = 0;
@@ -28,79 +28,58 @@
     }
 //    var_dump($rgbSuccess);
 //    var_dump($rgbFailed);
-    $nTotalSuccess = 0;
-    $nTotalOpens = 0;
-    $nTotalFailed = 0;
-    foreach ($aListEspData AS $aRecords) {
-        $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
-        $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
-        $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;                 
-    }
-    $nSuccessPercent = 0;
-    $nOpensPercent = 0;
-    $nFailedPercent = 0;
-    $nTotal = $nTotalSuccess+ $nTotalOpens+$nTotalFailed;
-    if($nTotal != 0)
-    {    
-        $nSuccessPercent = round($nTotalSuccess/$nTotal *100,2);
-        $nOpensPercent = round($nTotalOpens/$nTotal *100,2);
-        $nFailedPercent = round($nTotalFailed/$nTotal *100,2);
-    } 
-     $aFinalBarData = array();
-     // for ($nCount=0; $nCount < sizeof($aListEspData) ; $nCount++) { 
-     //    $sDate = date_format(date_create($aListEspData[$nCount]['esp_date']),"m/d/Y");
-     //    if(findKey($aFinalBarData,$sDate) && findKey($aFinalBarData,$aListEspData[$nCount]["esp_list_name"]))
+    // $nTotalSuccess = 0;
+    // $nTotalOpens = 0;
+    // $nTotalFailed = 0;
+    // foreach ($aListEspData AS $aRecords) {
+    //     $nTotalSuccess += isset($aRecords['success']) ? $aRecords['success'] : 0;
+    //     $nTotalOpens += isset($aRecords['opens']) ? $aRecords['opens'] : 0;
+    //     $nTotalFailed += isset($aRecords['failed']) ? $aRecords['failed'] : 0;                 
+    // }
+    // $nSuccessPercent = 0;
+    // $nOpensPercent = 0;
+    // $nFailedPercent = 0;
+    // $nTotal = $nTotalSuccess+ $nTotalOpens+$nTotalFailed;
+    // if($nTotal != 0)
+    // {    
+    //     $nSuccessPercent = round($nTotalSuccess/$nTotal *100,2);
+    //     $nOpensPercent = round($nTotalOpens/$nTotal *100,2);
+    //     $nFailedPercent = round($nTotalFailed/$nTotal *100,2);
+    // } 
+    //  $aFinalBarData = array();
+     
+     // foreach ($aListEspData as $aRecords){
+     //    $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = 0;
+     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = 0;
+     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = 0;
+     //    if(findKey($aFinalBarData,$sDate) && findKey($aFinalBarData,$aRecords["esp_list_name"]))
      //    {
-     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["opens"] += $aListEspData[$nCount]['opens'];
-     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["success"] += $aListEspData[$nCount]['success'];
-     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["failed"] += $aListEspData[$nCount]['failed'];    
+     //        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] += $aRecords['opens'];
+     //        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] += $aRecords['success'];
+     //        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] += $aRecords['failed'];    
      //    }
      //    else
      //    {
-     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["opens"] = $aListEspData[$nCount]['opens'];
-     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["success"] = $aListEspData[$nCount]['success'];
-     //        $aFinalBarData[$aListEspData[$nCount]["esp_list_name"]]["$sDate"]["failed"] = $aListEspData[$nCount]['failed'];   
+     //        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
+     //        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
+     //        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];    
      //    }
-        
-     //    // $nCount++;
-     //    // $sDate = date_format(date_create($aListEspData[$i]['esp_date']),"m/d/Y");
-     //    // $aFinalBarData[$aListEspData[$i]["esp_list_name"]]["$sDate"]["opens"] += $aListEspData[$i]['opens'];
-     //    // $aFinalBarData[$aListEspData[$i]["esp_list_name"]]["$sDate"]["success"] += $aListEspData[$i]['success'];
-     //    // $aFinalBarData[$aListEspData[$i]["esp_list_name"]]["$sDate"]["failed"] += $aListEspData[$i]['failed'];
      // }
-     foreach ($aListEspData as $aRecords){
-        $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
-        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = 0;
-        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = 0;
-        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = 0;
-        if(findKey($aFinalBarData,$sDate) && findKey($aFinalBarData,$aRecords["esp_list_name"]))
-        {
-            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] += $aRecords['opens'];
-            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] += $aRecords['success'];
-            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] += $aRecords['failed'];    
-        }
-        else
-        {
-            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
-            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
-            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];    
-        }
-     }
-     //    $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
-     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
-     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
-     //    $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
-     //    $aDomain[$aRecords['domain_grouped_by_esp']] = $aFinalBarData;
-    foreach ($aListNames as $item){
-        foreach ($aDates as $date){
-            $sDate = date_format(date_create($date),"m/d/Y");
-            if(!isset($aFinalBarData[$item][$sDate])){
-                $aFinalBarData[$item][$sDate]["opens"] = "0";
-                $aFinalBarData[$item][$sDate]["success"] = "0";
-                $aFinalBarData[$item][$sDate]["failed"] = "0";
-            }
-        }
-    }
+    //     $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+    //     $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
+    //     $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
+    //     $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
+    // foreach ($aListNames as $item){
+    //     foreach ($aDates as $date){
+    //         $sDate = date_format(date_create($date),"m/d/Y");
+    //         if(!isset($aFinalBarData[$item][$sDate])){
+    //             $aFinalBarData[$item][$sDate]["opens"] = "0";
+    //             $aFinalBarData[$item][$sDate]["success"] = "0";
+    //             $aFinalBarData[$item][$sDate]["failed"] = "0";
+    //         }
+    //     }
+    // }
 ?>
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
@@ -201,7 +180,8 @@
                   </ul>
                   <div class="clearfix"></div>
                 </div>
-                <div class="x_content1">                  
+                <div class="x_content1"> 
+                    <img id="loadingbar" src='<?php echo getConfig('siteUrl').'/img/source.gif' ?>' height='50px' width='50px' />                 
                   <div id="container" style="width:100%; height:650px;"></div>
                 </div>
               </div>
@@ -257,92 +237,128 @@
   </div>
 <script>
 
+// $(function () {
+//     <?php   
+//     $i = 0;
+//     $sSeries = "[";
+//     foreach ($aListNames as $item){
+//         $sDataSeries = "{ name: 'open', data: [";
+//         $sDataSeries1 = "{ name: 'success', data: [";
+//         $sDataSeries2 = "{ name: 'failed', data: [";
+//         foreach ($aDates as $date){
+//             $sDate = date_format(date_create($date),"m/d/Y");
+//             $sDataSeries .= $aFinalBarData[$item][$sDate]["opens"].",";
+//             $sDataSeries1 .= $aFinalBarData[$item][$sDate]["success"].",";
+//             $sDataSeries2 .= $aFinalBarData[$item][$sDate]["failed"].",";
+//         }
+//         $sDataSeries .= "], stack: '".$item."', color: '".$rgbOpens[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
+//         $sDataSeries1 .= "], stack: '".$item."', color: '".$rgbSuccess[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
+//         $sDataSeries2 .= "], stack: '".$item."', color: '".$rgbFailed[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
+//         $sDataSeries .= $sDataSeries1.$sDataSeries2;
+//         $sSeries .= $sDataSeries;
+//         $i++;
+//     }
+//     $sSeries .= "]";
+//     $sSeries = str_replace(",]","]",$sSeries);
+//     echo "var sDataSeries = ".$sSeries;
+//     ?>
 
+//     var sCategories = [
+//         <?php
+//             $sPrevDate = ""; 
+//             foreach ($aDates AS $sDate) {
+//                 if($sPrevDate != ""){
+//                     echo ", ";
+//                 }
+//                 $sPrevDate = $sDate;
+//                 echo "'".$sDate."'";
+//              }
+//         ?>
+//     ];
+        
+//     Highcharts.chart('container', {
+//         chart: {
+//             type: 'column'
+//         },
+//         title: {
+//             text: ''
+//         },
+//         xAxis: {
+//             categories: sCategories
+//         },
+//         yAxis: {
+//             allowDecimals: false,
+//             min: 0,
+//             lineColor: '#FF0000',
+//             lineWidth: 1,
+//             title: {
+//                 text: ''
+//             }
+//         },
+//         tooltip: {
+//             formatter: function () {
+//                 return '<b>' + this.x + '</b><br/>' +
+//                     this.series.name + ': ' + this.y + '<br/>' +
+//                     'Total: ' + this.point.stackTotal;
+//             }
+//         },
+//         plotOptions: {
+//             column: {
+//                 stacking: 'normal'
+//             }
+//         },
+//         series: sDataSeries
+//         });
+//     });
 
-$( document ).ready(function() { 
+$( document ).ready(function() {
     $.ajax({
         url: "<?php echo getConfig('siteUrl').'/report/bargraphdata' ?>",
-        dataType: 'json',
         method: "POST",
+        beforeSend: function() {
+            $('#loadingbar').show();
+        },
         success: function(data){
-            var barChartData = [];
-
-            $.each(data, function(key, val){
-                barChartData.push({'date': val.esp_date, 'success' : val.success}); 
-            })
-        // $(function () {
-            <?php   
-            $i = 0;
-            $sSeries = "[";
-            foreach ($aListNames as $item){
-                $sDataSeries = "{ name: 'open', data: [";
-                $sDataSeries1 = "{ name: 'success', data: [";
-                $sDataSeries2 = "{ name: 'failed', data: [";
-                foreach ($aDates as $date){
-                    $sDate = date_format(date_create($date),"m/d/Y");
-                    $sDataSeries .= $aFinalBarData[$item][$sDate]["opens"].",";
-                    $sDataSeries1 .= $aFinalBarData[$item][$sDate]["success"].",";
-                    $sDataSeries2 .= $aFinalBarData[$item][$sDate]["failed"].",";
-                }
-                $sDataSeries .= "], stack: '".$item."', color: '".$rgbOpens[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
-                $sDataSeries1 .= "], stack: '".$item."', color: '".$rgbSuccess[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
-                $sDataSeries2 .= "], stack: '".$item."', color: '".$rgbFailed[$aList2ColorCodes[$item]]."', showInLegend: false},\n";
-                $sDataSeries .= $sDataSeries1.$sDataSeries2;
-                $sSeries .= $sDataSeries;
-                $i++;
-            }
-            $sSeries .= "]";
-            $sSeries = str_replace(",]","]",$sSeries);
-            echo "var sDataSeries = ".$sSeries;
-            ?>
-
-            var sCategories = [
-                <?php
-                    $sPrevDate = ""; 
-                    foreach ($aDates AS $sDate) {
-                        if($sPrevDate != ""){
-                            echo ", ";
-                        }
-                        $sPrevDate = $sDate;
-                        echo "'".$sDate."'";
-                     }
-                ?>
-            ];
-                
+            $('#loadingbar').hide();
+            var graphData = data.split('-');
+            var sSeries = JSON.parse(graphData[0]);
+            var sCategories = ("[" + graphData[1] + "]");
+            sCategories = sCategories.replace(/,(?=[^,]*$)/, '');
+            sCategories = sCategories.replace(/'/g, '"');
+            sCategories = JSON.parse(sCategories);
             Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: sCategories
+            },
+            yAxis: {
+                allowDecimals: false,
+                min: 0,
+                lineColor: '#FF0000',
+                lineWidth: 1,
                 title: {
                     text: ''
-                },
-                xAxis: {
-                    categories: sCategories
-                },
-                yAxis: {
-                    allowDecimals: false,
-                    min: 0,
-                    lineColor: '#FF0000',
-                    lineWidth: 1,
-                    title: {
-                        text: ''
-                    }
-                },
-                tooltip: {
-                    formatter: function () {
-                        return '<b>' + this.x + '</b><br/>' +
-                            this.series.name + ': ' + this.y + '<br/>' +
-                            'Total: ' + this.point.stackTotal;
-                    }
-                },
-                plotOptions: {
-                    column: {
-                        stacking: 'normal'
-                    }
-                },
-                series: sDataSeries
-                });
-            // });
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.x + '</b><br/>' +
+                        this.series.name + ': ' + this.y + '<br/>' +
+                        'Total: ' + this.point.stackTotal;
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal'
+                }
+            },
+            series: sSeries
+            }); 
         },
     });
 });  

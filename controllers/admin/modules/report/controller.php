@@ -33,16 +33,17 @@ class reportController {
         {    
             $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName);
-            
-            // exit;
-            // var_dump($aListEspData);exit;
-            //$aLineGraphData = $aListEspData; 
-        }else{
-            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
-            $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
-//            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
-//            $aLineGraphData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
+            // var_dump($aListEspData);
+//             // exit;
+//             // var_dump($aListEspData);exit;
+//             //$aLineGraphData = $aListEspData; 
         }
+        // else{
+//             $aGroupBy = array(' GROUP BY' => ' e.esp_date');
+//             $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
+// //            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
+// //            $aLineGraphData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
+//         }
         require("graph.tpl.php");
     }
     
@@ -54,13 +55,88 @@ class reportController {
         $oEsp =new esp();
         $aLists = $oEsp->getAllListName();
         $oGraphData =new graphData();
-
+        $sHexColorCodes = array('#8A2BE2','#CC5500','#E30022','#DE6FA1','#03C03C','#00BFFF','#FFD300','#556B2F','#77B5FE','#81613C','#4169E1','#E34234','#7FFF00','#36454F','#2F847C','#88540B','#BF4F51','#87A96B','#665D1E','#FFBF00','#9966CC','#8DB600','#007FFF','#9C2542','#54626F','#3B3C36');
+        $sHiddenListName = (isset($_POST['hidden_list_name'])) ? $_POST['hidden_list_name'] : 'ALL';
+        $aDates = array();
+        $aListNames = array();
         $aListEspData = $oGraphData->getbargraphdata();
-        $Bargraphdata = "";
-        foreach ($aListEspData as $bargraphdata) {
-            $Bargraphdata[]=$bargraphdata;      
+        foreach ($aListEspData AS $aRecords) {
+            $sLabel = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+            $sListName = $aRecords['esp_list_name'];
+            if(!in_array($sLabel, $aDates)){
+                $aDates[] = $sLabel;
+            }
+            if(!in_array($sListName, $aListNames)){
+                $aListNames[] = $sListName;
+            }
         }
-        echo json_encode($Bargraphdata);  
+        $sListNames = implode(',', $aListNames);
+        // var_dump($sListNames);exit;
+        //for color codes
+        $i = 0;
+        $aList2ColorCodes = array();
+        $rgbOpens = $rgbSuccess = $rgbFailed = array();
+        foreach ($aLists as $item){
+            list($r, $g, $b) = sscanf($sHexColorCodes[$i], "#%02x%02x%02x");
+            $rgbOpens[] = fromRGB((5*$r/10), (5*$g/10), (5*$b/10));
+            $rgbSuccess[] = fromRGB((11*$r/10), (11*$g/10), (11*$b/10));
+            $rgbFailed[] = fromRGB($r, $g, $b);
+            $aList2ColorCodes[$item[0]] = $i;
+            $i++;
+        }
+
+        $aFinalBarData = array();
+
+        foreach ($aListEspData as $aRecords){
+            $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
+            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
+            $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
+        }
+
+        $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
+        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
+        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["success"] = $aRecords['success'];
+        $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["failed"] = $aRecords['failed'];
+
+        foreach ($aListNames as $item){
+            foreach ($aDates as $date){
+                $sDate = date_format(date_create($date),"m/d/Y");
+                if(!isset($aFinalBarData[$item][$sDate])){
+                    $aFinalBarData[$item][$sDate]["opens"] = "0";
+                    $aFinalBarData[$item][$sDate]["success"] = "0";
+                    $aFinalBarData[$item][$sDate]["failed"] = "0";
+                }
+            }
+        }
+
+        $i = 0;
+        $sSeries = "[";
+        foreach ($aListNames as $item){
+            $sDataSeries = '{ "name": "open", "data": [';
+            $sDataSeries1 = '{ "name": "success", "data": [';
+            $sDataSeries2 = '{ "name": "failed", "data": [';
+            foreach ($aDates as $date){
+                $sDate = date_format(date_create($date),"m/d/Y");
+                $sDataSeries .= $aFinalBarData[$item][$sDate]["opens"].",";
+                $sDataSeries1 .= $aFinalBarData[$item][$sDate]["success"].",";
+                $sDataSeries2 .= $aFinalBarData[$item][$sDate]["failed"].",";
+            }
+            $sDataSeries .= '], "stack": "'.$item.'", "color": "'.$rgbOpens[$aList2ColorCodes[$item]].'", "showInLegend": false},';
+            $sDataSeries1 .= '], "stack": "'.$item.'", "color": "'.$rgbOpens[$aList2ColorCodes[$item]].'", "showInLegend": false},';
+            $sDataSeries2 .= '], "stack": "'.$item.'", "color": "'.$rgbOpens[$aList2ColorCodes[$item]].'", "showInLegend": false},';
+            $sDataSeries .= $sDataSeries1.$sDataSeries2;
+            $sSeries .= $sDataSeries;
+            $i++;
+        }
+        $sSeries .= ']';
+        $sSeries = str_replace(",]","]",$sSeries);
+        $Date = "";
+        foreach ($aDates AS $sDate) {
+            $Date .= "'".$sDate."', ";
+        }
+        $result = $sSeries . '-' . $Date . '-' . $sListNames;
+        echo $result;
     }
 
     public function callLineGraphData()
