@@ -69,6 +69,7 @@ class graphData extends siCommon {
         
         $sSql = "SELECT 
                         SUM( success ) AS success,
+                        SUM( opens ) AS opens,
                         esp_date
                     FROM
                             esp e

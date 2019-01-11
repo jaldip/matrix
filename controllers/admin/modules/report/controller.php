@@ -143,6 +143,7 @@ class reportController {
     {
         $oLineGraphData =new graphData();
         $aGetLineGraphData = $oLineGraphData->getlinegraphdata();
+        // var_dump($aGetLineGraphData);exit;
         echo json_encode($aGetLineGraphData);
     }
 

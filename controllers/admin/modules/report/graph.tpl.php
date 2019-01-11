@@ -408,13 +408,13 @@ $( document ).ready(function() {
             var morrisData = [];
 
             $.each(data, function(key, val){
-                morrisData.push({'date': val.esp_date, 'success' : val.success}); 
+                morrisData.push({'date': val.esp_date, 'success' : val.success, 'opens' : val.opens}); 
             })
 
             new Morris.Line({
                 element: 'graph_line',
                 xkey: 'date',
-                ykeys: ['success'],
+                ykeys: ['success','opens'],
                 labels: ['Total Success'],
                 hideHover: 'auto',
                 lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
