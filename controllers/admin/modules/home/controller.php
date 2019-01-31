@@ -97,8 +97,7 @@ class homeController {
             $nCount = 0;
 
             foreach($aListEspData AS $aEspCountData)
-            { 
-                
+            {                 
                 $aEspDate = explode(' ',$aListEspData[$nCount]['esp_date']);
                 $previousDate .= " ".$aEspDate[1];
             
@@ -113,58 +112,58 @@ class homeController {
             $nCount = 0;
             foreach ($aListData["payload"] AS $aData)
             {
-                if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com' || $aData['isp_name'] == 'hotmail.com') 
-                {
-                    $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
-                    $aListTitle = json_decode($aDetails);
-                 
-                    $nIdEsp = '';
-                    $nEspConnectionId = isset($aData['esp_connection_id']) ? $aData['esp_connection_id'] : '';
-                    $nIspId = isset($aData['isp_id']) ? $aData['isp_id'] : '';
-                    $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
-                    $dEspDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['stats_date']) : '';
-                    $dSentDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['mailing_sending_end_date']) : '';
-                    $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
-                    $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
-                    $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
-                    $nSuccess = isset($aData['success']) ? $aData['success'] : '';
-                    $nOpenPercentage = isset($aData['opens_rate']) ? $aData['opens_rate'] : '';
-                    $nClicks = isset($aData['clicks']) ? $aData['clicks'] : '';
-                    $nComplaints = isset($aData['complaints']) ? $aData['complaints'] : '';
-                    $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
-                    $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
-                    $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
+                // if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com' || $aData['isp_name'] == 'hotmail.com') 
+                // {
+                $aDetails = getTitleBYListId(URL.'/api/lists/'.(int)$aData['list_id'], 'get');
+                $aListTitle = json_decode($aDetails);
+             
+                $nIdEsp = '';
+                $nEspConnectionId = isset($aData['esp_connection_id']) ? $aData['esp_connection_id'] : '';
+                $nIspId = isset($aData['isp_id']) ? $aData['isp_id'] : '';
+                $nListId = isset($aData['list_id']) ? $aData['list_id'] : '';
+                $dEspDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['stats_date']) : '';
+                $dSentDate = (date("Y-m-d H:i:s", $aData['stats_date']) != null) ? date("Y-m-d H:i:s", $aData['mailing_sending_end_date']) : '';
+                $sListName = isset($aListTitle->payload->name) ? $aListTitle->payload->name : '';
+                $sEsp = isset($aData['esp_name']) ? $aData['esp_name'] : '';
+                $sDomainGroupedByEsp = isset($aData['isp_name']) ? $aData['isp_name'] : '';
+                $nSuccess = isset($aData['success']) ? $aData['success'] : '';
+                $nOpenPercentage = isset($aData['opens_rate']) ? $aData['opens_rate'] : '';
+                $nClicks = isset($aData['clicks']) ? $aData['clicks'] : '';
+                $nComplaints = isset($aData['complaints']) ? $aData['complaints'] : '';
+                $nComplaintsRate = isset($aData['complaints_rate']) ? $aData['complaints_rate'] : '';
+                $nOpens = isset($aData['opens']) ? $aData['opens'] : '';
+                $nFailed = isset($aData['failed']) ? $aData['failed'] : '';
 
-                    $dUpdatedAt = date(getConfig('dtDateTime'));
-                    $aEspData = array(
-                        'id_esp' => $nIdEsp,
-                        'esp_connection_id' => $nEspConnectionId,
-                        'isp_id' => $nIspId, 
-                        'list_id' => $nListId,
-                        'esp_date' => $dEspDate,
-                        'esp_list_name' => $sListName,
-                        'esp' => $sEsp,
-                        'domain_grouped_by_esp' => $sDomainGroupedByEsp,
-                        'success' => $nSuccess,
-                        'open_percentage' => $nOpenPercentage,
-                        'clicks' => $nClicks,
-                        'complaints' => $nComplaints,
-                        'complaints_rate' => $nComplaintsRate,
-                        'opens' => $nOpens,
-                        'failed' => $nFailed,
-                        'created_at' => $dCreatedAt,
-                        'updated_at' => $dUpdatedAt,
-                        'activated' => 1, 
-                        'deleted' => 0   
-                    );
+                $dUpdatedAt = date(getConfig('dtDateTime'));
+                $aEspData = array(
+                    'id_esp' => $nIdEsp,
+                    'esp_connection_id' => $nEspConnectionId,
+                    'isp_id' => $nIspId, 
+                    'list_id' => $nListId,
+                    'esp_date' => $dEspDate,
+                    'esp_list_name' => $sListName,
+                    'esp' => $sEsp,
+                    'domain_grouped_by_esp' => $sDomainGroupedByEsp,
+                    'success' => $nSuccess,
+                    'open_percentage' => $nOpenPercentage,
+                    'clicks' => $nClicks,
+                    'complaints' => $nComplaints,
+                    'complaints_rate' => $nComplaintsRate,
+                    'opens' => $nOpens,
+                    'failed' => $nFailed,
+                    'created_at' => $dCreatedAt,
+                    'updated_at' => $dUpdatedAt,
+                    'activated' => 1, 
+                    'deleted' => 0   
+                );
 
-                    $oEsp =new esp();
-                    $oEsp->addNewEsp($aEspData);
-                }
+                $oEsp =new esp();
+                $oEsp->addNewEsp($aEspData);
+                // }
                 $nCount++;
             }   
         }    
-        $nCount = 0;
+        // $nCount = 0;
         
         // if(isset($aListData["payload"]))
         // {    

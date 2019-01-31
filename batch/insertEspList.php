@@ -70,7 +70,7 @@ if (isset($aListEspData)) {
 if (empty($aListEspData) || $bFlag == FALSE) {
     $nCount = 0;
     foreach ($aListData["payload"] AS $aData) {
-        if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com') {
+        // if ($aData['isp_name'] == 'gmail.com' || $aData['isp_name'] == 'yahoo.com') {
             $aDetails = getTitleBYListId(URL . '/api/lists/' . (int) $aData['list_id'], 'get');
             $aListTitle = json_decode($aDetails);
 
@@ -115,7 +115,7 @@ if (empty($aListEspData) || $bFlag == FALSE) {
             
             $oEsp = new esp();
             $oEsp->addNewEsp($aEspData);
-        }
+        // }
         $nCount++;
     }
 }

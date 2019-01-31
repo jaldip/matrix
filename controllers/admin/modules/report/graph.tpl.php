@@ -15,17 +15,18 @@
     // }
      
     //for color codes
-    $i = 0;
-    $aList2ColorCodes = array();
-    $rgbOpens = $rgbSuccess = $rgbFailed = array();
-    foreach ($aLists as $item){
-        list($r, $g, $b) = sscanf($sHexColorCodes[$i], "#%02x%02x%02x");
-        $rgbOpens[] = fromRGB((5*$r/10), (5*$g/10), (5*$b/10));
-        $rgbSuccess[] = fromRGB((11*$r/10), (11*$g/10), (11*$b/10));
-        $rgbFailed[] = fromRGB($r, $g, $b);
-        $aList2ColorCodes[$item[0]] = $i;
-        $i++;
-    }
+    // $i = 0;
+    // $aList2ColorCodes = array();
+    // $rgbOpens = $rgbSuccess = $rgbFailed = array();
+    // foreach ($aLists as $item){
+    //     list($r, $g, $b) = sscanf($sHexColorCodes[$i], "#%02x%02x%02x");
+    //     $rgbOpens[] = fromRGB((5*$r/10), (5*$g/10), (5*$b/10));
+    //     $rgbSuccess[] = fromRGB((11*$r/10), (11*$g/10), (11*$b/10));
+    //     $rgbFailed[] = fromRGB($r, $g, $b);
+    //     $aList2ColorCodes[$item[0]] = $i;
+    //     $i++;
+    // }
+
 //    var_dump($rgbSuccess);
 //    var_dump($rgbFailed);
     // $nTotalSuccess = 0;
@@ -157,24 +158,25 @@
              <!-- bar charts group -->
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
-                <div class="x_title">
-                     <h2>Success,Open and Failed total for every list name.<small></small></h2>
-                      <label class="checkbox-container">
-                          <input type="checkbox" id="idChkAll" value="" <?php echo ($sHiddenListName == "ALL" || $sHiddenListName == "") ? 'checked' : ''; ?>  onchange="onCheckboxAllChanged(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')"> ALL &nbsp;
+                <div class="x_title bargraphcheckbox">
+                    <h2>Success,Open and Failed total for every list name.<small></small></h2>
+                    <!-- <label class="checkbox-container">
+                        <input type="checkbox" id="idChkAll" value="" <?php echo ($sHiddenListName == "ALL" || $sHiddenListName == "") ? 'checked' : ''; ?>  onchange="onCheckboxAllChanged(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')"> ALL &nbsp;
                         <span class="checkmark" style="background-color: #000000;"></span>
-                      </label>
-                        <?php foreach ($aLists as $item){?>
-                  
-                            <label class="checkbox-container">
-                                <?php if($item[0] != "") 
-                                    { 
-                                   // in_array(item[0], );
-                                ?>
+                    </label>
+                    <?php foreach ($aLists as $item){?>
+                        <label class="checkbox-container">
+                            <?php if($item[0] != "") 
+                            { 
+                               // in_array(item[0], );
+                            ?>
                                 <input type="checkbox" name="chklist[]" value="<?php echo $item[0]; ?>" <?php echo (strchr($sHiddenListName,$item[0]) != "" || $sHiddenListName == "ALL" || $sHiddenListName == "") ? 'checked' : ''; ?> onchange="getReportData(this.value,'<?php echo getConfig('siteUrl').'/report/graph';?>')"> <?php echo $item[0]; ?>  &nbsp;
                                 <span class="checkmark" style="background-color: <?php echo $sHexColorCodes[$aList2ColorCodes[$item[0]]];?>;"></span>
-                                <?php } ?>
+                            <?php 
+                            } 
+                            ?>
                             </label>
-                        <?php } ?>
+                    <?php } ?> -->
                         
                   <ul class="nav panel_toolbox">                    
                   </ul>
@@ -310,11 +312,11 @@
 //         series: sDataSeries
 //         });
 //     });
-
 $( document ).ready(function() {
     $.ajax({
         url: "<?php echo getConfig('siteUrl').'/report/bargraphdata' ?>",
         method: "POST",
+        // data: {hidden_list_name : HiddenListName},
         beforeSend: function() {
             $('#loadingbar').show();
         },
@@ -326,6 +328,14 @@ $( document ).ready(function() {
             sCategories = sCategories.replace(/,(?=[^,]*$)/, '');
             sCategories = sCategories.replace(/'/g, '"');
             sCategories = JSON.parse(sCategories);
+            var sEspNames = ("[" +graphData[2]+ "]");
+            sEspNames = sEspNames.replace(/,(?=[^,]*$)/, '');
+            sEspNames = sEspNames.replace(/'/g, '"');
+            sEspNames = JSON.parse(sEspNames);
+            var sColor = ("[" +graphData[3]+ "]");
+            sColor = sColor.replace(/,(?=[^,]*$)/, '');
+            sColor = sColor.replace(/'/g, '"');
+            sColor = JSON.parse(sColor);
             Highcharts.chart('container', {
             chart: {
                 type: 'column'
@@ -359,6 +369,16 @@ $( document ).ready(function() {
             },
             series: sSeries
             }); 
+
+            var colorData = [];
+
+            $.each(sColor, function(key, val){
+                colorData=val; 
+            });
+
+            $.each(sEspNames, function (index, value) {
+                $('.bargraphcheckbox').append('<label class="checkbox-container"><input type="checkbox" name="chklist[]" id="'+value+'" value="'+value+'" onchange="getReportData(this)">'+ value +'&nbsp;<span class="checkmark" style="background-color: '+colorData+';"></span></label>');
+            });
         },
     });
 });  
@@ -415,7 +435,7 @@ $( document ).ready(function() {
                 element: 'graph_line',
                 xkey: 'date',
                 ykeys: ['success','opens'],
-                labels: ['Total Success'],
+                labels: ['Total Success','Total Opens'],
                 hideHover: 'auto',
                 lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
                 data: morrisData
