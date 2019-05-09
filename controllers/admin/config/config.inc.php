@@ -22,7 +22,7 @@
                                 'dbHost'=>'localhost',
                                 'dbUser'=>'root',
                                 'dbPassword'=>'',
-                                'dbName'=>'matrix',
+                                'dbName'=>'lm_matrix',
                                 'nPagerLength'=>'',
                                 'nPerPageRecords'=>'',
                                 'checkSlug'=>false,

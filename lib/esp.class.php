@@ -193,9 +193,13 @@ class esp extends siCommon {
         $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
         if($sListName != ""){
-            $sAndWhere .= " AND e.esp_list_name IN $sListName";
+            // $sAndWhere .= " AND e.esp_list_name IN $sListName";
+
+            $sListName = explode(',', $sListName);    
+            $aListName = "'" . implode("','",  array_map("trim",array_filter($sListName))) . "'";
+            $sAndWhere .= " AND (e.esp_list_name IN (". $aListName . "))";
         }
-        $sAndWhere .= "ORDER BY e.esp_date ASC";
+        $sAndWhere .= " GROUP BY e.esp_date";
         
         $sSql = "SELECT 
                         e.id_esp as id_esp,
@@ -204,20 +208,19 @@ class esp extends siCommon {
                         e.esp_list_name as esp_list_name,
                         e.esp as esp,
                         e.domain_grouped_by_esp as domain_grouped_by_esp,
-                        e.success as success,
+                        SUM( e.success ) as success,
                         e.open_percentage as open_percentage, 
                         e.clicks as clicks, 
                         e.complaints as complaints,
                         e.complaints_rate as complaints_rate, 
-                        e.opens as opens,
-                        e.failed as failed,
+                        SUM( e.opens ) as opens,
+                        SUM( e.failed ) as failed,
                         e.created_at as created_at,
                         e.updated_at as updated_at
                        
                     FROM
                             esp e
-                    WHERE" . $sAndWhere;
-        //var_dump($sSql);exit;            
+                    WHERE" . $sAndWhere;          
         $sQueryHendler = $this->getList($sSql,array(),array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }

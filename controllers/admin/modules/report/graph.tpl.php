@@ -370,18 +370,176 @@ $( document ).ready(function() {
             series: sSeries
             }); 
 
-            var colorData = [];
-
-            $.each(sColor, function(key, val){
-                colorData=val; 
-            });
+            $('.bargraphcheckbox').append('<label class="checkbox-container"><input type="checkbox" class="test" name="allchklist" id="allCheckBox" value="ALL" onchange="allCheckboxClick()" checked>ALL&nbsp;<span class="checkmark" style="background-color: #000000"></span></label>');
 
             $.each(sEspNames, function (index, value) {
-                $('.bargraphcheckbox').append('<label class="checkbox-container"><input type="checkbox" name="chklist[]" id="'+value+'" value="'+value+'" onchange="getReportData(this)">'+ value +'&nbsp;<span class="checkmark" style="background-color: '+colorData+';"></span></label>');
+                $('.bargraphcheckbox').append('<label class="checkbox-container"><input type="checkbox" name="chklist" id="'+sColor[index]+'" value="'+value+'" onchange="getListBarGraphData()" checked>'+ value +'&nbsp;<span class="checkmark" style="background-color: '+sColor[index]+';"></span></label>');
+
             });
+            
+
         },
     });
-});  
+});
+
+function getListBarGraphData(){
+    var aCheckBoxValue = $('input[name=chklist]:checked').map(function(_, el) {
+        return $(el).val();
+    }).get();
+
+    var selectedCheckBoxColour = [];
+
+    $("input[name=chklist]:checked").each(function() {
+      if ($(this).is(":checked")) {
+        selectedCheckBoxColour.push($(this).attr('id'));
+      }
+    });
+    var totalListCount = $('input[name=chklist]').length;
+
+    if (aCheckBoxValue.length == totalListCount) 
+    {
+        $("input[name='allchklist']").prop('checked', true);
+    }
+    else
+    {
+        $("input[name='allchklist']").prop('checked', false);
+    }
+
+    
+    if(aCheckBoxValue=='')
+    {
+        aCheckBoxValue = "nothing";
+    }
+    var form_data = new FormData();
+    form_data.append('hidden_list_name', aCheckBoxValue);
+    form_data.append('selected_checkbox_colour', selectedCheckBoxColour);
+
+    $.ajax({
+        type: 'POST',
+        url: "<?php echo getConfig('siteUrl') . '/report/bargraphdata' ?>",
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function(data) {
+            $('#loadingbar').hide();
+            if(data!='')
+            {
+                var graphData = data.split('-');
+                var sSeries = JSON.parse(graphData[0]);
+                var sCategories = ("[" + graphData[1] + "]");
+                sCategories = sCategories.replace(/,(?=[^,]*$)/, '');
+                sCategories = sCategories.replace(/'/g, '"');
+                sCategories = JSON.parse(sCategories);
+                var sEspNames = ("[" +graphData[2]+ "]");
+                sEspNames = sEspNames.replace(/,(?=[^,]*$)/, '');
+                sEspNames = sEspNames.replace(/'/g, '"');
+                sEspNames = JSON.parse(sEspNames);
+                var sColor = ("[" +graphData[3]+ "]");
+                sColor = sColor.replace(/,(?=[^,]*$)/, '');
+                sColor = sColor.replace(/'/g, '"');
+                sColor = JSON.parse(sColor);
+                Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: sCategories
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    min: 0,
+                    lineColor: '#FF0000',
+                    lineWidth: 1,
+                    title: {
+                        text: ''
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.x + '</b><br/>' +
+                            this.series.name + ': ' + this.y + '<br/>' +
+                            'Total: ' + this.point.stackTotal;
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    }
+                },
+                series: sSeries
+                });
+            }
+            else
+            {
+                var chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'container'
+                },
+                title: {
+                        text: ''
+                    },
+                xAxis: {
+                    categories: []
+                },
+                series: []
+
+                });
+            }
+        }   
+    });
+}
+
+
+
+function allCheckboxClick()
+{
+    var checkedValue = $('input[name=allchklist]:checked').val();
+    if (checkedValue =="ALL") 
+    {
+        $("input[name='chklist']").prop('checked', true);
+        getListBarGraphData();
+    }
+    else
+    {
+        $("input[name='chklist']").prop('checked', false);
+        getListBarGraphData();
+    }   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $( document ).ready(function() { 
     $.ajax({

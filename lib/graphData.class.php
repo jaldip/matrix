@@ -56,7 +56,7 @@ class graphData extends siCommon {
                         esp e
                     WHERE" . $sAndWhere;
 
-
+       
         $sQueryHendler = $this->getList($sSql,array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
