@@ -29,19 +29,10 @@ class reportController {
         $aListData["payload"] = array();
         $oEsp = new esp();
         $aLists = $oEsp->getAllListName();
-        // if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
-        // {    
-        //     $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
-        //     $aListEspData = $oEsp->getRecordsByList($sListName);
-        //     $aLineGraphData = $aListEspData; 
-        // }
-        // else
-        // {
+        
         $aGroupBy = array(' GROUP BY' => ' e.esp_date');
         $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
-        // echo json_encode($aListEspData);
-        // var_dump($aListEspData);exit;
-        // }
+        
         require("graph.tpl.php");
     }
     
