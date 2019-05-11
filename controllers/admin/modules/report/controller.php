@@ -42,7 +42,7 @@ class reportController {
         global $oUser, $oSession;
         $oGraphData =new graphData();
         $aListData["payload"] = array();
-        $sHexColorCodes = array('#8A2BE2','#CC5500','#E30022','#DE6FA1','#03C03C','#00BFFF','#FFD300','#556B2F','#77B5FE','#81613C','#4169E1','#E34234','#7FFF00','#36454F','#2F847C','#88540B','#BF4F51','#87A96B','#665D1E','#FFBF00','#9966CC','#8DB600','#007FFF','#9C2542','#54626F','#3B3C36');
+        $sHexColorCodes = array('#8A2BE2','#CC5500','#E30022','#DE6FA1','#03C03C','#067fa8','#c6a400','#556B2F','#5f91cc','#81613C','#4169E1','#E34234','#62c401','#36454F','#2F847C','#88540B','#BF4F51','#87A96B','#665D1E','#FFBF00','#9966CC','#8DB600','#007FFF','#9C2542','#54626F','#3B3C36');
         $aDates = array();
         $oEsp = new esp();
         $aListNames = array();

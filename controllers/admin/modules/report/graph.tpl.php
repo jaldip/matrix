@@ -270,8 +270,6 @@ function getListBarGraphData(){
     });
 }
 
-
-
 function allCheckboxClick()
 {
     var checkedValue = $('input[name=allchklist]:checked').val();
