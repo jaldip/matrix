@@ -43,7 +43,7 @@ class graphData extends siCommon {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
         $sAndWhere .= " AND DATE_SUB( CURDATE( ) , INTERVAL 30 DAY )";
-        $sAndWhere .= " GROUP BY esp_date";
+        $sAndWhere .= " GROUP BY esp_list_name ASC";
         
         $sSql = "SELECT 
                         esp_list_name,

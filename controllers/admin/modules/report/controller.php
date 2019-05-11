@@ -15,12 +15,12 @@ class reportController {
         global $sAction;
         global $oUser;
         
-        //Login Is Required
-        // if ($this->aLoginRequired[$sAction]) {
-        //     if (!$oUser->isLoggedin()) {
-        //         redirect(getConfig('siteUrl') . '/users/login');
-        //     }
-        // }
+        // Login Is Required
+        if ($this->aLoginRequired[$sAction]) {
+            if (!$oUser->isLoggedin()) {
+                redirect(getConfig('siteUrl') . '/users/login');
+            }
+        }
     }
     /* Last Modified on 13-01-18 */
     public function callGraph() {
@@ -48,9 +48,9 @@ class reportController {
         $aListNames = array();
         $aLists = $oEsp->getAllListName();
         $result='';
-        if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
+        if(isset($_POST['list_name']) && $_POST['list_name'] != '')
         {   
-            $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
+            $sListName = isset($_POST['list_name']) ? $_POST['list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName); 
             $aListNames = explode(",",$sListName);
             foreach ($aListEspData AS $aRecords) 
@@ -58,8 +58,7 @@ class reportController {
                 $sLabel = date_format(date_create($aRecords['esp_date']),"m/d/Y");
                 if(!in_array($sLabel, $aDates)){
                     $aDates[] = $sLabel;
-                }
-                
+                } 
             }
             
             $sColorCode = "";
@@ -82,7 +81,7 @@ class reportController {
                 $aList2ColorCodes[$item[0]] = $i;
                 $i++;
             }
-
+            
             $aFinalBarData = array();
             if(!empty($aListEspData))
             {
@@ -144,7 +143,6 @@ class reportController {
         else
         {
             $oGraphData =new graphData();
-            $sHexColorCodes = array('#8A2BE2','#CC5500','#E30022','#DE6FA1','#03C03C','#00BFFF','#FFD300','#556B2F','#77B5FE','#81613C','#4169E1','#E34234','#7FFF00','#36454F','#2F847C','#88540B','#BF4F51','#87A96B','#665D1E','#FFBF00','#9966CC','#8DB600','#007FFF','#9C2542','#54626F','#3B3C36');
             $sHiddenListName = (isset($_POST['hidden_list_name'])) ? $_POST['hidden_list_name'] : 'ALL';
             $aDates = array();
             $aListNames = array();
@@ -184,7 +182,6 @@ class reportController {
             }
 
             $aFinalBarData = array();
-
             foreach ($aListEspData as $aRecords){
                 $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
                 $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
@@ -252,8 +249,7 @@ class reportController {
     public function callDonutGraphData(){
         $oGraphData =new graphData();
         $aGraphData = $oGraphData->getdenotChartData();
-        // echo json_encode($aGraphData);
-
+        
         $nTotalSuccess = 0;
         $nTotalOpens = 0;
         $nTotalFailed = 0;

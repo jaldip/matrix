@@ -160,48 +160,13 @@ $( document ).ready(function() {
             sColor = sColor.replace(/,(?=[^,]*$)/, '');
             sColor = sColor.replace(/'/g, '"');
             sColor = JSON.parse(sColor);
-            Highcharts.chart('container', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: ''
-            },
-            xAxis: {
-                categories: sCategories
-            },
-            yAxis: {
-                allowDecimals: false,
-                min: 0,
-                lineColor: '#FF0000',
-                lineWidth: 1,
-                title: {
-                    text: ''
-                }
-            },
-            tooltip: {
-                formatter: function () {
-                    return '<b>' + this.x + '</b><br/>' +
-                        this.series.name + ': ' + this.y + '<br/>' +
-                        'Total: ' + this.point.stackTotal;
-                }
-            },
-            plotOptions: {
-                column: {
-                    stacking: 'normal'
-                }
-            },
-            series: sSeries
-            }); 
 
             $('.bargraphcheckbox').append('<label class="checkbox-container"><input type="checkbox" class="test" name="allchklist" id="allCheckBox" value="ALL" onchange="allCheckboxClick()" checked>ALL&nbsp;<span class="checkmark" style="background-color: #000000"></span></label>');
 
             $.each(sEspNames, function (index, value) {
-                $('.bargraphcheckbox').append('<label class="checkbox-container"><input type="checkbox" name="chklist" id="'+sColor[index]+'" value="'+value+'" onchange="getListBarGraphData()" checked>'+ value +'&nbsp;<span class="checkmark" style="background-color: '+sColor[index]+';"></span></label>');
-
+                $('.bargraphcheckbox').append('<label class="checkbox-container"><input type="checkbox" name="chklist" value="'+value+'" onchange="getListBarGraphData()" checked>'+ value +'&nbsp;<span class="checkmark" style="background-color: '+sColor[index]+';"></span></label>');
             });
-            
-
+            getListBarGraphData();
         },
     });
 });
@@ -210,14 +175,6 @@ function getListBarGraphData(){
     var aCheckBoxValue = $('input[name=chklist]:checked').map(function(_, el) {
         return $(el).val();
     }).get();
-
-    var selectedCheckBoxColour = [];
-
-    $("input[name=chklist]:checked").each(function() {
-      if ($(this).is(":checked")) {
-        selectedCheckBoxColour.push($(this).attr('id'));
-      }
-    });
     var totalListCount = $('input[name=chklist]').length;
 
     if (aCheckBoxValue.length == totalListCount) 
@@ -229,15 +186,12 @@ function getListBarGraphData(){
         $("input[name='allchklist']").prop('checked', false);
     }
 
-    
     if(aCheckBoxValue=='')
     {
         aCheckBoxValue = "nothing";
     }
     var form_data = new FormData();
-    form_data.append('hidden_list_name', aCheckBoxValue);
-    form_data.append('selected_checkbox_colour', selectedCheckBoxColour);
-
+    form_data.append('list_name', aCheckBoxValue);
     $.ajax({
         type: 'POST',
         url: "<?php echo getConfig('siteUrl') . '/report/bargraphdata' ?>",
