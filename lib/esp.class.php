@@ -137,7 +137,8 @@ class esp extends siCommon {
                     FROM
                             esp e
                     WHERE" . $sAndWhere;
-                  
+        
+        //var_dump($sSql);            
         $sQueryHendler = $this->getList($sSql, array(), array(), array(), array(), array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
@@ -167,6 +168,7 @@ class esp extends siCommon {
                     FROM
                             esp e
                     WHERE" . $sAndWhere;
+
              
         $sQueryHendler = $this->getList($sSql,array(),$aGroupBy, array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
@@ -182,6 +184,7 @@ class esp extends siCommon {
                             esp e
                     WHERE" . $sAndWhere;
 
+        
         $sQueryHendler = $this->getList($sSql,array(),array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
@@ -191,6 +194,8 @@ class esp extends siCommon {
         $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY ";
         $sAndWhere .= " AND e.esp_date < CURDATE() ";
         if($sListName != ""){
+            // $sAndWhere .= " AND e.esp_list_name IN $sListName";
+
             $sListName = explode(',', $sListName);    
             $aListName = "'" . implode("','",  array_map("trim",array_filter($sListName))) . "'";
             $sAndWhere .= " AND (e.esp_list_name IN (". $aListName . "))";

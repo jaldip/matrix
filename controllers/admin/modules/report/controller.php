@@ -15,12 +15,12 @@ class reportController {
         global $sAction;
         global $oUser;
         
-        // Login Is Required
-        if ($this->aLoginRequired[$sAction]) {
-            if (!$oUser->isLoggedin()) {
-                redirect(getConfig('siteUrl') . '/users/login');
-            }
-        }
+        //Login Is Required
+        // if ($this->aLoginRequired[$sAction]) {
+        //     if (!$oUser->isLoggedin()) {
+        //         redirect(getConfig('siteUrl') . '/users/login');
+        //     }
+        // }
     }
     /* Last Modified on 13-01-18 */
     public function callGraph() {
@@ -29,10 +29,22 @@ class reportController {
         $aListData["payload"] = array();
         $oEsp = new esp();
         $aLists = $oEsp->getAllListName();
-        
-        $aGroupBy = array(' GROUP BY' => ' e.esp_date');
-        $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
-        
+
+        if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
+        {    
+            $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
+            $aListEspData = $oEsp->getRecordsByList($sListName);
+            
+            // exit;
+            // var_dump($aListEspData);exit;
+            $aLineGraphData = $aListEspData; 
+        }else
+        {
+            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
+            $aListEspData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
+            $aGroupBy = array(' GROUP BY' => ' e.esp_date');
+            $aLineGraphData = $oEsp->getLastThirtyDaysRecords($aGroupBy);
+        }
         require("graph.tpl.php");
     }
     
@@ -48,9 +60,9 @@ class reportController {
         $aListNames = array();
         $aLists = $oEsp->getAllListName();
         $result='';
-        if(isset($_POST['list_name']) && $_POST['list_name'] != '')
+        if(isset($_POST['hidden_list_name']) && $_POST['hidden_list_name'] != '')
         {   
-            $sListName = isset($_POST['list_name']) ? $_POST['list_name'] : '';
+            $sListName = isset($_POST['hidden_list_name']) ? $_POST['hidden_list_name'] : '';
             $aListEspData = $oEsp->getRecordsByList($sListName); 
             $aListNames = explode(",",$sListName);
             foreach ($aListEspData AS $aRecords) 
@@ -58,7 +70,8 @@ class reportController {
                 $sLabel = date_format(date_create($aRecords['esp_date']),"m/d/Y");
                 if(!in_array($sLabel, $aDates)){
                     $aDates[] = $sLabel;
-                } 
+                }
+                
             }
             
             $sColorCode = "";
@@ -81,7 +94,7 @@ class reportController {
                 $aList2ColorCodes[$item[0]] = $i;
                 $i++;
             }
-            
+
             $aFinalBarData = array();
             if(!empty($aListEspData))
             {
@@ -182,6 +195,7 @@ class reportController {
             }
 
             $aFinalBarData = array();
+
             foreach ($aListEspData as $aRecords){
                 $sDate = date_format(date_create($aRecords['esp_date']),"m/d/Y");
                 $aFinalBarData[$aRecords["esp_list_name"]]["$sDate"]["opens"] = $aRecords['opens'];
@@ -249,7 +263,8 @@ class reportController {
     public function callDonutGraphData(){
         $oGraphData =new graphData();
         $aGraphData = $oGraphData->getdenotChartData();
-        
+        // echo json_encode($aGraphData);
+
         $nTotalSuccess = 0;
         $nTotalOpens = 0;
         $nTotalFailed = 0;

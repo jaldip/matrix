@@ -27,7 +27,7 @@ class graphData extends siCommon {
     {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-        $sAndWhere .= " AND DATE_SUB(  CURDATE(), INTERVAL 30 DAY )";
+        $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY";
         $sSql = "SELECT
                         SUM(success) as success,
                         SUM(opens) as opens,
@@ -42,8 +42,9 @@ class graphData extends siCommon {
     {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-        $sAndWhere .= " AND DATE_SUB( CURDATE( ) , INTERVAL 30 DAY )";
-        $sAndWhere .= " GROUP BY esp_list_name ASC";
+        $sAndWhere .= " AND DATE_SUB( CURDATE() , INTERVAL 30 DAY )";
+        $sAndWhere .= " GROUP BY esp_date";
+        $sAndWhere .= " ORDER BY esp_list_name ASC";
         
         $sSql = "SELECT 
                         esp_list_name,
@@ -64,7 +65,7 @@ class graphData extends siCommon {
     {
         $sAndWhere = ' 1 = 1';
         $sAndWhere .= " AND e.deleted = 0 AND e.activated = 1 ";
-        $sAndWhere .= " AND DATE_SUB( CURDATE( ) , INTERVAL 30 DAY )";
+        $sAndWhere .= " AND e.esp_date > CURDATE() - INTERVAL 31 DAY";
         $sAndWhere .= " GROUP BY DATE( esp_date )";
         
         $sSql = "SELECT 
@@ -75,7 +76,6 @@ class graphData extends siCommon {
                             esp e
                     WHERE" . $sAndWhere;
 
-        
         $sQueryHendler = $this->getList($sSql,array(), array(), array(),array());
         return $this->getData($sQueryHendler, "ARRAY");
     }
