@@ -98,8 +98,8 @@
                                         $thresholdkey="";
                                         $nThresholdId="";
                                         foreach ($aListData['payload'] AS $aDataList) {
-                                            if ($aDataList['isp_name'] == 'gmail.com' || $aDataList['isp_name'] == 'yahoo.com') {
-                                                
+                                            if ($aDataList['isp_name'] != '') 
+                                            {    
                                                 $thresholdkey=$aDataList['esp_connection_id']."_".$aDataList['list_id']."_".$aDataList['isp_id'];                      
                                                 $nThresholdId= isset($aUniqueField[$thresholdkey]['id_threshold']) ? $aUniqueField[$thresholdkey]['id_threshold'] : 0;
                                                 

@@ -72,13 +72,14 @@ class homeController {
         }',TRUE);
 
         $aListData = json_decode(post_request($jRequest, URL.'/all/api/reports/query', 'post'), TRUE);
-        // echo '<pre>';var_dump($aListData);exit;
+       
         $previousDate = date('Y-m-d',strtotime("-1 days"));
         $oEsp = new esp();
         $aListEspData = $oEsp->getEspList($previousDate);
-        // var_dump($aListEspData);exit;
+        
         $oThreshold = new threshold();
         $aThresholdFilterData=$oThreshold->getthresholdData();
+
         $aUniqueField = array();
         foreach ($aThresholdFilterData as $aData) {
             $aUniqueField[$aData['threshold key']] = $aData;
@@ -93,7 +94,8 @@ class homeController {
 
         $bFlag = FALSE;
         if(isset($aListEspData))
-        {    
+        { 
+
             $nCount = 0;
 
             foreach($aListEspData AS $aEspCountData)
